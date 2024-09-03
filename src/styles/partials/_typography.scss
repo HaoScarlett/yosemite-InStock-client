@@ -5,8 +5,8 @@
 //font sources
 @font-face {
     font-family: 'Titillium Web';
-    src: url('TitilliumWeb-SemiBold.woff2') format('woff2'),
-        url('TitilliumWeb-SemiBold.woff') format('woff');
+    src: url('../../assets/Fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),
+        url('../../assets/Fonts/TitilliumWeb-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -14,8 +14,8 @@
 
 @font-face {
     font-family: 'Titillium Web';
-    src: url('TitilliumWeb-Regular.woff2') format('woff2'),
-        url('TitilliumWeb-Regular.woff') format('woff');
+    src: url('../../assets/Fonts/TitilliumWeb-Regular.woff2') format('woff2'),
+        url('../../assets/Fonts/TitilliumWeb-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -23,9 +23,19 @@
 
 
 
-
 //type base
 $family: 'Titillium Web', sans-serif;
 $regular: 400;
-$demi: 600;
-$bold: 700;
+$semi: 600;
+
+
+
+//global font base
+body {
+    font-family: $family;
+    font-weight: $regular;
+    // color: $primary-900;
+}
+
+
+
