@@ -1,11 +1,8 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider, Link, Outlet } from "react-router-dom";
-
-// Placeholder components
-const Warehouses = () => <h2>Warehouses</h2>;
-const Inventory = () => <h2>Inventory</h2>;
-const NotFound = () => <h2>404: Page Not Found</h2>;
-
+import Warehouses from './pages/warehouses/warehouses';
+import Inventory from './pages/inventory/inventory';
+import NotFound from './pages/NotFound/NotFound';
 // Layout component
 const Layout = () => {
   return (
