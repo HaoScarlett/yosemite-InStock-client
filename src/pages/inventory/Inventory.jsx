@@ -1,12 +1,11 @@
 import React from 'react'
-import InOutStock from '../../components/InOutStock/InOutStock';
+import InventoryItem from '../../components/InventoryItem/InventoryItem';
 
 function Inventory() {
   return (
     <div>
       <h1>inventory page</h1>
-      <InOutStock inStock={true}/>
-      <InOutStock inStock={false}/>
+      <InventoryItem/>
     </div>
   )
 }

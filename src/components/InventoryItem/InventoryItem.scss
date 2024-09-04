@@ -1,0 +1,9 @@
+@use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/colors.scss' as *;
+@use '../../styles/partials/variables.scss' as *;
+
+.inventory{
+    width: 100%;
+    height: auto;
+    background-color: $global-white;
+}
