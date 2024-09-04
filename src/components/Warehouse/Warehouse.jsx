@@ -49,26 +49,26 @@ function Warehouse() {
                     <Link to='/'>
                         <img className='warehouse__header__btn__back' src={backbtn} alt="back button" />
                     </Link>
-                    <h1 className='warehouse__header__title'>{warehouse.warehouse_name}</h1>
+                    <h1 className='warehouse__header__title .h1-page-header'>{warehouse.warehouse_name}</h1>
                     <Link>
                         <img className='warehouse__header__btn__edit' src={editbtn} alt="round edit button" />
                     </Link>
                 </div>
                 <div className="warehouse__details">
                     <div className='warehouse__details__address'>
-                        <span>WAREHOUSE ADDRESS:</span>
-                        <p>{warehouse.address},{warehouse.city},{warehouse.country}</p>
+                        <span className='h4-table-header '>WAREHOUSE ADDRESS:</span>
+                        <p className='p3-body-small'>{warehouse.address},{warehouse.city},{warehouse.country}</p>
                     </div>
                     <div className='warehouse__details__contact'>
                         <div className='warehouse__details__contact__name'>
-                            <span>CONTACT NAME:</span>
-                            <p>{warehouse.contact_name}</p>
-                            <p>{warehouse.contact_position}</p>
+                            <span className='h4-table-header'>CONTACT NAME:</span>
+                            <p className='p3-body-small'>{warehouse.contact_name}</p>
+                            <p className='p3-body-small'>{warehouse.contact_position}</p>
                         </div>
                         <div className='warehouse__details__contact__info'>
-                            <span>CONTACT INFORMATION:</span>
-                            <p>{warehouse.contact_phone}</p>
-                            <p>{warehouse.contact_email}</p>
+                            <span className='h4-table-header '>CONTACT INFORMATION:</span>
+                            <p className='p3-body-small'>{warehouse.contact_phone}</p>
+                            <p className='p3-body-small'>{warehouse.contact_email}</p>
                         </div>
                     </div>
                 </div>

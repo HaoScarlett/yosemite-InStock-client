@@ -1,28 +1,44 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/colors' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
 
 .warehouse {
     
     &__header{
-        @include flex-center;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: $unit-12;
         &__btn{
             &__back{
-
+                margin-right: $unit-12;
             }
             &__edit{
-                align-self: flex-end;
-                background-color: blue;
+                margin-left: auto;
+                border-radius: 50%;
+                background-color: $interactive-elements;
             }
         }
         &__title{
-
+            flex-grow: 1;
         }
     }
     &__details{
+        text-align: left;
+        border-top:solid 0.5px $borders; 
+        border-bottom:solid 0.5px $borders; 
         @include flex-center;
         flex-direction: column;
+        gap: $unit-12;
+        @include tablet{
+            gap: $unit-16;
+        }
+        @include desktop{
+            gap: $unit-16;
+        }
         &__address{
-            width: 100%;
+            flex-grow: 1;
         }
         &__contact{
             @include flex-center;
