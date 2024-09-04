@@ -37,6 +37,10 @@ body{
         @include tablet{
             padding-left: 2rem;
         }
+
+        @include desktop{
+            padding-left: 8.125rem;
+        }
     }
 
     &__nav-links{
@@ -48,6 +52,10 @@ body{
             width:auto;
             padding-right: 2rem;
             padding-top: 1.5rem;
+        }
+
+        @include desktop{
+            padding-right: 8.125rem;
         }
     }
 
