@@ -57,7 +57,10 @@ function Warehouse() {
                 <div className="warehouse__details">
                     <div className='warehouse__details__address'>
                         <span className='h4-table-header '>WAREHOUSE ADDRESS:</span>
-                        <p className='p3-body-small'>{warehouse.address},{warehouse.city},{warehouse.country}</p>
+                        <div className='warehouse__details__address__container'>
+                            <p className='p3-body-small'>{warehouse.address},</p>
+                            <p className='p3-body-small'>{warehouse.city},{warehouse.country}</p>
+                        </div>
                     </div>
                     <div className='warehouse__details__contact'>
                         <div className='warehouse__details__contact__name'>

@@ -12,12 +12,18 @@
         padding: $unit-12;
         &__btn{
             &__back{
-                margin-right: $unit-12;
+                margin-right: $unit-8;
+                margin-left: $unit-4;
+                @include tablet{
+                    margin-right: $unit-12;
+                    margin-left: $unit-12;
+                }
             }
             &__edit{
                 margin-left: auto;
                 border-radius: 50%;
                 background-color: $interactive-elements;
+                margin-right: $unit-12;
             }
         }
         &__title{
@@ -28,25 +34,53 @@
         text-align: left;
         border-top:solid 0.5px $borders; 
         border-bottom:solid 0.5px $borders; 
-        @include flex-center;
+        display: flex;
+        justify-content: space-around;
         flex-direction: column;
         gap: $unit-12;
         @include tablet{
             gap: $unit-16;
-        }
-        @include desktop{
-            gap: $unit-16;
+            flex-direction: row;
+            border-bottom:none;
+            justify-content: flex-start;
+            gap: 10%;
         }
         &__address{
             flex-grow: 1;
+            padding:$unit-16;
+            padding-bottom: 0;
+            @include tablet{
+                margin-left: $unit-12;
+                padding: $unit-24;
+                flex-grow: 0;
+            }
+            &__container{
+                display: flex;
+                flex-wrap: nowrap;
+                @include tablet{
+                    flex-direction: column;
+                }
+            }
         }
         &__contact{
-            @include flex-center;
+            padding: $unit-16;
+            display: flex;
+            justify-content:space-between;
+            @include tablet{
+                padding: 0;
+            }
             &__name{
-
+                @include tablet{
+                    margin: $unit-24;
+                    padding-left: $unit-24;
+                    border-left: solid 0.5px $borders;
+                }
             }
             &__info{
-
+                margin-right: $unit-16;
+                @include tablet{
+                    margin: $unit-24;
+                }
             }
         }
     }
