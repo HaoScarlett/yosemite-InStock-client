@@ -1,4 +1,3 @@
-@use "./colors" as *;
 @use "./mixins.scss" as *;
 
 
@@ -28,15 +27,6 @@
 $family: 'Titillium Web', sans-serif;
 $regular: 400;
 $semi: 600;
-
-
-
-//global font base
-body {
-    font-family: $family;
-    font-weight: $regular;
-    color: $global-text;
-}
 
 
 
