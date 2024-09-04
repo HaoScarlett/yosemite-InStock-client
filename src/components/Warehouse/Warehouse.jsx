@@ -7,7 +7,9 @@ function Warehouse() {
     return ( <>
     <section className="warehouse">
         <div className="warehouse__header">
-            <img className='warehouse__header__btn__back' src="" alt="back button" />
+            <Link to='/'>
+                <img className='warehouse__header__btn__back' src="" alt="back button" />
+            </Link>
             <h1 className='warehouse__header__title'></h1>
             <img className='warehouse__header__btn__edit' src="" alt="round edit button" />
         </div>
