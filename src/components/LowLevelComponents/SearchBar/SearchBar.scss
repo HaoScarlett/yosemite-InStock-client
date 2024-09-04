@@ -1,0 +1,49 @@
+@use "../../../styles/partials/colors";
+@use "../../../styles/partials/typography";
+@use "../../../styles/partials/variables";
+@use "../../../styles/partials/mixins";
+@use "../../../styles/partials/global";
+
+
+.search-bar {
+    position: relative;
+
+    &__icon {
+        // margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0.75rem;
+        width: 24px;
+        height: 24px;
+        pointer-events: none;
+
+        @include tablet {
+            left: 1rem;
+        }
+    }
+
+    &__field {
+        font-size: 0.75rem;
+        background-color: $global-white;
+        border: 1px solid $borders;
+        border-radius: $unit-20;
+        text-indent: 2rem;
+        width: 100%;
+        height: 2.25rem;
+
+        @include tablet {
+            text-indent: 2.5rem;
+            height: 2.5rem;
+        }
+
+        &:focus {
+            border-color: $interactive-elements;
+            outline: none; 
+        }
+
+        &::placeholder {
+            color: $placeholder-text;
+        }
+    }
+}
