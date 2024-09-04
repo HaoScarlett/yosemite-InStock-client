@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.scss';
 import { createBrowserRouter, RouterProvider, Link, Outlet } from "react-router-dom";
 import Warehouses from './pages/warehouses/warehouses';
 import Inventory from './pages/inventory/inventory';
