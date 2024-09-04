@@ -2,12 +2,15 @@
 @use '../../styles/partials/colors' as *;
 
 .warehouse {
+    
     &__header{
+        @include flex-center;
         &__btn{
             &__back{
 
             }
             &__edit{
+                align-self: flex-end;
                 background-color: blue;
             }
         }
@@ -16,10 +19,13 @@
         }
     }
     &__details{
+        @include flex-center;
+        flex-direction: column;
         &__address{
-
+            width: 100%;
         }
         &__contact{
+            @include flex-center;
             &__name{
 
             }
