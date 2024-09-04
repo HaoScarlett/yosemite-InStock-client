@@ -1,16 +1,18 @@
 import React from 'react';
 import './App.scss';
-import { createBrowserRouter, RouterProvider, Link, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Warehouses from './pages/warehouses/warehouses';
 import Inventory from './pages/inventory/inventory';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header.jsx';
+import Footer from './components/Footer/Footer.jsx';
 // Layout component
 const Layout = () => {
   return (
     <div>
         <Header />
         <Outlet />
+        <Footer />
     </div>
   );
 };
