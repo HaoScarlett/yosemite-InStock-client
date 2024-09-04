@@ -1,6 +1,21 @@
 body{
     margin: 0px;
 }
+@mixin tablet {
+    @media screen and (min-width: 768px){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: 1280px){
+        @content;
+    }
+}
+
+
+
+
 .header{
     width: 100%;
     height: 12.5rem;
@@ -9,14 +24,31 @@ body{
     flex-direction: column;
     align-items: center;
 
+    @include tablet{
+        height: 11.625rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
     &__logo{
         padding: 1.5rem 0;
+
+        @include tablet{
+            padding-left: 2rem;
         }
+    }
 
     &__nav-links{
         display: flex;
         justify-content: space-around;
         width: 100%;
+
+        @include tablet{
+            width:auto;
+            padding-right: 2rem;
+            padding-top: 1.5rem;
+        }
     }
 
     &__nav-links > a{
@@ -28,6 +60,10 @@ body{
         line-height: 2.25rem;
         text-decoration: none;
         color: #FFFFFF;
+
+        @include tablet{
+            width: 6.6875rem;
+        }
 
     }
 
