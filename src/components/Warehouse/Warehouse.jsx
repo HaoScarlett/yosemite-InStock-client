@@ -56,17 +56,19 @@ function Warehouse() {
                 </div>
                 <div className="warehouse__details">
                     <div className='warehouse__details__address'>
-                        <p>{warehouse.address}</p>
-                        <p>{warehouse.city}, {warehouse.country}</p>
+                        <span>WAREHOUSE ADDRESS:</span>
+                        <p>{warehouse.address},{warehouse.city},{warehouse.country}</p>
                     </div>
                     <div className='warehouse__details__contact'>
                         <div className='warehouse__details__contact__name'>
-                            <p>Contact Name: {warehouse.contact_name}</p>
+                            <span>CONTACT NAME:</span>
+                            <p>{warehouse.contact_name}</p>
+                            <p>{warehouse.contact_position}</p>
                         </div>
                         <div className='warehouse__details__contact__info'>
-                            <p>Position: {warehouse.contact_position}</p>
-                            <p>Phone: {warehouse.contact_phone}</p>
-                            <p>Email: {warehouse.contact_email}</p>
+                            <span>CONTACT INFORMATION:</span>
+                            <p>{warehouse.contact_phone}</p>
+                            <p>{warehouse.contact_email}</p>
                         </div>
                     </div>
                 </div>
