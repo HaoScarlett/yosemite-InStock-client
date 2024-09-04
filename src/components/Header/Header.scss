@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+}
+.header{
+    width: 100%;
+    height: 12.5rem;
+    background-color: #232940;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__logo{
+        padding: 1.5rem 0;
+        }
+
+    &__nav-links{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    &__nav-links > a{
+        width: 43.7%;
+        height: 2.25rem;
+        border-radius: 1.25rem;
+        text-align: center;
+        font-size: .8125rem;
+        line-height: 2.25rem;
+        text-decoration: none;
+        color: #FFFFFF;
+
+    }
+
+}
+
+.active{
+    background-color: #13182C;
+}

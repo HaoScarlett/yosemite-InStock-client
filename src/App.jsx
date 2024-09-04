@@ -3,17 +3,13 @@ import { createBrowserRouter, RouterProvider, Link, Outlet } from "react-router-
 import Warehouses from './pages/warehouses/warehouses';
 import Inventory from './pages/inventory/inventory';
 import NotFound from './pages/NotFound/NotFound';
+import Header from './components/Header/Header.jsx';
 // Layout component
 const Layout = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li><Link to="/">Warehouses</Link></li>
-          <li><Link to="/inventory">Inventory</Link></li>
-        </ul>
-      </nav>
-      <Outlet />
+        <Header />
+        <Outlet />
     </div>
   );
 };
