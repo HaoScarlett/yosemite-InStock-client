@@ -1,27 +1,21 @@
-@use "./variables" as *;
+@use './variables' as *;
 
-
-
-
-//media queriy manager 
+//media queriy manager
 @mixin tablet {
-    @media (min-width: $tablet-bp) {
-        @content;
-    }
+	@media (min-width: $tablet-bp) {
+		@content;
+	}
 }
 
 @mixin desktop {
-    @media (min-width: $desktop-bp) {
-        @content;
-    }
+	@media (min-width: $desktop-bp) {
+		@content;
+	}
 }
-
-
-
 
 //flexbox
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
