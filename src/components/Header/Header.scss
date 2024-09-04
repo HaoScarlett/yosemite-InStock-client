@@ -1,22 +1,10 @@
-body {
-	margin: 0px;
-}
-@mixin tablet {
-	@media screen and (min-width: 768px) {
-		@content;
-	}
-}
-
-@mixin desktop {
-	@media screen and (min-width: 1280px) {
-		@content;
-	}
-}
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/colors' as *;
 
 .header {
 	width: 100%;
 	height: 12.5rem;
-	background-color: #232940;
+	background-color: $header-bg;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -64,15 +52,15 @@ body {
 		font-size: 0.8125rem;
 		line-height: 2.25rem;
 		text-decoration: none;
-		color: #bdc5d5;
+		color: $nav-link;
 
-        &.active{
-            color: #ffffff;
-            background-color: #13182c;
-        }
+		&.active {
+			color: $global-white;
+			background-color: $global-text;
+		}
 
 		&:hover {
-			color: #ffffff;
+			color: $global-white;
 			text-decoration: underline;
 		}
 
