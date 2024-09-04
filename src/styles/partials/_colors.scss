@@ -2,21 +2,31 @@
 
 
 // primary colors
-$primary-black: #13182C; 
-$primary-indigo: #2E66E5; 
-$primary-white: #fff; 
+$global-text: #13182C;
+$interactive-elements: #2E66E5;  
+$global-white: #fff;           
 
 
 // secondary colors
-$secondary-slate: #5C667E; 
-$secondary-cloud: #BDC5D5; 
+$table-column-headers-text: #5C667E;   
+$placeholder-text: #5C667E;    
+
+$outlines: #BDC5D5; 
+$dividers: #BDC5D5; 
+$borders: #BDC5D5;  
+$table-sorting-icon: #BDC5D5;
 
 
 // background colors
-$bg-graphite: #232940; 
-$bg-light-grey: #F7F8F9; 
+$header-bg: #232940;  
+$cta-btn-hover: #232940;
+$page-bg: #F7F8F9;   
+$table-column-header-bg: #F7F8F9; 
+$cta-bg: #F7F8F9;
 
 
 // supporting colors
-$support-green: #158463; 
-$support-red: #C94515; 
+$label-in-stock: #158463;    
+$label-out-of-stock: #C94515; 
+$error-states: #C94515;  
+$delete-icon: #C94515;
