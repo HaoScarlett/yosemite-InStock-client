@@ -22,9 +22,9 @@ export default function InventoryItem() {
             </div>
 			<div className='inventory-info'>
                 <label>ITEM DESCRIPTION:</label>
-                <p>{itemDescription}</p>
+                <p className='p2-body-medium'>{itemDescription}</p>
                 <label>CATEGORY:</label>
-                <p>{itemCategory}</p>
+                <p className='p2-body-medium'>{itemCategory}</p>
             </div>
 			<div className='inventory-stats'>
                 <div className='inventory-stats__status-quant'>
@@ -34,11 +34,11 @@ export default function InventoryItem() {
                     </div>
                     <div>
                         <label>QUANTITY:</label>
-                        <p>{itemQuantity}</p>
+                        <p className='p2-body-medium'>{itemQuantity}</p>
                     </div>
                 </div>
                 <label>WAREHOUSE:</label>
-                <p>{itemWarehouse}</p>
+                <p className='p2-body-medium'>{itemWarehouse}</p>
             </div>
 		</section>
 	);

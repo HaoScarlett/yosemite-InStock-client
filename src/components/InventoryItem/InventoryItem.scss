@@ -6,8 +6,15 @@
     width: 100%;
     height: auto;
     background-color: $global-white;
-    box-shadow: 0px 2px 5px 0px $box-shadow;
+    box-shadow: 0rem .125rem .3125rem 0rem $box-shadow;
     padding: 0 1rem 1rem 1rem;
+    position: relative;
+    top: -4rem;
+
+    @include tablet{
+        padding: 0 2rem 2rem 2rem; 
+        top: -5.5rem;
+    }
 
     &-header{
         display: flex;
@@ -17,6 +24,11 @@
         border-bottom: 1px solid $dividers;
         margin: 0 -1rem;
         padding: 1.5rem 1rem;
+
+        @include tablet{
+            margin: 0 -2rem;
+            padding: 1.5rem 2rem;
+        }
 
         &__left{
             display: flex;
