@@ -30,7 +30,7 @@
     box-shadow: 0rem .125rem .3125rem 0rem $box-shadow;
 	border-radius: 0.2rem;
 	margin: auto;
-    padding: $unit-20;
+    padding: $unit-20 0;
     position: relative;
     top: -7rem;
 	@include tablet{
