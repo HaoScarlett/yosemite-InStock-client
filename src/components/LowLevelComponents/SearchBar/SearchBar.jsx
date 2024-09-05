@@ -11,10 +11,10 @@ export default function SearchBar() {
         <img className="search-bar__icon" src={searchIcon} alt="search" />
         <input
             className="search-bar__field p2-body-medium"
-            type="search"
+            type="text"
             name="search"
             placeholder="Search..."
         />
     </div>
-  )
+    )
 }

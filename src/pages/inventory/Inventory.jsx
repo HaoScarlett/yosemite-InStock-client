@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchBar from "../../components/LowLevelComponents/SearchBar/SearchBar";
 
 function Inventory() {
   return (
