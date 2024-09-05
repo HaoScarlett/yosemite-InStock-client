@@ -1,10 +1,11 @@
 import React from 'react'
-import InventoryList from '../../components/InventoryList/InventoryList.jsx'
-import './inventory.scss'
+
+import InventoryItem from '../../components/InventoryItem/InventoryItem';
+
 function Inventory() {
   return (
-    <div className='inventory'>
-      <InventoryList />
+    <div>
+      <InventoryItem/>
     </div>
   )
 }

@@ -3,9 +3,7 @@
 @use '../../../styles/partials/variables' as *;
 
 .edit-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     background-color: $interactive-elements;
     border: none;
     text-decoration: none;
@@ -17,8 +15,8 @@
     border-radius: 50%;
     //large screen button
     @include tablet{
-        width: auto; 
-        height: $unit-44;
+        width: 5.2rem; 
+        height: $unit-40;
         border-radius: $unit-24;
         padding: 0 $unit-20; 
     }

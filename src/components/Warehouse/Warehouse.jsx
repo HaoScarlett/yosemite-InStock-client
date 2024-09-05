@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import dotenv from 'dotenv';
 import './Warehouse.scss';
 import { Link } from 'react-router-dom';
 import backbtn from '../../assets/Icons/arrow_back-24px.svg';
@@ -12,7 +13,7 @@ function Warehouse() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:8080/api/warehouses/2')
+        fetch(`${import.meta.env.VITE_API_URL}/api/warehouses/2`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -47,28 +48,26 @@ function Warehouse() {
     <section className="warehouse">
                 <div className="warehouse__header">
                     <Link to='/'>
-                        <img className='warehouse__header__btn__back' src={backbtn} alt="back button" />
+                        <img className='warehouse__header-btn--back' src={backbtn} alt="back button" />
                     </Link>
-                    <h1 className='warehouse__header__title .h1-page-header'>{warehouse.warehouse_name}</h1>
-                    <Link>
-                        <div className='warehouse__header__btn__edit'><Editbutton /></div>
-                    </Link>
+                    <h1 className='warehouse__header-title .h1-page-header'>{warehouse.warehouse_name}</h1>
+                    <div className='warehouse__header-btn--edit'><Editbutton /></div>
                 </div>
                 <div className="warehouse__details">
-                    <div className='warehouse__details__address'>
+                    <div className='warehouse__details-address'>
                         <span className='h4-table-header '>WAREHOUSE ADDRESS:</span>
-                        <div className='warehouse__details__address__container'>
+                        <div className='warehouse__details-address-container'>
                             <p className='p3-body-small'>{warehouse.address},</p>
                             <p className='p3-body-small'>{warehouse.city},{warehouse.country}</p>
                         </div>
                     </div>
-                    <div className='warehouse__details__contact'>
-                        <div className='warehouse__details__contact__name'>
+                    <div className='warehouse__details-contact'>
+                        <div className='warehouse__details-contact-name'>
                             <span className='h4-table-header'>CONTACT NAME:</span>
                             <p className='p3-body-small'>{warehouse.contact_name}</p>
                             <p className='p3-body-small'>{warehouse.contact_position}</p>
                         </div>
-                        <div className='warehouse__details__contact__info'>
+                        <div className='warehouse__details-contact-info'>
                             <span className='h4-table-header '>CONTACT INFORMATION:</span>
                             <p className='p3-body-small'>{warehouse.contact_phone}</p>
                             <p className='p3-body-small'>{warehouse.contact_email}</p>
