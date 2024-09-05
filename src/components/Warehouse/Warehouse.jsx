@@ -56,18 +56,18 @@ function Warehouse() {
                 <div className="warehouse__details">
                     <div className='warehouse__details__address'>
                         <span className='h4-table-header '>WAREHOUSE ADDRESS:</span>
-                        <div className='warehouse__details__address__container'>
+                        <div className='warehouse__details__address-container'>
                             <p className='p3-body-small'>{warehouse.address},</p>
                             <p className='p3-body-small'>{warehouse.city},{warehouse.country}</p>
                         </div>
                     </div>
                     <div className='warehouse__details__contact'>
-                        <div className='warehouse__details__contact__name'>
+                        <div className='warehouse__details__contact-name'>
                             <span className='h4-table-header'>CONTACT NAME:</span>
                             <p className='p3-body-small'>{warehouse.contact_name}</p>
                             <p className='p3-body-small'>{warehouse.contact_position}</p>
                         </div>
-                        <div className='warehouse__details__contact__info'>
+                        <div className='warehouse__details__contact-info'>
                             <span className='h4-table-header '>CONTACT INFORMATION:</span>
                             <p className='p3-body-small'>{warehouse.contact_phone}</p>
                             <p className='p3-body-small'>{warehouse.contact_email}</p>
