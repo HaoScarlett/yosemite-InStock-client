@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import dotenv from 'dotenv';
+import InventoryList from '../InventoryList/InventoryList';
 import './Warehouse.scss';
 import { Link } from 'react-router-dom';
 import backbtn from '../../assets/Icons/arrow_back-24px.svg';
@@ -75,6 +76,7 @@ function Warehouse() {
                     </div>
                 </div>
             </section>
+            {/* <InventoryList warehouseId={warehouse.id} /> */}
     </> );
 }
 
