@@ -4,7 +4,7 @@
 @use '../../styles/partials/variables' as *;
 
 .warehouse {
-    
+    @include page-overlap;
     &__header{
         display: flex;
         align-items: center;
