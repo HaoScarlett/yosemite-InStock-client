@@ -1,0 +1,15 @@
+@use "../../styles/partials/_colors.scss" as c;
+@use '../../styles/partials/_variables.scss' as var;
+.inventory-list {
+  margin-inline: var.$spacing-small;
+  background-color: c.$global-white;
+  position: absolute;
+  top: -60px;
+  border-radius: 4px;
+//   max-width: 1020px;
+  width: 96%;
+  
+  &__title{
+    margin-top: var.$spacing-medium;
+  }
+}

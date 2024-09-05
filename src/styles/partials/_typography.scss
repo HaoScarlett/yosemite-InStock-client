@@ -1,4 +1,5 @@
 @use "./mixins.scss" as *;
+@use "./colors" as *;
 
 
 
@@ -34,6 +35,7 @@ $semi: 600;
 .h1-page-header {
     font-size: 1.75rem;
     line-height: 2.25rem;
+    font-weight: $semi;
 
     @include tablet {
         font-size: 2rem;
@@ -44,6 +46,7 @@ $semi: 600;
 .h2-subheader {
     font-size: 1.25rem;
     line-height: 1.75rem;
+    font-weight: $semi;
 
     @include tablet {
         font-size: 1.5rem;
@@ -56,6 +59,7 @@ $semi: 600;
 .h3-buttons {
     font-size: .8125rem;
     line-height: 1.25rem;
+    font-weight: $semi;
 
     @include tablet {
         font-size: .875rem;
@@ -64,8 +68,10 @@ $semi: 600;
 }
 
 .h4-table-header {
+    color: $table-column-headers-text;
     font-size: .6875rem;
     line-height: 1rem;
+    font-weight: $semi;
 
     @include tablet {
         font-size: .75rem;
