@@ -1,0 +1,107 @@
+@use '../../styles/partials/_colors.scss' as c;
+@use '../../styles/partials/_mixins.scss' as m;
+
+
+.inventory-list{
+  position: absolute;
+  top: -70px;
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: c.$global-white;
+  border-radius: 4px;
+  right: 2%;
+}
+
+// @include m.tablet {
+//   .inventory-header {
+//     display: flex;
+//     justify-content: space-between;
+//   }
+// }
+
+.item-row.desktop {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr 1fr 2fr 1fr; // Adjust based on your columns' width
+  padding: 10px 0;
+  align-items: center;
+  border-bottom: 1px solid c.$borders;
+
+  & .inventory-item__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .item-name {
+      font-weight: bold;
+      color: c.$interactive-elements;
+      text-decoration: none;
+    }
+
+    .icon {
+      margin-left: 5px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  & .inventory-item__category,
+  & .inventory-item__status,
+  & .inventory-item__quantity,
+  & .inventory-item__warehouse {
+    text-align: left;
+    padding-left: 15px;
+  }
+
+  & .inventory-item__status {
+    &.in-stock {
+      color: green;
+      background-color: green;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    &.out-of-stock {
+      color: red;
+      background-color: red;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+
+  & .actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 10px;
+
+    .delete-btn,
+    .edit-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.inventory-list {
+  position: absolute;
+  top: -70px;
+  width: 96%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: c.$global-white;
+  border-radius: 4px;
+  right: 2%;
+}
+
+@include m.tablet {
+  .inventory-header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
