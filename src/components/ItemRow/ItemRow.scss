@@ -8,13 +8,6 @@
   padding: var.$spacing-small;
 }
 
-.inventory-header {
-  display: none;
-  font-weight: bold;
-  background-color: #f0f0f0;
-  padding: var.$spacing-small 0;
-}
-
 .inventory-item {
   display: flex;
   gap: var.$unit-68;
@@ -48,21 +41,13 @@
   display: inline-block;
 }
 
-// .status.in-stock {
-//   background-color: #e6ffe6;
-//   color: #006600;
-// }
+.actions {
+  margin-block: var.$spacing-btn;
 
-// .status.out-of-stock {
-//   background-color: #ffe6e6;
-//   color: #660000;
-// }
-
-.actions > span {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 10px;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 @include m.tablet {
@@ -97,7 +82,7 @@
   height: 20px;
   width: 20px;
   position: absolute;
-  right: 10px;
-  top: 20%;
+  right: 5%;
+  top: 24%;
   transform: translateY(-50%); // Center the icon vertically
 }
