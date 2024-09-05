@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './InventoryItem.scss';
-import InOutStock from '../InOutStock/InOutStock.jsx';
+import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx';
 import SectionHeader from '../LowLevelComponents/SectionHeader/SectionHeader.jsx';
+import EditButton from '../LowLevelComponents/Editbutton/Editbutton.jsx';
 import { fetchInventoryItem } from '../../utils/api.js';
 
 export default function InventoryItem({ itemId }) {
@@ -37,7 +38,7 @@ export default function InventoryItem({ itemId }) {
 		<section className='inventory'>
 			<div className='inventory__header'>
 				<SectionHeader text={item_name} />
-				<p>button</p>
+				<EditButton />
 			</div>
 			<div className='inventory__body'>
 				<div>
