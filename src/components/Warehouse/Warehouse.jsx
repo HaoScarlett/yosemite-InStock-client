@@ -51,9 +51,7 @@ function Warehouse() {
                         <img className='warehouse__header__btn--back' src={backbtn} alt="back button" />
                     </Link>
                     <h1 className='warehouse__header__title .h1-page-header'>{warehouse.warehouse_name}</h1>
-                    <Link>
-                        <div className='warehouse__header__btn--edit'><Editbutton /></div>
-                    </Link>
+                    <div className='warehouse__header__btn--edit'><Editbutton /></div>
                 </div>
                 <div className="warehouse__details">
                     <div className='warehouse__details__address'>
