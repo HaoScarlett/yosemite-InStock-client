@@ -1,7 +1,7 @@
 import React from 'react';
 import './InventoryItem.scss';
 import InOutStock from '../InOutStock/InOutStock.jsx';
-import Header from '../LowLevelComponents/Header/Header.jsx';
+import SectionHeader from '../LowLevelComponents/SectionHeader/SectionHeader.jsx';
 
 export default function InventoryItem() {
 	const name = 'Television';
@@ -15,7 +15,7 @@ export default function InventoryItem() {
 		<section className='inventory'>
 			<div className='inventory-header'>
 				<div className='inventory-header__left'>
-					<Header text={name} />
+					<SectionHeader text={name} />
 				</div>
 				<p>button</p>
 			</div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Header.scss';
+import './SectionHeader.scss';
 import arrow from '../../../assets/Icons/arrow_back-24px.svg';
 
-export default function Header({ text, url }) {
+export default function SectionHeader({ text, url }) {
 	if (!url) {
 		url = '/';
 	}
