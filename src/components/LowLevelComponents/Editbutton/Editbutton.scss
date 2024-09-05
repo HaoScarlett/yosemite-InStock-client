@@ -3,9 +3,7 @@
 @use '../../../styles/partials/variables' as *;
 
 .edit-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex-center;
     background-color: $interactive-elements;
     border: none;
     text-decoration: none;

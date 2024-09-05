@@ -11,7 +11,7 @@
         justify-content: space-around;
         padding: $unit-12;
         &__btn{
-            &__back{
+            &--back{
                 margin-right: $unit-8;
                 margin-left: $unit-4;
                 @include tablet{
@@ -19,7 +19,7 @@
                     margin-left: $unit-12;
                 }
             }
-            &__edit{
+            &--edit{
                 margin-left: auto;
                 margin-right: $unit-12;
                 @include tablet{
