@@ -1,96 +1,110 @@
-// @use "../../styles/partials/_typography.scss" as t;
-// @use "../../styles/partials/_colors.scss" as c;
-// @use "../../styles/partials/_mixins.scss" as m;
-// @use "../../styles/partials/_variables.scss" as var;
-// .item {
-//   &__row {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: var.$spacing-small;
-//     border-bottom: 1px solid blueviolet;
-//     height: 60px;
-//   }
+@use "../../styles/partials/_colors.scss" as c;
+@use "../../styles/partials/_variables.scss" as var;
+@use "../../styles/partials/_mixins.scss" as m;
+@use "../../styles/partials/_typography.scss" as t;
 
-//   &__content {
-//     display: flex;
-//     // flex-direction: column;
-//   }
+.item-row {
+  border-bottom: 1px solid c.$borders;
+  padding: var.$spacing-small;
+}
 
-//   &__details {
-//     display: flex;
-//     gap: 10px;
-//   }
+.inventory-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-//   &__actions {
-//     display: flex;
-//     gap: 5px;
-//   }
+.inventory-header {
+  display: none;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: var.$spacing-small 0;
+}
 
-//   &__title {
-//     text-decoration: none;
-//     color: c.$interactive-elements;
-//   }
+.inventory-item {
+  display: flex;
+  gap:var.$unit-68;
+  margin-bottom: 10px;
+
+  &__details > span,
+  &__name > span {
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: .8125rem;
+    line-height: 1.25rem;
+  }
+
+  &__details > span:before,
+  &__name > span:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+    color: c.$table-column-headers-text;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: t.$semi;
+  }
+}
+
+.status {
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+// .status.in-stock {
+//   background-color: #e6ffe6;
+//   color: #006600;
 // }
 
-// // mobile version
-// @media (max-width: 767px) {
-//   .item {
-//     &__row {
-//       flex-direction: column;
-//       align-items: flex-start;
-//       height: 237px;
-//     }
-
-//     &__content {
-//       gap: var.$unit-68;
-//     }
-
-//     &__title-wrapper {
-//       display: flex;
-//       flex-direction: column;
-//       // justify-content: space-between;
-//       gap: 16px; // temporary
-//       width: 32%;
-//     }
-
-//     &__details {
-//       flex-direction: column;
-//       width: 17%;
-
-//       & > span {
-//         display: block;
-//       }
-//     }
-
-//     &__actions {
-//       justify-content: space-between;
-//       width: 100%;
-//     }
-
-//     &__title::before {
-//       content: "Inventory Item: ";
-//       font-weight: bold;
-//     }
-
-//     &__category::before {
-//       content: "Category: ";
-//       font-weight: bold;
-//     }
-
-//     &__status::before {
-//       content: "Status: ";
-//       font-weight: bold;
-//     }
-
-//     &__qty::before {
-//       content: "QTY: ";
-//       font-weight: bold;
-//     }
-
-//     &__warehouse::before {
-//       content: "Warehouse: ";
-//       font-weight: bold;
-//     }
-//   }
+// .status.out-of-stock {
+//   background-color: #ffe6e6;
+//   color: #660000;
 // }
+
+.actions > span{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+@include m.tablet {
+  .inventory-header {
+    display: flex;
+  }
+
+  .inventory-header span,
+  .inventory-item span {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .inventory-item {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .inventory-item > span:before {
+    display: none;
+  }
+
+  .actions {
+    margin-top: 0;
+  }
+}
+
+.inventory-item__name{
+  position: relative;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px; 
+  top: 20%;    
+  transform: translateY(-50%); // Center the icon vertically
+}
