@@ -15,8 +15,8 @@
     border-radius: 50%;
     //large screen button
     @include tablet{
-        width: auto; 
-        height: $unit-44;
+        width: 5.2rem; 
+        height: $unit-40;
         border-radius: $unit-24;
         padding: 0 $unit-20; 
     }
