@@ -10,13 +10,14 @@
     padding: 0 1rem 1rem 1rem;
     position: relative;
     top: -4rem;
+    border-radius: .25rem;
 
     @include tablet{
         padding: 0 2rem 2rem 2rem; 
         top: -5.5rem;
     }
 
-    &-body{
+    &__body{
         @include tablet{
             display: flex;
         }
@@ -26,7 +27,7 @@
             }
         }
 
-        &__right{
+        &-right{
             @include tablet{
                 border-left: .0625rem solid $dividers;
                 padding-left: 1rem;
@@ -35,7 +36,7 @@
         }
     }
 
-    &-header{
+    &__header{
         display: flex;
         box-sizing: content-box;
         justify-content: space-between;
@@ -49,16 +50,7 @@
             padding: 1.5rem 2rem;
         }
 
-        &__left{
-            display: flex;
-            align-items: flex-end;
-        }
 
-        &__back{
-            display: block;
-            width: 1.5rem;
-            margin-right: 0.5rem;
-        }
     }
 
     &-stats__status-quant{

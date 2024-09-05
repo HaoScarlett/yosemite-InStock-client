@@ -23,25 +23,30 @@ export default function InventoryItem({ itemId }) {
 		fetchData();
 	}, []);
 
-	const {warehouse_name, item_name, description, category, status, quantity}  = inventoryItem;
+	const {
+		warehouse_name,
+		item_name,
+		description,
+		category,
+		status,
+		quantity,
+	} = inventoryItem;
 	const inStock = status === 'In Stock' ? true : false;
 
 	return (
 		<section className='inventory'>
-			<div className='inventory-header'>
-				<div className='inventory-header__left'>
-					<SectionHeader text={item_name} />
-				</div>
+			<div className='inventory__header'>
+				<SectionHeader text={item_name} />
 				<p>button</p>
 			</div>
-			<div className='inventory-body'>
-				<div className='inventory-info'>
+			<div className='inventory__body'>
+				<div>
 					<label>ITEM DESCRIPTION:</label>
 					<p className='p2-body-medium'>{description}</p>
 					<label>CATEGORY:</label>
 					<p className='p2-body-medium'>{category}</p>
 				</div>
-				<div className='inventory-body__right'>
+				<div className='inventory__body-right'>
 					<div className='inventory-stats'>
 						<div className='inventory-stats__status-quant'>
 							<div>
