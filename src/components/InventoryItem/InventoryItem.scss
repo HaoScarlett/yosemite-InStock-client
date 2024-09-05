@@ -16,6 +16,25 @@
         top: -5.5rem;
     }
 
+    &-body{
+        @include tablet{
+            display: flex;
+        }
+        &>div{
+            @include tablet{
+                width: 50%;
+            }
+        }
+
+        &__right{
+            @include tablet{
+                border-left: .0625rem solid $dividers;
+                padding-left: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    }
+
     &-header{
         display: flex;
         box-sizing: content-box;
@@ -45,6 +64,12 @@
     &-stats__status-quant{
         display: flex;
         width: 100%;
+
+        &>div>label{
+            @include tablet{
+                margin-top: 0rem;
+            }
+        }
 
     }
 
