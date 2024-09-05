@@ -1,4 +1,5 @@
 @use "./mixins.scss" as *;
+@use "./colors" as *;
 
 
 
@@ -64,6 +65,7 @@ $semi: 600;
 }
 
 .h4-table-header {
+    color: $table-column-headers-text;
     font-size: .6875rem;
     line-height: 1rem;
 
