@@ -1,15 +1,119 @@
 @use "../../styles/partials/_colors.scss" as c;
-@use '../../styles/partials/_variables.scss' as var;
+@use "../../styles/partials/_mixins.scss" as m;
+@use "../../styles/partials/_variables.scss" as var;
 .inventory-list {
-  margin-inline: var.$spacing-small;
-  background-color: c.$global-white;
   position: absolute;
-  top: -60px;
-  border-radius: 4px;
-//   max-width: 1020px;
+  top: -70px;
   width: 96%;
-  
-  &__title{
-    margin-top: var.$spacing-medium;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: c.$global-white;
+  border-radius: 4px;
+  right: 2%;
+}
+
+.inventory-header {
+  display: none;
+  font-weight: bold;
+  background-color: c.$global-white;
+  padding: var.$spacing-small 0;
+}
+
+@include m.tablet {
+  .inventory-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var.$unit-20;
+    background-color: c.$global-white;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var.$spacing-small;
+  }
+
+  .inventory-header {
+    display: contents;
+  }
+
+  .inventory-header th {
+    padding: var.$spacing-small;
+    background-color: #f4f4f4;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+
+  .item-row td {
+    padding: var.$spacing-small;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+
+  .inventory-item__name {
+    display: flex;
+    align-items: center;
+  }
+
+  .inventory-item__name .item-name {
+    margin-right: var.$spacing-xsmall;
+    font-weight: bold;
+    color: c.$interactive-elements;
+    text-decoration: none;
+  }
+
+  .inventory-item__name .icon {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 20%;
+  }
+
+  .inventory-item__category,
+  .inventory-item__status,
+  .inventory-item__quantity,
+  .inventory-item__warehouse {
+    text-align: left;
+  }
+
+  .inventory-item__status {
+    &.in-stock {
+      color: #28a745;
+      background-color: rgba(40, 167, 69, 0.1);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    &.out-of-stock {
+      color: #dc3545;
+      background-color: rgba(220, 53, 69, 0.1);
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .actions .delete-btn,
+  .actions .edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .actions .delete-btn:hover,
+  .actions .edit-btn:hover {
+    transform: scale(1.1);
   }
 }
