@@ -24,6 +24,15 @@ body {
     font-family: $family;
     font-weight: $regular;
     color: $global-text;
+    background-color: $page-bg;
+    padding: 0 $spacing-small;
+
+    @include tablet{
+        padding: 0 $spacing-medium;
+    }
+    @include desktop{
+        padding: 0 8.125rem;
+    }
 }
 
 img,
@@ -33,6 +42,10 @@ video,
 canvas {
     display: block;
     max-width: 100%;
+}
+
+a{
+    text-decoration: none;
 }
 
 input,

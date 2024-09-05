@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use './colors' as *;
 
 //media queriy manager
 @mixin tablet {
@@ -13,9 +14,26 @@
 	}
 }
 
+
 //flexbox
 @mixin flex-center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+//page overlap
+@mixin page-overlap{
+	width: 80%;
+    height: auto;
+    background-color: $global-white;
+    box-shadow: 0rem .125rem .3125rem 0rem $box-shadow;
+	border-radius: 0.25rem;
+	margin: auto;
+    padding: $unit-20 0;
+    position: relative;
+    top: -7rem;
+	@include tablet{
+		top: -9rem;
+	}
 }
