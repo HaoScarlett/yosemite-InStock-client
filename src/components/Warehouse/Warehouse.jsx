@@ -48,26 +48,26 @@ function Warehouse() {
     <section className="warehouse">
                 <div className="warehouse__header">
                     <Link to='/'>
-                        <img className='warehouse__header__btn--back' src={backbtn} alt="back button" />
+                        <img className='warehouse__header-btn--back' src={backbtn} alt="back button" />
                     </Link>
-                    <h1 className='warehouse__header__title .h1-page-header'>{warehouse.warehouse_name}</h1>
-                    <div className='warehouse__header__btn--edit'><Editbutton /></div>
+                    <h1 className='warehouse__header-title .h1-page-header'>{warehouse.warehouse_name}</h1>
+                    <div className='warehouse__header-btn--edit'><Editbutton /></div>
                 </div>
                 <div className="warehouse__details">
-                    <div className='warehouse__details__address'>
+                    <div className='warehouse__details-address'>
                         <span className='h4-table-header '>WAREHOUSE ADDRESS:</span>
-                        <div className='warehouse__details__address-container'>
+                        <div className='warehouse__details-address-container'>
                             <p className='p3-body-small'>{warehouse.address},</p>
                             <p className='p3-body-small'>{warehouse.city},{warehouse.country}</p>
                         </div>
                     </div>
-                    <div className='warehouse__details__contact'>
-                        <div className='warehouse__details__contact-name'>
+                    <div className='warehouse__details-contact'>
+                        <div className='warehouse__details-contact-name'>
                             <span className='h4-table-header'>CONTACT NAME:</span>
                             <p className='p3-body-small'>{warehouse.contact_name}</p>
                             <p className='p3-body-small'>{warehouse.contact_position}</p>
                         </div>
-                        <div className='warehouse__details__contact-info'>
+                        <div className='warehouse__details-contact-info'>
                             <span className='h4-table-header '>CONTACT INFORMATION:</span>
                             <p className='p3-body-small'>{warehouse.contact_phone}</p>
                             <p className='p3-body-small'>{warehouse.contact_email}</p>

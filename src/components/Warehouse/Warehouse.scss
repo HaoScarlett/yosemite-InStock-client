@@ -10,7 +10,7 @@
         align-items: center;
         justify-content: space-around;
         padding: $unit-12;
-        &__btn{
+        &-btn{
             &--back{
                 margin-right: $unit-8;
                 margin-left: $unit-4;
@@ -27,7 +27,7 @@
                 }
             }
         }
-        &__title{
+        &-title{
             flex-grow: 1;
         }
     }
@@ -46,7 +46,7 @@
             justify-content: flex-start;
             gap: 10%;
         }
-        &__address{
+        &-address{
             flex-grow: 1;
             padding:$unit-16;
             padding-bottom: 0;
@@ -64,7 +64,7 @@
                 }
             }
         }
-        &__contact{
+        &-contact{
             padding: $unit-16;
             display: flex;
             justify-content:space-between;
