@@ -1,0 +1,96 @@
+// @use "../../styles/partials/_typography.scss" as t;
+// @use "../../styles/partials/_colors.scss" as c;
+// @use "../../styles/partials/_mixins.scss" as m;
+// @use "../../styles/partials/_variables.scss" as var;
+// .item {
+//   &__row {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: var.$spacing-small;
+//     border-bottom: 1px solid blueviolet;
+//     height: 60px;
+//   }
+
+//   &__content {
+//     display: flex;
+//     // flex-direction: column;
+//   }
+
+//   &__details {
+//     display: flex;
+//     gap: 10px;
+//   }
+
+//   &__actions {
+//     display: flex;
+//     gap: 5px;
+//   }
+
+//   &__title {
+//     text-decoration: none;
+//     color: c.$interactive-elements;
+//   }
+// }
+
+// // mobile version
+// @media (max-width: 767px) {
+//   .item {
+//     &__row {
+//       flex-direction: column;
+//       align-items: flex-start;
+//       height: 237px;
+//     }
+
+//     &__content {
+//       gap: var.$unit-68;
+//     }
+
+//     &__title-wrapper {
+//       display: flex;
+//       flex-direction: column;
+//       // justify-content: space-between;
+//       gap: 16px; // temporary
+//       width: 32%;
+//     }
+
+//     &__details {
+//       flex-direction: column;
+//       width: 17%;
+
+//       & > span {
+//         display: block;
+//       }
+//     }
+
+//     &__actions {
+//       justify-content: space-between;
+//       width: 100%;
+//     }
+
+//     &__title::before {
+//       content: "Inventory Item: ";
+//       font-weight: bold;
+//     }
+
+//     &__category::before {
+//       content: "Category: ";
+//       font-weight: bold;
+//     }
+
+//     &__status::before {
+//       content: "Status: ";
+//       font-weight: bold;
+//     }
+
+//     &__qty::before {
+//       content: "QTY: ";
+//       font-weight: bold;
+//     }
+
+//     &__warehouse::before {
+//       content: "Warehouse: ";
+//       font-weight: bold;
+//     }
+//   }
+// }

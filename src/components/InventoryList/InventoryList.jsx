@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchInventoryList } from '../../utils/api.js'
-import ItemRow from '../InventoryItem/ItemRow.jsx'
+import ItemRow from '../ItemRow/ItemRow.jsx'
 import './InventoryList.scss'
 function InventoryList() {
     const [inventoryList, setInventoryList] = useState([])
@@ -23,6 +23,14 @@ function InventoryList() {
             <h1 className='inventory-list__title'>Inventory</h1>
             <p>Search Bar</p>
             <p>button</p>
+            <div className="inventory-header">
+                <span>Inventory Item</span>
+                <span>Category</span>
+                <span>Status</span>
+                <span>QTY</span>
+                <span>Warehouse</span>
+                <span>Actions</span>
+            </div>
             {
                 inventoryList.map(inventory => <ItemRow key={inventory.id} item={inventory} />)
             }

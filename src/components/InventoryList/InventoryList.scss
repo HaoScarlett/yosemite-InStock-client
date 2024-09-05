@@ -1,15 +1,110 @@
 @use "../../styles/partials/_colors.scss" as c;
-@use '../../styles/partials/_variables.scss' as var;
+@use "../../styles/partials/_variables.scss" as var;
+@use "../../styles/partials/_mixins.scss" as m;
+@use "../../styles/partials/_typography.scss" as t;
+
+.item-row {
+  border-bottom: 1px solid c.$borders;
+  padding: var.$spacing-small;
+}
+
 .inventory-list {
-  margin-inline: var.$spacing-small;
-  background-color: c.$global-white;
-  position: absolute;
-  top: -60px;
-  border-radius: 4px;
-//   max-width: 1020px;
-  width: 96%;
-  
-  &__title{
-    margin-top: var.$spacing-medium;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inventory-header {
+  display: none;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: var.$spacing-small 0;
+}
+
+.inventory-item {
+  display: flex;
+  gap:var.$unit-68;
+  margin-bottom: 10px;
+
+  &__details > span,
+  &__name > span {
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    font-size: .8125rem;
+    line-height: 1.25rem;
   }
+
+  &__details > span:before,
+  &__name > span:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+    color: c.$table-column-headers-text;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: t.$semi;
+  }
+}
+
+.status {
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+// .status.in-stock {
+//   background-color: #e6ffe6;
+//   color: #006600;
+// }
+
+// .status.out-of-stock {
+//   background-color: #ffe6e6;
+//   color: #660000;
+// }
+
+.actions > span{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+@include m.tablet {
+  .inventory-header {
+    display: flex;
+  }
+
+  .inventory-header span,
+  .inventory-item span {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .inventory-item {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .inventory-item > span:before {
+    display: none;
+  }
+
+  .actions {
+    margin-top: 0;
+  }
+}
+
+.inventory-item__name{
+  position: relative;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px; // You might want to use 'right' instead of 'left' for better positioning
+  top: 20%;    // Adjust 'top' dynamically or use flexbox/grid for better layout control
+  transform: translateY(-50%); // Center the icon vertically
 }
