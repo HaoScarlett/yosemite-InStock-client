@@ -3,13 +3,13 @@ import './ItemRow.scss'
 
 function ItemRow({ item }) {
   return (
-    <div className='item__row'>
+    <div className='item__row layout'>
       <div className='item__content'>
-        <div className="item__title">
-          <a href={`/inventories/${item.id}`}>{item.item_name}</a>
+        <div className="item__title-wrapper">
+          <a className="item__title" href={`/inventories/${item.id}`}>{item.item_name}</a>
+          <span className="item__category">{item.category}</span>
         </div>
         <div className="item__details">
-          <span className="item__category">{item.category}</span>
           <span className={`item__status ${item.status.toLowerCase()}`}>
             {item.status}
           </span>

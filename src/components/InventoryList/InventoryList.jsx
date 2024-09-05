@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { fetchInventoryList } from '../../utils/api.js'
 import ItemRow from '../InventoryItem/ItemRow.jsx'
+import './InventoryList.scss'
 function InventoryList() {
-    const [inventoryList, setInventoryList] = useState(null)
+    const [inventoryList, setInventoryList] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,12 +19,12 @@ function InventoryList() {
     }, [])
 
     return (
-        <div>
-            <h1>Inventory</h1>
+        <div className='inventory-list layout'>
+            <h1 className='inventory-list__title'>Inventory</h1>
             <p>Search Bar</p>
             <p>button</p>
             {
-                inventoryList.map(inventory => <ItemRow item={inventory} />)
+                inventoryList.map(inventory => <ItemRow key={inventory.id} item={inventory} />)
             }
         </div>
     )
