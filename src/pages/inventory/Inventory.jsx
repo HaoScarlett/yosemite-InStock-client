@@ -1,13 +1,9 @@
 import React from 'react'
-import InOutStock from '../../components/InOutStock/InOutStock';
-import InventoryList from '../../components/InventoryList/InventoryList';
-
+import InventoryList from '../../components/InventoryList/InventoryList.jsx'
+import './inventory.scss'
 function Inventory() {
   return (
-    <div>
-      <h1>inventory page</h1>
-      <InOutStock inStock={true}/>
-      <InOutStock inStock={false}/>
+    <div className='inventory'>
       <InventoryList />
     </div>
   )
