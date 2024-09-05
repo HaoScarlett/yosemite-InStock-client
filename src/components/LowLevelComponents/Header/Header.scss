@@ -1,0 +1,12 @@
+.header {
+	&__left {
+		display: flex;
+		align-items: center;
+	}
+
+	&__back {
+		display: block;
+		width: 1.5rem;
+		margin-right: 0.5rem;
+	}
+}

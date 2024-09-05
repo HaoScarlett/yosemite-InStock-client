@@ -7,15 +7,32 @@
     height: auto;
     background-color: $global-white;
     box-shadow: 0px 2px 5px 0px $box-shadow;
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
 
     &-header{
         display: flex;
+        box-sizing: content-box;
+        justify-content: space-between;
+        align-content: center;
+        border-bottom: 1px solid $dividers;
+        margin: 0 -1rem;
+        padding: 1.5rem 1rem;
+
+        &__left{
+            display: flex;
+            align-items: flex-end;
+        }
+
+        &__back{
+            display: block;
+            width: 1.5rem;
+            margin-right: 0.5rem;
+        }
     }
 
     &-stats__status-quant{
         display: flex;
-        width: 100%
+        width: 100%;
 
     }
 
@@ -26,9 +43,12 @@
 }
 
 label{
+    display: block;
     font-size: .6875rem;
     font-weight: 600;
     line-height: 1rem;
     color: $placeholder-text;
+    margin-top: 1rem;
+    margin-bottom: .25rem;
 }
 
