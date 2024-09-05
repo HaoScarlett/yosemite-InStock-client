@@ -1,7 +1,8 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './InventoryList.scss';
 import { Link } from 'react-router-dom';
+import deleteBtn from '../../assets/Icons/delete_outline-24px.svg';
+import editBtn from '../../assets/Icons/edit-24px.svg';
 
 function InventoryList({ warehouseId }) {
     const [inventories, setInventories] = useState([]);
@@ -9,22 +10,22 @@ function InventoryList({ warehouseId }) {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        const fetchInventories = async () => {
-            try {
-                const response = await fetch(`http://localhost:8080/api/warehouses/${warehouseId}/inventories`);
+        fetch(`http://localhost:8080/api/warehouses/1/inventories`)
+            .then((response) => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch inventories');
                 }
-                const data = await response.json();
+                return response.json();
+            })
+            .then((data) => {
                 setInventories(data);
                 setLoading(false);
-            } catch (error) {
-                setError(error.message);
+            })
+            .catch((error) => {
+                console.error('Error fetching inventories data:', error);
+                setError(error);
                 setLoading(false);
-            }
-        };
-
-        fetchInventories();
+            });
     }, [warehouseId]);
 
     if (loading) {
@@ -32,13 +33,19 @@ function InventoryList({ warehouseId }) {
     }
 
     if (error) {
-        return <p>Error: {error}</p>;
+        return <p>Error: {error.message}</p>;
     }
 
     return (
         <div>
             <ul>
-                <li></li>
+                {inventories.map((inventory) => (
+                    <li key={inventory.id}>
+                        <span>{inventory.item_name}</span> {inventory.category} {inventory.status} {inventory.quantity}
+                        <img src={deleteBtn} alt="Delete icon" />
+                        <img src={editBtn} alt="Edit icon" />
+                    </li>
+                ))}
             </ul>
         </div>
     );
