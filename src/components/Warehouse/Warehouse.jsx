@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './Warehouse.scss';
 import { Link } from 'react-router-dom';
 import backbtn from '../../assets/Icons/arrow_back-24px.svg';
-import editbtn from '../../assets/Icons/edit-white-24px.svg';
+import Editbutton from '../LowLevelComponents/EditButton/EditButton';
 
 //Warehouse Details component. This does not include the inventory list below the warehouse details. 
 function Warehouse() {
@@ -51,7 +51,7 @@ function Warehouse() {
                     </Link>
                     <h1 className='warehouse__header__title .h1-page-header'>{warehouse.warehouse_name}</h1>
                     <Link>
-                        <img className='warehouse__header__btn__edit' src={editbtn} alt="round edit button" />
+                        <div className='warehouse__header__btn__edit'><Editbutton /></div>
                     </Link>
                 </div>
                 <div className="warehouse__details">

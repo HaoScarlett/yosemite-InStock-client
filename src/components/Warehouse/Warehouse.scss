@@ -21,9 +21,10 @@
             }
             &__edit{
                 margin-left: auto;
-                border-radius: 50%;
-                background-color: $interactive-elements;
                 margin-right: $unit-12;
+                @include tablet{
+                    margin-right: $unit-24;
+                }
             }
         }
         &__title{
