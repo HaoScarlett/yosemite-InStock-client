@@ -1,15 +1,33 @@
 @use "../../styles/partials/_colors.scss" as c;
 @use "../../styles/partials/_mixins.scss" as m;
 @use "../../styles/partials/_variables.scss" as var;
+
 .inventory-list {
-  position: absolute;
-  top: -70px;
-  width: 96%;
-  max-width: 1200px;
-  margin: 0 auto;
+  // position: absolute;
+  // top: -70px;
+  // width: 96%;
+  // max-width: 1200px;
+  // margin: 0 auto;
+  // background-color: c.$global-white;
+  // border-radius: 4px;
+  // right: 2%;
+  height: auto;
   background-color: c.$global-white;
+  box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
   border-radius: 4px;
-  right: 2%;
+  margin: auto;
+  position: relative;
+  top: -9vh;
+  width: 100%;
+  padding: var.$spacing-small;
+
+  &__title {
+    margin-block: var.$spacing-small;
+  }
+
+  &__search {
+    margin: 0 auto;
+  }
 }
 
 .inventory-header {
@@ -19,10 +37,20 @@
   padding: var.$spacing-small 0;
 }
 
+.inventory-table {
+  width: 100%;
+}
+
+.item-row {
+  padding: 0;
+  margin-block: var.$spacing-small;
+}
+
 @include m.tablet {
   .inventory-list {
     max-width: 1200px;
     margin: 0 auto;
+    top: -5vh;
     padding: var.$unit-20;
     background-color: c.$global-white;
     border-radius: 4px;
