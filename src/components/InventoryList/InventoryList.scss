@@ -22,7 +22,7 @@
   padding: var.$spacing-small;
 
   &__title {
-    margin: var.$spacing-small;
+    margin-block: var.$spacing-small;
   }
 
   &__search {
@@ -37,8 +37,13 @@
   padding: var.$spacing-small 0;
 }
 
-.inventory-table{
+.inventory-table {
   width: 100%;
+}
+
+.item-row {
+  padding: 0;
+  margin-block: var.$spacing-small;
 }
 
 @include m.tablet {
