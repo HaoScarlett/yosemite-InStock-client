@@ -6,7 +6,6 @@ import InventoryList from '../../components/InventoryList/InventoryList.jsx'
 function Inventory() {
   return (
     <>
-      {/* <InventoryItem/> */}
       <InventoryList />
     </>
   )
