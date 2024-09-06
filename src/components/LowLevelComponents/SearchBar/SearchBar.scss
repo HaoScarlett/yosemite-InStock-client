@@ -7,14 +7,14 @@
 
 .search-bar {
     position: relative;
-    width: 18.4375rem;
+    width: 100%;
 
     @include tablet {
-        width: 11.5625rem; 
+        width: 185px; 
     }
 
     @include desktop {
-        width: 17.125rem; 
+        width: 274px; 
     }
 
 

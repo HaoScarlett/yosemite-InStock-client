@@ -75,7 +75,7 @@ function ItemRow({ item, showWarehouse }) {
         : <MobileView item={item} showWarehouse={showWarehouse} /> 
       }
     </>
-  );
+  );   
 }
 
 export default ItemRow;
