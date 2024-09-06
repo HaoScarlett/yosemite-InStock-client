@@ -24,16 +24,17 @@
 
 //page overlap
 @mixin page-overlap{
-	width: 80%;
+	width: 100%;
     height: auto;
     background-color: $global-white;
     box-shadow: 0rem .125rem .3125rem 0rem $box-shadow;
 	border-radius: 0.25rem;
-	margin: auto;
-    padding: $unit-20 0;
+    padding: 0 1rem 1rem 1rem;
     position: relative;
-    top: -7rem;
+    top: -4rem;
+
 	@include tablet{
-		top: -9rem;
+		padding: 0 2rem 2rem 2rem; 
+		top: -5.5rem;
 	}
 }
