@@ -75,7 +75,7 @@ function Warehouse() {
                         </div>
                     </div>
                 </div>
-                <div className='warehouse__list'><InventoryList id="1" className="hidden" /></div>
+                <div className='warehouse__list'><InventoryList id="2" className="hidden" /></div>
             </section>
             
     </> );

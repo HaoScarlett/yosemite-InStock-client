@@ -36,14 +36,18 @@ function InventoryList({id, className}) {
             <th>CATEGORY</th>
             <th>STATUS</th>
             <th>QTY</th>
-            <th>WAREHOUSE</th>
+            {className !== 'hidden' && <th>WAREHOUSE</th>}
             <th>ACTIONS</th>
             </tr>
         </thead>
         <tbody>
-            {inventoryList.map((inventory) => (
-            <ItemRow key={inventory.id} item={inventory} />
-            ))}
+        {inventoryList.map((inventory) => (
+        <ItemRow 
+            key={inventory.id} 
+            item={inventory} 
+            showWarehouse={className !== 'hidden'} 
+        />
+        ))}
         </tbody>
         </table>
     </div>

@@ -88,6 +88,10 @@
     }
     &__list{
         position: relative;
-        top: 3.2rem;
+        top: 4rem;
+        @include tablet{
+            top: 0.8rem;
+        }
+        
     }
 }

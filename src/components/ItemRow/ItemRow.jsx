@@ -10,7 +10,7 @@ function ItemRow({ item }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const inStock = item.status === 'In Stock' ? true : false;
 
-  const MobileView = ({ item }) => {
+  const MobileView = ({ item, showWarehouse }) => {
     return (
       <div className='item-row'>
         <div className="inventory-item">
@@ -26,7 +26,7 @@ function ItemRow({ item }) {
               <InOutStock inStock={inStock} />
             </span>
             <span data-label="QTY">{item.quantity}</span>
-            <span data-label="Warehouse">{item.warehouse_name}</span>
+            {showWarehouse && <span data-label="Warehouse">{item.warehouse_name}</span>}
           </div></div>
         <div className='actions'>
           <span data-label="Actions" className='actions__wrapper'>
@@ -42,7 +42,7 @@ function ItemRow({ item }) {
     )
   }
 
-  const DesktopView = ({ item }) => {
+  const DesktopView = ({ item, showWarehouse }) => {
     return (
       <>
         <tr className='item-row'>
@@ -55,7 +55,7 @@ function ItemRow({ item }) {
             <InOutStock inStock={inStock} />
           </td>
           <td className='inventory-item__quantity'>{item.quantity}</td>
-          <td className='inventory-item__warehouse'>{item.warehouse_name}</td>
+          {showWarehouse && <td className='inventory-item__warehouse'>{item.warehouse_name}</td>}
           <td className='actions'>
             <button className="delete-btn">
               <img src={deleteIcon} alt="delete button" />
