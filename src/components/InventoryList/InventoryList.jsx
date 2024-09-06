@@ -21,28 +21,33 @@ function InventoryList({id, className}) {//add className and props
     }, [id])
 
     return (
-        <div className={`inventory-list layout ${className || ''}`}>
-            <h1 className='inventory-list__title h1-page-header'>Inventory</h1>
-            <p className={className === 'hidden' ? 'hidden' : ''}><SearchBar className='inventory-list__search' /></p>
-            <table className='inventory-table'>
-                <thead>
-                    <tr className='inventory-header h4-table-header'>
-                        <th>INVENTORY ITEM</th>
-                        <th>CATEGORY</th>
-                        <th>STATUS</th>
-                        <th>QTY</th>
-                        <th>WAREHOUSE</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {inventoryList.map(inventory => (
-                        <ItemRow key={inventory.id} item={inventory} />
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    )
+        <div className="inventory-list layout">
+        {className !== 'hidden' && (
+        <>
+            <h1 className="inventory-list__title">Inventory</h1>
+            <SearchBar className="inventory-list__search" />
+        </>
+        )}
+
+        <table className="inventory-table">
+        <thead>
+            <tr className="inventory-header h4-table-header">
+            <th>INVENTORY ITEM</th>
+            <th>CATEGORY</th>
+            <th>STATUS</th>
+            <th>QTY</th>
+            <th>WAREHOUSE</th>
+            <th>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {inventoryList.map((inventory) => (
+            <ItemRow key={inventory.id} item={inventory} />
+            ))}
+        </tbody>
+        </table>
+    </div>
+    );
 }
 
 export default InventoryList
