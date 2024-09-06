@@ -24,7 +24,14 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Warehouses /> },
+      { path: "/:id", element:<WarehouseDetails />},
+      { path: "/:id/edit", element:<EditWarehouse />},
+      { path: "/:id/new", element:<AddWarehouse />},
+
       { path: "inventory", element: <Inventory /> },
+      { path: "inventory/:id", element:<InventoryDetails />},
+      { path: "inventory/:id/edit", element:<EditInventory />},
+      { path: "inventory/:id/new", element:<AddInventory />},
     ],
   },
   { path: "*", element: <NotFound /> },
