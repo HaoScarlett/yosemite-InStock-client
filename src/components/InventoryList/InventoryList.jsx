@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { fetchInventoryList } from '../../utils/api.js'
 import ItemRow from '../ItemRow/ItemRow.jsx'
+import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx'
 import './InventoryList.scss'
+
 function InventoryList() {
     const [inventoryList, setInventoryList] = useState([])
 
@@ -20,9 +22,8 @@ function InventoryList() {
 
     return (
         <div className='inventory-list layout'>
-            <h1 className='inventory-list__title'>Inventory</h1>
-            <p>Search Bar</p>
-            <p>button</p>
+            <h1 className='inventory-list__title h1-page-header'>Inventory</h1>
+            <SearchBar className='inventory-list__search' />
             <table className='inventory-table'>
                 <thead>
                     <tr className='inventory-header h4-table-header'>
