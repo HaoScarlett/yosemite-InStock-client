@@ -4,11 +4,13 @@ import chevronIcon from '../../assets/Icons/chevron_right-24px.svg'
 import { useMediaQuery } from 'react-responsive';
 import deleteIcon from '../../assets/Icons/delete_outline-24px.svg'
 import editIcon from '../../assets/Icons/edit-24px.svg'
+import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx'
 
 function ItemRow({ item }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
   const MobileView = ({ item }) => {
+    const inStock = item.status === 'In Stock' ? true : false;
     return (
       <div className='item-row'>
         <div className="inventory-item">
@@ -20,8 +22,8 @@ function ItemRow({ item }) {
             <span data-label="Category">{item.category}</span>
           </div>
           <div className='inventory-item__details'>
-            <span data-label="Status" className={`status ${item.status.toLowerCase().replace(' ', '-')}`}>
-              {item.status}
+            <span data-label="Status" className='status'>
+              <InOutStock inStock={inStock} />
             </span>
             <span data-label="QTY">{item.quantity}</span>
             <span data-label="Warehouse">{item.warehouse_name}</span>
@@ -30,10 +32,10 @@ function ItemRow({ item }) {
           <span data-label="Actions" className='actions__wrapper'>
             <button className="delete-btn">
               <img src={deleteIcon} alt="delete button" />
-              </button>
+            </button>
             <button className="edit-btn">
               <img src={editIcon} alt="edit button" />
-              </button>
+            </button>
           </span>
         </div>
       </div>
@@ -49,8 +51,8 @@ function ItemRow({ item }) {
             <img className='icon' src={chevronIcon} alt="chevron icon" />
           </td>
           <td className='inventory-item__category'>{item.category}</td>
-          <td className={`inventory-item__status status ${item.status.toLowerCase().replace(' ', '-')}`}>
-            {item.status}
+          <td className='inventory-item__status status'>
+            <InOutStock inStock={inStock} />
           </td>
           <td className='inventory-item__quantity'>{item.quantity}</td>
           <td className='inventory-item__warehouse'>{item.warehouse_name}</td>
