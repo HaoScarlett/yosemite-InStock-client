@@ -1,25 +1,24 @@
-@use './variables' as *;
-@use './colors' as *;
+@use "./variables" as *;
+@use "./colors" as *;
 
 //media queriy manager
 @mixin tablet {
-	@media (min-width: $tablet-bp) {
-		@content;
-	}
+  @media (min-width: $tablet-bp) {
+    @content;
+  }
 }
 
 @mixin desktop {
-	@media (min-width: $desktop-bp) {
-		@content;
-	}
+  @media (min-width: $desktop-bp) {
+    @content;
+  }
 }
-
 
 //flexbox
 @mixin flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //page overlap
@@ -36,4 +35,37 @@
 	@include tablet{
 		top: -9rem;
 	}
+}
+
+@mixin btn-styles(
+  $bg-color,
+  $border: none,
+  $color: c.$global-white,
+  $hover-bg-color: null,
+  $hover-border-color: null
+) {
+  height: 36px;
+  width: 100%;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  background-color: $bg-color;
+  border: $border;
+  color: $color;
+
+  &:hover {
+    @if $hover-bg-color {
+      background-color: $hover-bg-color;
+    }
+    @if $hover-border-color {
+      border-color: $hover-border-color;
+    }
+  }
+
+  @include tablet {
+    height: 38px;
+    padding-inline: $unit-16;
+    width: fit-content;
+  }
 }
