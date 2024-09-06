@@ -11,4 +11,9 @@ main{
     border-bottom: 1px solid $dividers;
     margin: 0 -1rem;
     padding: 1.5rem 1rem;
+
+    @include tablet{
+        margin: 0 -2rem;
+        padding: 1.5rem 2rem;
+    }
 }

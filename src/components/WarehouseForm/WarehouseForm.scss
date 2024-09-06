@@ -14,6 +14,8 @@ input {
 
 	@include tablet {
 		height: 2.375rem;
+		line-height: 1.375rem;
+		font-size: 0.875rem;
 	}
 }
 
@@ -25,28 +27,72 @@ h2 {
 	margin: 1.5rem 0;
 }
 
-.warehouse-form__details {
-	border-bottom: 0.0625rem solid $outlines;
-	margin: 0 -1rem;
-	padding: 0 1rem 1rem 1rem;
+.warehouse-form {
+	@include tablet {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	& > div {
+		width: 100%;
+        @include tablet{
+            margin-top: 1.5rem;
+        }
+	}
+
+	&__details {
+		border-bottom: 0.0625rem solid $outlines;
+		margin: 0 -1rem;
+		padding: 0 1rem 1rem 1rem;
+
+		@include tablet {
+			border-bottom: none;
+            margin-right: 1.5rem;
+            padding-right: 0;
+		}
+	}
+
+	&__contact {
+		@include tablet {
+			box-sizing: content-box;
+			padding-left: 1.5rem;
+			border-left: 0.0625rem solid $outlines;
+		}
+	}
+
+	&__buttons {
+		background-color: rgba(rgb(247, 248, 249), 0.7);
+		margin: 1rem -1rem -1rem -1rem;
+		padding: 1rem;
+		display: flex;
+		gap: 1rem;
+		width: inherit;
+        @include tablet{
+            margin: 1rem -2rem -2rem -2rem;
+            justify-content: flex-end;
+        }
+		&-cancel {
+			display: block;
+            padding: 0 1rem;
+			background-color: $global-white;
+			border: 0.0625rem solid $outlines;
+			width: 100%;
+			height: 2.25rem;
+			border-radius: 1.25rem;
+			text-align: center;
+			line-height: 2.25rem;
+			color: $placeholder-text;
+
+            @include tablet{
+                width:fit-content;
+            }
+            
+		}
+	}
 }
 
-.warehouse-form__buttons {
-	background-color: rgba(rgb(247, 248, 249), 0.7);
-	margin: 1rem -1rem -1rem -1rem;
-	padding: 1rem;
-    display: flex;
-    gap: 1rem;
-    width: inherit;
-	&-cancel {
-        display: block;
-		background-color: $global-white;
-		border: 0.0625rem solid $outlines;
-		width: 100%;
-        height: 2.25rem;
-		border-radius: 1.25rem;
-        text-align: center;
-        line-height: 2.25rem;
-        color: $placeholder-text;
-	}
+.h2-subheader{
+    @include tablet{
+        margin-top: 0rem;
+    }   
 }

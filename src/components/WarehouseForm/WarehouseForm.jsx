@@ -55,7 +55,7 @@ export default function WarehouseForm(//{ className, onSubmitFunction }
 						/>
 					</label>
 				</div>
-				<div>
+				<div className='warehouse-form__contact'>
 					<h2 className='h2-subheader'>Contact Details</h2>
 					<label htmlFor='contact-name'>
 						<h3 className='h3-labels'>Contact Name</h3>
