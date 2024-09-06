@@ -4,7 +4,7 @@ import ItemRow from '../ItemRow/ItemRow.jsx'
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx'
 import './InventoryList.scss'
 
-function InventoryList() {
+function InventoryList({id, className}) {//add className and props
     const [inventoryList, setInventoryList] = useState([])
 
     useEffect(() => {
@@ -18,12 +18,12 @@ function InventoryList() {
             }
         }
         fetchData();
-    }, [])
+    }, [id])
 
     return (
-        <div className='inventory-list layout'>
+        <div className={`inventory-list layout ${className || ''}`}>
             <h1 className='inventory-list__title h1-page-header'>Inventory</h1>
-            <SearchBar className='inventory-list__search' />
+            <p className={className === 'hidden' ? 'hidden' : ''}><SearchBar className='inventory-list__search' /></p>
             <table className='inventory-table'>
                 <thead>
                     <tr className='inventory-header h4-table-header'>
