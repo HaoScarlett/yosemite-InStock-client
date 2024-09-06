@@ -8,9 +8,9 @@ import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx'
 
 function ItemRow({ item }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+  const inStock = item.status === 'In Stock' ? true : false;
 
   const MobileView = ({ item }) => {
-    const inStock = item.status === 'In Stock' ? true : false;
     return (
       <div className='item-row'>
         <div className="inventory-item">

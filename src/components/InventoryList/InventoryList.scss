@@ -37,10 +37,15 @@
   padding: var.$spacing-small 0;
 }
 
+.inventory-table{
+  width: 100%;
+}
+
 @include m.tablet {
   .inventory-list {
     max-width: 1200px;
     margin: 0 auto;
+    top: -5vh;
     padding: var.$unit-20;
     background-color: c.$global-white;
     border-radius: 4px;

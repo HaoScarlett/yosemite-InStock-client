@@ -5,10 +5,10 @@ import InventoryList from '../../components/InventoryList/InventoryList.jsx'
 
 function Inventory() {
   return (
-    <div>
+    <>
       {/* <InventoryItem/> */}
       <InventoryList />
-    </div>
+    </>
   )
 }
 
