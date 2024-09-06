@@ -20,6 +20,9 @@
   top: -9vh;
   width: 100%;
   padding: var.$spacing-small;
+  &.no-shadow {
+    box-shadow: none; 
+  }
 
   &__title {
     margin-block: var.$spacing-small;
@@ -28,6 +31,9 @@
   &__search {
     margin: 0 auto;
   }
+}
+.hidden{
+  display: none;
 }
 
 .inventory-header {
