@@ -20,8 +20,8 @@
   &__details > span,
   &__name > span {
     padding: 5px 0;
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
     font-size: 0.8125rem;
     line-height: 1.25rem;
   }
@@ -89,15 +89,16 @@
 
 .warehouse-item__name {
   position: relative;
+  display: table-cell;
 }
 
 .warehouse-icon {
   height: 20px;
   width: 20px;
   position: absolute;
-  right: 5%;
-  top: 24%;
-  transform: translateY(-50%);
+  right: 0%;
+  top: 40%;
+  // transform: translateY(-50%);
 }
 
 // does not work

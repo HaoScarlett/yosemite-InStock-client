@@ -1,7 +1,7 @@
 import React from 'react';
 import './WarehouseForm.scss';
 import { Link } from 'react-router-dom';
-import { fetchWarehousesList } from '../../utils/api.js';
+import { fetchWarehouseList } from '/src/utils/api.js';
 import { useEffect, useState } from 'react';
 
 export default function WarehouseForm({ getClassName, onSubmitFunction }) {
@@ -26,7 +26,7 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 	const getWarehouseData = () => {
 		const getResponse = async () => {
 			try {
-				const response = await fetchWarehousesList();
+				const response = await fetchWarehouseList();
 				const responseData = response.data;
 
 				return responseData;

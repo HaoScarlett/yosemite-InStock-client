@@ -8,7 +8,7 @@ function Warehouses() {
     <div>
       <h1>Warehouses Page</h1>
       <WarehouseList />
-      <Warehouse />
+      {/* <Warehouse /> */}
     </div>
   )
 
