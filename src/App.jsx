@@ -8,6 +8,8 @@ import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import AddWarehouse from './pages/AddWarehouse/AddWarehouse.jsx';
 import AddInventory from './pages/AddInventory/AddInventory.jsx';
+import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails.jsx';
+import InventoryDetails from './pages/InventoryDetails/InventoryDetails.jsx';
 // Layout component
 const Layout = () => {
   return (
