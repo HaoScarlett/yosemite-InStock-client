@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer.jsx';
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx';
 import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
 import AddNewInventoryItem from './pages/AddNewInventoryItem/AddNewInventoryItem.jsx';
-
+import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx';
 
 // Layout component
 const Layout = () => {
@@ -29,6 +29,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Warehouses /> },
+      // use for test page:{ index: true, element: <EditWarehouse /> },
       { path: "inventory", element: <Inventory /> },
       { path: "inventory/add", element: <AddNewInventoryItem /> },
       { path: "warehouses/new", element: <NewWarehouse />},
