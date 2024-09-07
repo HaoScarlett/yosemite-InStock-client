@@ -13,6 +13,7 @@ export const fetchInventoryItem = (id) => {
 };
 
 
+
 // Fetch warehouse data
 export const fetchWarehouseList = () => {
 	return axios.get(`${API_URL}/api/warehouses`);
@@ -21,3 +22,7 @@ export const fetchWarehouseList = () => {
 export const fetchWarehouseItem = (id) => {
 	return axios.get(`${API_URL}/api/warehouses/${id}`);
 };
+
+export const postWarehouse = (newWarehouse) =>{
+	return axios.post(`${API_URL}/api/warehouses`, newWarehouse);
+}
