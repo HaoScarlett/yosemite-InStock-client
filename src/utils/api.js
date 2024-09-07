@@ -24,13 +24,17 @@ export const fetchWarehousesList = () =>{
 	return axios.get(`${API_URL}/api/warehouses`);
 }
 
+export const fetchSingleWarehouse = (id) => {
+	return axios.get(`${API_URL}/api/warehouses/${id}`);
+};
+
 export const postWarehouse = (newWarehouse) =>{
 	return axios.post(`${API_URL}/api/warehouses`, newWarehouse);
 }
 
 export const updateWarehouse = async (id, updatedWarehouse) => {
 	try {
-		const response = await api.put(`/api/warehouses/${id}`, updatedWarehouse);
+		const response = await api.put(`${API_URL}/api/warehouses/${id}`, updatedWarehouse);
 		return response.data;
 	} catch (error) {
 		console.error(`Error updating warehouse with ID ${id}:`, error);

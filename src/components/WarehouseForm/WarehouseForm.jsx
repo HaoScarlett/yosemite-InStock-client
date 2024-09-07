@@ -40,19 +40,19 @@ export default function WarehouseForm({ getClassName, onSubmitFunction,initialDa
 	// 	));
 	// }
 
-	const getWarehouseData = () => {
-		const getResponse = async () => {
-			try {
-				const response = await fetchWarehousesList();
-				const responseData = response.data;
+	// const getWarehouseData = () => {
+	// 	const getResponse = async () => {
+	// 		try {
+	// 			const response = await fetchWarehousesList();
+	// 			const responseData = response.data;
 
-				return responseData;
-			} catch (error) {
-				return console.error(error);
-			}
-		};
-		return getResponse();
-	};
+	// 			return responseData;
+	// 		} catch (error) {
+	// 			return console.error(error);
+	// 		}
+	// 	};
+	// 	return getResponse();
+	// };
 	 // Handle input changes
 	const handleChange = (e) => {
         const { name, value } = e.target;
@@ -61,6 +61,12 @@ export default function WarehouseForm({ getClassName, onSubmitFunction,initialDa
             [name]: value,
         });
     };
+
+	const handleSubmit = (event) =>{
+        event.preventDefault();
+        onSubmitFunction(event);
+    }
+
 
 
 	const warehouseNameOption = () => {
@@ -108,16 +114,13 @@ export default function WarehouseForm({ getClassName, onSubmitFunction,initialDa
         }
     }, [getClassName]);
 
-    const handleSubmit = (event) =>{
-        event.preventDefault();
-        onSubmitFunction(event);
-    }
 
 
 	return (
 		<section>
 			<form className='warehouse-form' onSubmit={handleSubmit} id='warehouse-form'>
-                <div className='warehouse-form__details'>
+				<div className='warehouse-form__container'>
+				<div className='warehouse-form__details'>
                     <h2 className='h2-subheader'>Warehouse Details</h2>
 
                     <label htmlFor='warehouse_name'>
@@ -213,14 +216,20 @@ export default function WarehouseForm({ getClassName, onSubmitFunction,initialDa
                         />
                     </label>
                 </div>
+				</div>
 
                 <div className='warehouse-form__buttons'>
-                    <Link to='/' className='warehouse-form__buttons-cancel'>
-                        Cancel
-                    </Link>
-                    <button className='warehouse-form__buttons-submit' type='submit'>
-                        {getClassName === 'warehouse-edit' ? 'Update Warehouse' : 'Add Warehouse'}
-                    </button>
+				<Link to='/' className='warehouse-form__buttons-cancel'>
+                    <CTAButton variant='secondary' text='Cancel' /> 
+                </Link>
+				<Link to='/' className='warehouse-form__buttons-submit'>
+					<CTAButton
+							variant='primary'
+							text={getClassName === 'warehouse-edit' ? 'Save' : 'Add Warehouse'}
+							onClick={handleSubmit} 
+						/>
+				</Link>
+				
                 </div>
             </form>
 		</section>
