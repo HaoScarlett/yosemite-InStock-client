@@ -1,0 +1,28 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.add-inventory {
+  &__title {
+    @include h1-page-header;
+    margin-bottom: 2rem;
+  }
+
+  &__form {
+    margin-bottom: 2rem;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    
+    &__button {
+      @include btn-styles($interactive-elements, $global-white);
+      
+      &.cancel {
+        background-color: $error-states;
+      }
+    }
+  }
+}

@@ -1,19 +1,43 @@
 import React from 'react';
 import './ItemDetailsForm.scss';
 
-function ItemDetailsForm({ itemName, desc, category, setItemName, setDesc, setCategory }) {
+function ItemDetailsForm({ 
+  itemName, 
+  desc, 
+  category, 
+  setItemName, 
+  setDesc, 
+  setCategory 
+}) {
+
+  
   return (
-    <div className="item-details">
-      <h2>Item Details</h2>
+    <div className="details">
+      <h2 className="details__title">Item Details</h2>
 
-      <label>Item Name</label>
-      <input type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} placeholder="Item Name" />
+      <label className="details__label">Item Name</label>
+      <input
+        type="text"
+        className="details__input"
+        value={itemName}
+        onChange={(e) => setItemName(e.target.value)}
+        placeholder="Item Name"
+      />
 
-      <label>Description</label>
-      <textarea value={desc} onChange={(e) => setDesc(e.target.value)} placeholder="Description" />
+      <label className="details__label">Description</label>
+      <textarea
+        className="details__textarea"
+        value={desc}
+        onChange={(e) => setDesc(e.target.value)}
+        placeholder="Enter a brief item description..."
+      />
 
-      <label>Category</label>
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <label className="details__label">Category</label>
+      <select
+        className="details__select"
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
         <option value="">Select Category</option>
         <option value="Electronics">Electronics</option>
         <option value="Apparel">Apparel</option>

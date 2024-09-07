@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './AddNewInventoryItem.scss';
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
-import ItemDetailsForm from './ItemDetailsForm';
-import ItemAvailabilityForm from './ItemAvailabilityForm';
-import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';  // 保留的 WarehouseForm 组件
+import ItemDetailsForm from '../../components/ItemDetailsForm/ItemDetailsForm';
+import ItemAvailabilityForm from '../../components/ItemAvailabilityForm/ItemAvailabilityForm';
+import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';  
 
 function AddNewInventoryItem() {
-  const api = process.env.REACT_APP_API_URL;
+  const api = import.meta.env.VITE_API_URL; 
   const navigate = useNavigate();
 
   const [itemName, setItemName] = useState('');
@@ -17,6 +16,13 @@ function AddNewInventoryItem() {
   const [status, setStatus] = useState('In Stock');
   const [quantity, setQuantity] = useState('');
   const [selectWarehouse, setSelectWarehouse] = useState('');
+  const [warehouses, setWarehouses] = useState([]);
+
+  useEffect(() => {
+    axios.get(`${api}/warehouses`)
+      .then((response) => setWarehouses(response.data))
+      .catch((error) => console.error('Error fetching warehouses:', error));
+  }, [api]);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -27,13 +33,12 @@ function AddNewInventoryItem() {
     }
 
     const newInventoryItem = {
-      id: uuidv4(),
       warehouse_id: selectWarehouse,
       item_name: itemName,
       description: desc,
       category: category,
       status: status,
-      quantity: quantity || 0,
+      quantity: status === 'In Stock' ? quantity : 0,
     };
 
     try {
@@ -46,10 +51,10 @@ function AddNewInventoryItem() {
   };
 
   return (
-    <section className="container">
-      <h1>Add New Inventory Item</h1>
-      <form onSubmit={handleFormSubmit}>
-        {/* 使用自己创建的 ItemDetailsForm 处理物品基础信息 */}
+    <section className="add-inventory">
+      <h1 className="add-inventory__title">Add New Inventory Item</h1>
+      <form className="add-inventory__form" onSubmit={handleFormSubmit}>
+        
         <ItemDetailsForm
           itemName={itemName}
           desc={desc}
@@ -58,21 +63,21 @@ function AddNewInventoryItem() {
           setDesc={setDesc}
           setCategory={setCategory}
         />
-        
-        {/* 使用自己创建的 ItemAvailabilityForm 处理库存信息 */}
+
         <ItemAvailabilityForm
           status={status}
           quantity={quantity}
           setStatus={setStatus}
           setQuantity={setQuantity}
-        />
-        
-        {/* 使用团队的 WarehouseForm 处理仓库选择 */}
-        <WarehouseForm
-          onChange={(e) => setSelectWarehouse(e.target.value)}
+          warehouses={warehouses}
+          selectWarehouse={selectWarehouse}
+          setSelectWarehouse={setSelectWarehouse}
         />
 
-        <button type="submit">+ Add Item</button>
+        <div className="add-inventory__buttons">
+          <button type="submit" className="add-inventory__button add">+ Add Item</button>
+          <button type="button" className="add-inventory__button cancel" onClick={() => navigate('/inventory')}>Cancel</button>
+        </div>
       </form>
     </section>
   );
