@@ -7,6 +7,8 @@ function NewWarehouse() {
 
     const onSubmit = (event)=>{
         console.log("Event", event.target);
+        console.log(event.target.warehouse__name.value);
+        
     }
 
 	return (
@@ -17,7 +19,7 @@ function NewWarehouse() {
 					url='/'
 				/>
 			</div>
-            <WarehouseForm getClassName="warehouse-edit" onSubmitFunction={onSubmit}/>
+            <WarehouseForm getClassName="warehouse-add" onSubmitFunction={onSubmit}/>
 		</main>
 	);
 }

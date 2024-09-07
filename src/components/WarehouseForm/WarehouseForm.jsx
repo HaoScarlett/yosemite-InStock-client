@@ -41,10 +41,10 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 		if (getClassName === 'warehouse-edit') {
 			return (
 				<select
-					id='warehouse-name'
-					name='warehouse-name'
+					id='warehouse__name'
+					name='warehouse__name'
                     defaultValue="default"
-					required
+					
 				>
 					<option
 						value='default'
@@ -60,10 +60,10 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 			return (
 				<input
 					type='text'
-					name='warehouse-name'
-					id='warehouse-name'
+					name='warehouse__name'
+					id='warehouse__name'
 					placeholder='Warehouse Name'
-					required
+					
 				/>
 			);
 		}
@@ -95,81 +95,81 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 			>
 				<div className='warehouse-form__details'>
 					<h2 className='h2-subheader'>Warehouse Details</h2>
-					<label htmlFor='warehouse-name'>
+					<label htmlFor='warehouse__name'>
 						<h3 className='h3-labels'>Warehouse Name</h3>
 						{warehouseNameOption()}
 					</label>
-					<label htmlFor='warehouse-address'>
+					<label htmlFor='warehouse__address'>
 						<h3 className='h3-labels'>Street Address</h3>
 						<input
 							type='text'
-							name='warehouse-address'
-							id='warehouse-address'
+							name='warehouse__address'
+							id='warehouse__address'
 							placeholder='Street Address'
-							required
+							
 						/>
 					</label>
-					<label htmlFor='warehouse-city'>
+					<label htmlFor='warehouse__city'>
 						<h3 className='h3-labels'>City</h3>
 						<input
 							type='text'
-							name='warehouse-city'
-							id='warehouse-city'
+							name='warehouse__city'
+							id='warehouse__city'
 							placeholder='City'
-							required
+							
 						/>
 					</label>
-					<label htmlFor='warehouse-country'>
+					<label htmlFor='warehouse__country'>
 						<h3 className='h3-labels'>Country</h3>
 						<input
 							type='text'
-							name='warehouse-country'
-							id='warehouse-country'
+							name='warehouse__country'
+							id='warehouse__country'
 							placeholder='Country'
-							required
+							
 						/>
 					</label>
 				</div>
 				<div className='warehouse-form__contact'>
 					<h2 className='h2-subheader'>Contact Details</h2>
-					<label htmlFor='contact-name'>
+					<label htmlFor='contact__name'>
 						<h3 className='h3-labels'>Contact Name</h3>
 						<input
 							type='text'
-							name='contact-name'
-							id='contact-name'
+							name='contact__name'
+							id='contact__name'
 							placeholder='Contact Name'
-							required
+							
 						/>
 					</label>
-					<label htmlFor='contact-position'>
+					<label htmlFor='contact__position'>
 						<h3 className='h3-labels'>Position</h3>
 						<input
 							type='text'
-							name='contact-position'
-							id='contact-position'
+							name='contact__position'
+							id='contact__position'
 							placeholder='Position'
-							required
+							
 						/>
 					</label>
-					<label htmlFor='contact-tel'>
+					<label htmlFor='contact__tel'>
 						<h3 className='h3-labels'>Phone Number</h3>
 						<input
 							type='tel'
-							name='contact-tel'
-							id='contact-tel'
+							name='contact__tel'
+							id='contact__tel'
 							placeholder='Phone Number'
-							required
+							
 						/>
 					</label>
-					<label htmlFor='contact-email'>
+					<label htmlFor='contact__email'>
 						<h3 className='h3-labels'>Email</h3>
 						<input
 							type='email'
-							name='contact-email'
-							id='contact-email'
+							name='contact__email'
+							id='contact__email'
 							placeholder='Email'
-							required
+							
 						/>
 					</label>
 				</div>
