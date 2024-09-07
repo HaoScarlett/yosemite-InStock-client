@@ -12,6 +12,10 @@ export const fetchInventoryItem = (id) => {
 	return axios.get(`${API_URL}/api/inventories/${id}`);
 };
 
+export const updateInventoryItem = (id) => {
+	return axios.put(`${API_URL}/api/inventories/${id}`);
+}
+
 export const fetchWarehousesList = () =>{
 	return axios.get(`${API_URL}/api/warehouses`);
 }

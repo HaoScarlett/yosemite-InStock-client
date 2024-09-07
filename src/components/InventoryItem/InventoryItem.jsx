@@ -40,7 +40,7 @@ export default function InventoryItem({ itemId, inventoryItem }) {
 		<section className='inventory'>
 			<div className='inventory__header'>
 				<SectionHeader text={item_name} url="/inventory" />
-				<EditButton />
+				<EditButton to="/inventory/:id/edit" />
 			</div>
 			<div className='inventory__body'>
 				<div>

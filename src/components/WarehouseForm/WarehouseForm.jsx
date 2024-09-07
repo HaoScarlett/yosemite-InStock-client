@@ -1,7 +1,7 @@
 import React from 'react';
 import './WarehouseForm.scss';
 import { Link } from 'react-router-dom';
-import { fetchWarehousesList } from '../../utils/api.js';
+import { fetchWarehousesList } from '/src/utils/api.js';
 import { useEffect, useState } from 'react';
 
 export default function WarehouseForm({ getClassName, onSubmitFunction }) {
