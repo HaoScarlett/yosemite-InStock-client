@@ -14,6 +14,7 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
         contact_phone: '',
         contact_email: ''
     });
+	
 
 	// Pre-populate form data if initialData is provided (for edit mode)
     useEffect(() => {
