@@ -4,6 +4,7 @@ import { fetchInventoryItem, updateInventoryItem, fetchInventoryCategory, fetchW
 import { isInStock } from '../../utils/dataValidation.js'
 import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton.jsx'
 import SectionHeader from '../../components/LowLevelComponents/SectionHeader/SectionHeader.jsx'
+import './InventoryEditForm.scss'
 
 export default function InventoryEditForm() {
     const [item, setItem] = useState({});
@@ -18,9 +19,6 @@ export default function InventoryEditForm() {
     useEffect(() => {
         const loadItem = async () => {
             try {
-                // const editItem = await fetchInventoryItem(id);
-                // const fetchedCategories = await fetchInventoryCategory();
-                // const fetchedWarehouses = await fetchWarehousesList();
                 const [editItem, fetchedCategories, fetchedWarehouses] = await Promise.all([
                     fetchInventoryItem(id),
                     fetchInventoryCategory(),
@@ -87,11 +85,11 @@ export default function InventoryEditForm() {
         <>
             <SectionHeader text={'Edit Inventory Item'} url={`/inventory/${id}`} />
             {error && <div className="error-message">{error}</div>}
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit} className='layout'>
                 <div className='item-form__details'>
                     <h2 className='h2-subheader'>Item Details</h2>
                     <label htmlFor="item_name">
-                        <h3 className="item-name"></h3>
+                        <h3 className="item-name">Item Name</h3>
                         <input type="text"
                             name='item_name'
                             id='item_name'
@@ -114,6 +112,7 @@ export default function InventoryEditForm() {
                         ></textarea>
                     </label>
                     <label htmlFor="category">
+                        <h3>Category</h3>
                         <select name="category" id="category"
                             value={item.category || ''}
                             onChange={handleChange}
