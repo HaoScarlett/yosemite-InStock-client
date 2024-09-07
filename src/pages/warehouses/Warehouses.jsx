@@ -6,7 +6,6 @@ import WarehouseForm from '../../components/WarehouseForm/WarehouseForm.jsx'
 function Warehouses() {
   return (
     <div>
-      <h1>Warehouses Page</h1>
       {/* <Warehouse /> */}
       <WarehouseForm />
     </div>

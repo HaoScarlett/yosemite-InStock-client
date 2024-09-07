@@ -1,5 +1,6 @@
 @use '../../styles/partials/colors.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables' as *;
 
 input {
 	height: 2.25rem;
@@ -121,3 +122,26 @@ h2 {
         margin-top: 0rem;
     }   
 }
+
+.input-error {
+    border: 2px solid $error-states;
+}
+
+.error-text {
+    color: $error-states; 
+	font-weight: 400;
+	font-size: small;
+    margin-top: 5px;
+}
+.error-icon{
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-top: .125rem;
+	margin-right: .3rem;
+}
+
+.error-message-container {
+    display: flex;
+    align-items: center;
+}
+
