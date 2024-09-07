@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchInventoryList } from '../../utils/api.js';
 import ItemRow from '../ItemRow/ItemRow.jsx';
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx';
+import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
 
 function InventoryList({ id, className, inventoryList, onItemClick }) {
