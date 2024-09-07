@@ -84,7 +84,7 @@ function NewWarehouse() {
             return console.log("Invalid Phone Number.");
         }
 
-		const NewWarehouse = {
+		const newWarehouse = {
 			warehouse_name: warehouse__name.value,
 			address: warehouse__address.value,
 			city: warehouse__city.value,
@@ -94,8 +94,7 @@ function NewWarehouse() {
 			contact_phone: formattedPhoneNumber,
 			contact_email: contact__email.value,
 		};
-
-
+        console.log(postWarehouse(newWarehouse));
 	};
 
 	return (
