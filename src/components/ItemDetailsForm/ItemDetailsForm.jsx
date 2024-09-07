@@ -13,12 +13,12 @@ function ItemDetailsForm({
   
   return (
     <div className="details">
-      <h2 className="details__title">Item Details</h2>
+      <h2 className="details__title h2-subheader">Item Details</h2>
 
-      <label className="details__label">Item Name</label>
+      <label className="details__label h3-labels">Item Name</label>
       <input
         type="text"
-        className="details__input"
+        className="details__input p2-body-medium"
         value={itemName}
         onChange={(e) => setItemName(e.target.value)}
         placeholder="Item Name"
@@ -32,7 +32,7 @@ function ItemDetailsForm({
         placeholder="Enter a brief item description..."
       />
 
-      <label className="details__label">Category</label>
+      <label className="details__label h3-labels">Category</label>
       <select
         className="details__select"
         value={category}

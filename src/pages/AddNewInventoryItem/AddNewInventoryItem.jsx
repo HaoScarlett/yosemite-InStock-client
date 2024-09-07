@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ItemDetailsForm from '../../components/ItemDetailsForm/ItemDetailsForm';
 import ItemAvailabilityForm from '../../components/ItemAvailabilityForm/ItemAvailabilityForm';
-import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';  
+import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton';  // 引入 CTAButton
 
 function AddNewInventoryItem() {
   const api = import.meta.env.VITE_API_URL; 
@@ -52,7 +52,7 @@ function AddNewInventoryItem() {
 
   return (
     <section className="add-inventory">
-      <h1 className="add-inventory__title">Add New Inventory Item</h1>
+      <h1 className="add-inventory__title h1-page-header">Add New Inventory Item</h1>
       <form className="add-inventory__form" onSubmit={handleFormSubmit}>
         
         <ItemDetailsForm
@@ -75,8 +75,8 @@ function AddNewInventoryItem() {
         />
 
         <div className="add-inventory__buttons">
-          <button type="submit" className="add-inventory__button add">+ Add Item</button>
-          <button type="button" className="add-inventory__button cancel" onClick={() => navigate('/inventory')}>Cancel</button>
+          <CTAButton text={'+ Add item'} variant="primary" onClick={handleFormSubmit} />
+          <CTAButton text={'Cancel'} variant="delete" onClick={() => navigate('/inventory')} />
         </div>
       </form>
     </section>

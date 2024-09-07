@@ -1,18 +1,18 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/typography" as *;  
+@use "../../styles/partials/variables" as *;  
 
 .item-details {
   margin-bottom: 1.5rem;
 
   h2 {
     margin-bottom: 1rem;
-    @include typography.h2-subheader; 
+    color: $global-text;
   }
 
   label {
     display: block;
     margin-bottom: 0.5rem;
-    font-weight: 600;
     color: $global-text; 
   }
 
@@ -21,7 +21,6 @@
     padding: 0.75rem;
     border: 1px solid $outlines; 
     border-radius: 0.25rem;
-    font-size: $unit-14;
     margin-bottom: 1rem;
     
     &:focus {

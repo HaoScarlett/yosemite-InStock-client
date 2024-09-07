@@ -14,9 +14,9 @@ function ItemAvailabilityForm({
   
   return (
     <div className="availability">
-      <h2 className="availability__title">Item Availability</h2>
+      <h2 className="availability__title h2-subheader">Item Availability</h2>
 
-      <label className="availability__label">Status</label>
+      <label className="availability__label h3-labels">Status</label>
       <div className="availability__radio-group">
         <input
           type="radio"
@@ -24,7 +24,7 @@ function ItemAvailabilityForm({
           checked={status === 'In Stock'}
           onChange={() => setStatus('In Stock')}
         />
-        <label>In Stock</label>
+        <label className='p2-body-medium'>In Stock</label>
 
         <input
           type="radio"
@@ -32,15 +32,15 @@ function ItemAvailabilityForm({
           checked={status === 'Out of Stock'}
           onChange={() => setStatus('Out of Stock')}
         />
-        <label>Out of Stock</label>
+        <label className='p2-body-medium'>Out of Stock</label>
       </div>
 
       {status === 'In Stock' && (
         <>
-          <label className="availability__label">Quantity</label>
+          <label className="availability__label h3-labels">Quantity</label>
           <input
             type="number"
-            className="availability__input"
+            className="availability__input className='p2-body-medium'"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
             placeholder="0"
@@ -48,9 +48,9 @@ function ItemAvailabilityForm({
         </>
       )}
 
-      <label className="availability__label">Warehouse</label>
+      <label className="availability__label h3-labels">Warehouse</label>
       <select
-        className="availability__select"
+        className="availability__select p2-body-medium"
         value={selectWarehouse}
         onChange={(e) => setSelectWarehouse(e.target.value)}
       >
