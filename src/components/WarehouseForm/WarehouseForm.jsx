@@ -13,7 +13,6 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 			(warehouse) => warehouse.warehouse_name
 		);
 
-		console.log(warehouseNames);
 		return warehouseNames.map((warehouseName) => (
 			<option
 				key={warehouseName}
@@ -29,7 +28,6 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 			try {
 				const response = await fetchWarehousesList();
 				const responseData = response.data;
-				console.log(responseData);
 
 				return responseData;
 			} catch (error) {
@@ -45,11 +43,11 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 				<select
 					id='warehouse-name'
 					name='warehouse-name'
+                    defaultValue="default"
 					required
 				>
 					<option
-						value=''
-						selected
+						value='default'
 						disabled
 						hidden
 					>
@@ -82,11 +80,17 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 		}
 	}, []);
 
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        onSubmitFunction(event);
+    }
+
+
 	return (
 		<section>
 			<form
 				className='warehouse-form'
-				onSubmit={onSubmitFunction}
+				onSubmit={handleSubmit}
 				id='warehouse-form'
 			>
 				<div className='warehouse-form__details'>
@@ -173,7 +177,11 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 			<div className='warehouse-form__buttons'>
 				<Link className='warehouse-form__buttons-cancel'>Cancel</Link>
 				{/* Change buttons depending on what form */}
-				<button className='warehouse-form__buttons-cancel'>
+				<button
+					className='warehouse-form__buttons-cancel'
+					form='warehouse-form'
+					type='submit'
+				>
 					Add Warehouse
 				</button>
 			</div>

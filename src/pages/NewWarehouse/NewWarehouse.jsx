@@ -5,8 +5,8 @@ import './NewWarehouse.scss';
 
 function NewWarehouse() {
 
-    const onSubmit = ()=>{
-        alert("Form has been submitted");
+    const onSubmit = (event)=>{
+        console.log("Event", event.target);
     }
 
 	return (
