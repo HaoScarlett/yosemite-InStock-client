@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import WarehouseList from '../../components/WarehouseList/WarehouseList.jsx';
+
 function Warehouses() {
   return (
-    <div>
-      <h1>Warehouses Page</h1>
-    </div>
-  )
+    <>
+      <WarehouseList />
+    </>
+  );
 }
 
-export default Warehouses
+export default Warehouses;

@@ -1,0 +1,121 @@
+@use "../../styles/partials/_colors.scss" as c;
+@use "../../styles/partials/_mixins.scss" as m;
+@use "../../styles/partials/_variables.scss" as var;
+
+.warehouse-list {
+  height: auto;
+  background-color: c.$global-white;
+  box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
+  border-radius: 4px;
+  margin: auto;
+  position: relative;
+  top: -9vh;
+  width: 100%;
+  padding: var.$spacing-small;
+
+  &__title {
+    margin-block: var.$spacing-small;
+  }
+
+  &__search {
+    margin: 0 auto;
+  }
+}
+
+.warehouse-header {
+  display: none;
+  font-weight: bold;
+  background-color: c.$global-white;
+  padding: var.$spacing-small 0;
+}
+
+.warehouse-table {
+  width: 100%;
+}
+
+.warehouse-item-row {
+  padding: 0;
+  margin-block: var.$spacing-small;
+}
+
+@include m.tablet {
+  .warehouse-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    top: -5vh;
+    padding: var.$unit-20;
+    background-color: c.$global-white;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .warehouse-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var.$spacing-small;
+  }
+
+  .warehouse-header {
+    display: contents;
+  }
+
+  .warehouse-header th {
+    padding: var.$spacing-small;
+    background-color: #f4f4f4;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+
+  .warehouse-item-row td {
+    padding: var.$spacing-small;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+
+  .warehouse-item__name {
+    display: flex;
+    align-items: center;
+  }
+
+  .warehouse-item__name .item-name {
+    margin-right: var.$spacing-xsmall;
+    font-weight: bold;
+    color: c.$interactive-elements;
+    text-decoration: none;
+  }
+
+  .warehouse-item__name .icon {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 20%;
+  }
+
+  .warehouse-item__category,
+  .warehouse-item__contact,
+  .warehouse-item__address,
+  .warehouse-item__contact-info {
+    text-align: left;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .actions .delete-btn,
+  .actions .edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .actions .delete-btn:hover,
+  .actions .edit-btn:hover {
+    transform: scale(1.1);
+  }
+}
