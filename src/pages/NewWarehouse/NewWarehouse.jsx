@@ -4,6 +4,11 @@ import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
 import './NewWarehouse.scss';
 
 function NewWarehouse() {
+
+    const onSubmit = ()=>{
+        alert("Form has been submitted");
+    }
+
 	return (
 		<main>
 			<div className='new-warehouse__header'>
@@ -12,7 +17,7 @@ function NewWarehouse() {
 					url='/'
 				/>
 			</div>
-            <WarehouseForm />
+            <WarehouseForm getClassName="warehouse-edit" onSubmitFunction={onSubmit}/>
 		</main>
 	);
 }

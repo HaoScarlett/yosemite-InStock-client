@@ -17,6 +17,26 @@ input {
 		line-height: 1.375rem;
 		font-size: 0.875rem;
 	}
+
+    &:focus {
+		outline: none;
+		border: 1px solid $interactive-elements;
+	}
+}
+
+select{
+    @extend input;
+    padding: 0 0 0 1rem;
+    color: $placeholder-text;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+option{
+    line-height: 1.25rem;
+	font-size: 0.8125rem;
+	font-weight: 400;
+    color: $global-text;
 }
 
 h3 {

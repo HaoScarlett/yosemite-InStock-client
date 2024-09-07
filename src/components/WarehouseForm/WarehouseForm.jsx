@@ -1,28 +1,99 @@
 import React from 'react';
 import './WarehouseForm.scss';
 import { Link } from 'react-router-dom';
+import { fetchWarehousesList } from '../../utils/api.js';
+import { useEffect, useState } from 'react';
 
-export default function WarehouseForm(//{ className, onSubmitFunction }
-    ) {
+export default function WarehouseForm({ getClassName, onSubmitFunction }) {
+	const [dropdownOptions, setDropdownOptions] = useState([]);
+
+	async function editDropdown() {
+		const responseData = await getWarehouseData();
+		const warehouseNames = responseData.map(
+			(warehouse) => warehouse.warehouse_name
+		);
+
+		console.log(warehouseNames);
+		return warehouseNames.map((warehouseName) => (
+			<option
+				key={warehouseName}
+				value={warehouseName}
+			>
+				{warehouseName}
+			</option>
+		));
+	}
+
+	const getWarehouseData = () => {
+		const getResponse = async () => {
+			try {
+				const response = await fetchWarehousesList();
+				const responseData = response.data;
+				console.log(responseData);
+
+				return responseData;
+			} catch (error) {
+				return console.error(error);
+			}
+		};
+		return getResponse();
+	};
+
+	const warehouseNameOption = () => {
+		if (getClassName === 'warehouse-edit') {
+			return (
+				<select
+					id='warehouse-name'
+					name='warehouse-name'
+					required
+				>
+					<option
+						value=''
+						selected
+						disabled
+						hidden
+					>
+						Warehouse Name
+					</option>
+					{dropdownOptions}
+				</select>
+			);
+		} else {
+			return (
+				<input
+					type='text'
+					name='warehouse-name'
+					id='warehouse-name'
+					placeholder='Warehouse Name'
+					required
+				/>
+			);
+		}
+	};
+
+	useEffect(() => {
+		const fetchDropdownOptions = async () => {
+			const dropdown = await editDropdown();
+			setDropdownOptions(dropdown); //
+		};
+
+		if (getClassName === 'warehouse-edit') {
+			fetchDropdownOptions();
+		}
+	}, []);
+
 	return (
 		<section>
 			<form
 				className='warehouse-form'
-				// onSubmit={onSubmitFunction}
+				onSubmit={onSubmitFunction}
 				id='warehouse-form'
 			>
 				<div className='warehouse-form__details'>
 					<h2 className='h2-subheader'>Warehouse Details</h2>
 					<label htmlFor='warehouse-name'>
-                        {/* Add option here that is drop down of names if it is editing a warehouse */}
 						<h3 className='h3-labels'>Warehouse Name</h3>
-						<input
-							type='text'
-							name='warehouse-name'
-							id='warehouse-name'
-							placeholder='Warehouse Name'
-							required
-						/>
+						{warehouseNameOption()}
 					</label>
 					<label htmlFor='warehouse-address'>
 						<h3 className='h3-labels'>Street Address</h3>
@@ -101,8 +172,10 @@ export default function WarehouseForm(//{ className, onSubmitFunction }
 			</form>
 			<div className='warehouse-form__buttons'>
 				<Link className='warehouse-form__buttons-cancel'>Cancel</Link>
-                {/* Change buttons depending on what form */}
-				<button className='warehouse-form__buttons-cancel'>Add Warehouse</button>
+				{/* Change buttons depending on what form */}
+				<button className='warehouse-form__buttons-cancel'>
+					Add Warehouse
+				</button>
 			</div>
 		</section>
 	);
