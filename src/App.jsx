@@ -2,12 +2,14 @@ import React from 'react';
 import './App.scss';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Warehouses from './pages/warehouses/Warehouses.jsx';
-import Inventory from './pages/inventory/inventory';
+import Inventory from './pages/inventory/Inventory';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx';
 import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
+import AddNewInventoryItem from './pages/AddNewInventoryItem/AddNewInventoryItem.jsx';
+
 
 // Layout component
 const Layout = () => {

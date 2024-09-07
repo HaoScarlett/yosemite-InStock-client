@@ -1,14 +1,12 @@
 @use "../../styles/partials/colors" as *;
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/mixins" as *;
-
+@use "../../styles/partials/typography" as *;  
 
 .item-details {
   margin-bottom: 1.5rem;
 
   h2 {
     margin-bottom: 1rem;
-    @include h2-subheader; 
+    @include typography.h2-subheader; 
   }
 
   label {
