@@ -3,7 +3,6 @@ import './InventoryItem.scss';
 import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx';
 import SectionHeader from '../LowLevelComponents/SectionHeader/SectionHeader.jsx';
 import EditButton from '../LowLevelComponents/Editbutton/Editbutton.jsx';
-import { fetchInventoryItem } from '../../utils/api.js';
 
 export default function InventoryItem({ itemId, inventoryItem }) {
 	// const [inventoryItem, setInventoryItem] = useState({});
