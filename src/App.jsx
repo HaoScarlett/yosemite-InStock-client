@@ -8,6 +8,7 @@ import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx';
 import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
+import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx';
 
 // Layout component
 const Layout = () => {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Warehouses /> },
+      // use for test page:{ index: true, element: <EditWarehouse /> },
       { path: "inventory", element: <Inventory /> },
       { path: "warehouses/new", element: <NewWarehouse />},
       { path: "inventory/:id", element: <Inventory /> }
