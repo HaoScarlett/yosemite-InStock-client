@@ -4,14 +4,14 @@
 @use "../../styles/partials/_typography.scss" as t;
 
 .warehouse-item-row {
-  border-bottom: 1px solid c.$borders;
-  width: inherit;
+  border-bottom: .0625rem solid c.$borders;
+  width: 100%;
 }
 
 .warehouse-item {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: .625rem;
+  
 
   &__details {
     margin: 0 auto;
@@ -19,10 +19,16 @@
 
   &__details > span,
   &__name > span {
-    padding: 5px 0;
+    padding: .3125rem 0;
     font-size: 0.8125rem;
     line-height: 1.25rem;
   }
+}
+
+.warehouse-item__name{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 50%;
 }
 
 label{
@@ -36,8 +42,8 @@ label{
 }
 
 .warehouse-status {
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: .1875rem .5rem;
+  border-radius: .25rem;
   display: inline-block;
 }
 
@@ -47,7 +53,7 @@ label{
   &__wrapper {
     display: flex;
     justify-content: space-between;
-    padding-right: var.$spacing-small; //add
+    padding: 0 1rem;
   }
 }
 
@@ -56,7 +62,7 @@ label{
     &__details > span,
     &__name > span {
       flex: 1;
-      padding: 10px;
+      padding: .625rem;
     }
 
     &__details > span:before,
@@ -73,7 +79,6 @@ label{
       flex-direction: column; 
       gap: var.$spacing-xsmall; 
       white-space: normal; 
-      padding-right: 16px; //do not work
     }
   }
 
@@ -88,14 +93,18 @@ label{
 }
 
 .warehouse-icon {
-  height: 20px;
-  width: 20px;
+  height: 1.25rem;
+  width: 1.25rem;
   position: absolute;
   right: 0%;
   top: 40%;
-  // transform: translateY(-50%);
 }
 
 .warehouse-item__name-link{
   display: flex;
+  align-items: center;
+}
+
+a{
+  color: c.$interactive-elements;
 }

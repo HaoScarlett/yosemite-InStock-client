@@ -6,6 +6,7 @@
 
 .warehouse-list {
 	@include m.page-overlap;
+  padding: 0rem;
 
 	&__title {
 		padding-top: 32px;
@@ -32,6 +33,10 @@
 	}
 }
 
+.warehouse-list__header{
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 
 .warehouse-header {
 	display: none;
@@ -43,6 +48,7 @@
 .warehouse-table {
 	width: 100%;
   margin-left: -1rem;
+  padding-left: 1rem;
 }
 
 .warehouse-item-row {
@@ -59,6 +65,7 @@
 		background-color: c.$global-white;
 		border-radius: 4px;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 	}
 
 	.warehouse-table {
@@ -133,5 +140,5 @@
 }
 
 .warehouse-body{
-  margin-left: -1rem;
+  width: 100%;
 }

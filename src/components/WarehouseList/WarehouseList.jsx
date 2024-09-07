@@ -22,9 +22,18 @@ function WarehouseList() {
 
 	return (
 		<div className='warehouse-list'>
-			<h1 className='warehouse-list__title h1-page-header'>Warehouses</h1>
-			<SearchBar className='warehouse-list__search' />
-			<Link to='/warehouses/new' className='warehouse-list__add-link'>+ Add New Warehouse</Link>
+			<div className='warehouse-list__header'>
+				<h1 className='warehouse-list__title h1-page-header'>
+					Warehouses
+				</h1>
+				<SearchBar className='warehouse-list__search' />
+				<Link
+					to='/warehouses/new'
+					className='warehouse-list__add-link'
+				>
+					+ Add New Warehouse
+				</Link>
+			</div>
 			<table className='warehouse-table'>
 				<thead>
 					<tr className='warehouse-header h4-table-header'>

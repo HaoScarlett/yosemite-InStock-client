@@ -33,14 +33,14 @@ function WarehouseItemRow({ warehouse }) {
 							</Link>
 						</div>
             <label>ADDRESS</label>
-						<div data-label='Address'>
+						<div data-label='Address' className='p2-body-medium'>
 							{warehouse.address}, {warehouse.city},{' '}
 							{warehouse.country}
 						</div>
 					</div>
 					<div className='warehouse-item__details'>
 						<label>CONTACT NAME</label>
-						<div data-label='Contact Name'>
+						<div data-label='Contact Name' className='p2-body-medium'>
 							{warehouse.contact_name}
 						</div>
 						<div
@@ -48,10 +48,10 @@ function WarehouseItemRow({ warehouse }) {
 							className='warehouse-item__contact-info'
 						>
 							<label>CONTACT INFORMATION</label>
-							<p className='warehouse-item__contact-info--phone'>
+							<p className='warehouse-item__contact-info--phone p2-body-medium'>
 								{warehouse.contact_phone}
 							</p>
-							<p className='warehouse-item__contact-info--email'>
+							<p className='warehouse-item__contact-info--email p2-body-medium'>
 								{warehouse.contact_email}
 							</p>
 						</div>
