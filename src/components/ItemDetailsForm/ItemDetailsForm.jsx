@@ -10,6 +10,10 @@ function ItemDetailsForm({
   setItemName,
   setDesc,
   setCategory,
+  submit,
+  itemNameError,
+  descError,
+  categoryError
 }) {
   
   return (
@@ -21,30 +25,32 @@ function ItemDetailsForm({
       </label>
       <input
         type="text"
-        className="details__input p2-body-medium"
+        className={`details__input p2-body-medium ${submit && itemNameError ? 'error' : ''}`}
         name="itemName"
         value={itemName}
         onChange={(e) => setItemName(e.target.value)}
         placeholder="Item Name"
       />
+      {submit && itemNameError && <InventoryItemErrorState />}
 
       <label htmlFor="desc" className="details__label h3-labels">
         Description
       </label>
       <textarea
         type="text"
-        className="details__desc-input p2-body-medium"
+        className={`details__desc-input p2-body-medium ${submit && descError ? 'error' : ''}`}
         name="desc"
         value={desc}
         onChange={(e) => setDesc(e.target.value)}
         placeholder="Enter a brief item description..."
       />
+      {submit && descError && <InventoryItemErrorState />}
 
       <label htmlFor="category" className="details__label h3-labels">
         Category
       </label>
       <select
-        className="details__select p2-body-medium"
+        className={`details__select p2-body-medium ${submit && categoryError ? 'error' : ''}`}
         name="category"
         value={category}
         onChange={(e) => setCategory(e.target.value)}
@@ -58,6 +64,7 @@ function ItemDetailsForm({
           </option>
         ))}
       </select>
+      {submit && categoryError && <InventoryItemErrorState />}
     </div>
   );
 }

@@ -9,24 +9,26 @@ function AddNewInventoryItem() {
   const api = import.meta.env.VITE_API_URL; 
   const navigate = useNavigate();
 
-  // State variables
   const [itemName, setItemName] = useState('');
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState('');
+  const [categories, setCategories] = useState([]);  // State to hold categories
   const [status, setStatus] = useState('In Stock');
   const [quantity, setQuantity] = useState('');
   const [selectWarehouse, setSelectWarehouse] = useState('');
   const [warehouses, setWarehouses] = useState([]);
-  const [categories, setCategories] = useState([]);  // New state for categories
+  const [submit, setSubmit] = useState(false);
 
-  // Fetch warehouses and categories when component mounts
+  // Error state
+  const [itemNameError, setItemNameError] = useState(false);
+  const [descError, setDescError] = useState(false);
+  const [categoryError, setCategoryError] = useState(false);
+
   useEffect(() => {
-    // Fetch warehouses
     axios.get(`${api}/warehouses`)
       .then((response) => setWarehouses(response.data))
       .catch((error) => console.error('Error fetching warehouses:', error));
 
-    // Fetch categories
     axios.get(`${api}/categories`)
       .then((response) => setCategories(response.data))
       .catch((error) => console.error('Error fetching categories:', error));
@@ -34,6 +36,12 @@ function AddNewInventoryItem() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    setSubmit(true);
+
+    // Validation
+    setItemNameError(!itemName);
+    setDescError(!desc);
+    setCategoryError(!category);
 
     if (!itemName || !category || (status === 'In Stock' && !quantity) || !selectWarehouse) {
       alert('Please fill out all required fields');
@@ -70,7 +78,11 @@ function AddNewInventoryItem() {
           setItemName={setItemName}
           setDesc={setDesc}
           setCategory={setCategory}
-          categoryArray={categories}  // Correctly pass categories
+          categoryArray={categories} // Pass categories to ItemDetailsForm
+          submit={submit}
+          itemNameError={itemNameError}
+          descError={descError}
+          categoryError={categoryError}
         />
 
         <ItemAvailabilityForm
