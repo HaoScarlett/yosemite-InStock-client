@@ -1,0 +1,93 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+
+
+.delete-modal {
+    padding: 1rem;
+    position: absolute;
+    background-color: $global-white;
+  
+    @include tablet {
+      padding: 2rem 4rem;
+      top: 10rem; 
+      left: auto;
+      right: auto;
+      width: 40rem;
+    }
+  
+    @include desktop {
+      padding: 2rem 4rem;
+      top: 12rem;
+    }
+  
+    &__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba($global-text, 0.7);
+    }
+  
+    &__title {
+      margin: 3.75rem 0 1rem;
+      font-size: 1.75rem;
+  
+      @include tablet {
+        margin-bottom: 2rem;
+        font-size: 2rem;
+      }
+    }
+  
+    &__text {
+      margin-bottom: 2rem;
+      font-size: 0.9375rem;
+  
+      @include tablet {
+        margin-bottom: 2.5rem;
+      }
+    }
+  
+    &__btns {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  
+    &__btn {
+      all: unset;
+      width: 8rem;
+      min-height: 2.25rem;
+      border-radius: 1.25rem;
+      color: $primary-color-dark;
+      font-weight: 600;
+      border: 0.0625rem solid $outlines;
+      text-align: center;
+      cursor: pointer;
+  
+      @include tablet {
+        height: 2.375rem;
+        width: 8.625rem;
+      }
+  
+      &--delete {
+        background-color: $delete-icon;
+        color: $global-white;
+        border: none;
+      }
+    }
+  
+    &__close-btn {
+      position: absolute;
+      top: 1.3125rem;
+      right: 1rem;
+      border: none;
+      width: auto;
+      height: auto;
+      cursor: pointer;
+    }
+  }
+
