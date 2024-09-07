@@ -4,12 +4,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import ItemDetailsForm from '../../components/ItemDetailsForm/ItemDetailsForm';
 import ItemAvailabilityForm from '../../components/ItemAvailabilityForm/ItemAvailabilityForm';
-import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton';  // 引入 CTAButton
 
 function AddNewInventoryItem() {
   const api = import.meta.env.VITE_API_URL; 
   const navigate = useNavigate();
 
+  // State variables
   const [itemName, setItemName] = useState('');
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState('');
@@ -17,11 +17,19 @@ function AddNewInventoryItem() {
   const [quantity, setQuantity] = useState('');
   const [selectWarehouse, setSelectWarehouse] = useState('');
   const [warehouses, setWarehouses] = useState([]);
+  const [categories, setCategories] = useState([]);  // New state for categories
 
+  // Fetch warehouses and categories when component mounts
   useEffect(() => {
+    // Fetch warehouses
     axios.get(`${api}/warehouses`)
       .then((response) => setWarehouses(response.data))
       .catch((error) => console.error('Error fetching warehouses:', error));
+
+    // Fetch categories
+    axios.get(`${api}/categories`)
+      .then((response) => setCategories(response.data))
+      .catch((error) => console.error('Error fetching categories:', error));
   }, [api]);
 
   const handleFormSubmit = async (event) => {
@@ -62,6 +70,7 @@ function AddNewInventoryItem() {
           setItemName={setItemName}
           setDesc={setDesc}
           setCategory={setCategory}
+          categoryArray={categories}  // Correctly pass categories
         />
 
         <ItemAvailabilityForm
@@ -75,8 +84,8 @@ function AddNewInventoryItem() {
         />
 
         <div className="add-inventory__buttons">
-          <CTAButton text={'+ Add item'} variant="primary" onClick={handleFormSubmit} />
-          <CTAButton text={'Cancel'} variant="delete" onClick={() => navigate('/inventory')} />
+          <button type="submit" className="add-inventory__button add">+ Add Item</button>
+          <button type="button" className="add-inventory__button cancel" onClick={() => navigate('/inventory')}>Cancel</button>
         </div>
       </form>
     </section>

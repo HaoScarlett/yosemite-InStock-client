@@ -1,31 +1,109 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/typography" as *;  
-@use "../../styles/partials/variables" as *;  
+@use "../../styles/partials/variables" as *; 
+@use "../../styles/partials/mixins" as *;  
 
-.item-details {
-  margin-bottom: 1.5rem;
 
-  h2 {
-    margin-bottom: 1rem;
-    color: $global-text;
-  }
+.details {
 
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: $global-text; 
-  }
+	@include tablet {
+		border-right: 1px solid $borders;
+		width: 100%;
+        padding: 0 2rem;
+        margin: 1.5rem 0;
+	}
 
-  input, textarea, select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid $outlines; 
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
-    
-    &:focus {
-      outline: none;
-      border-color: $interactive-elements; 
-    }
-  }
+	@include desktop {
+		padding: 0 2.5rem;
+	}
+
+	&__title {
+		padding: 0 0 1.5rem;
+
+        @include tablet {
+            padding: 0 0 2rem;
+        }
+	}
+	&__label {
+		display: block;
+		padding-bottom: 0.25rem;
+	}
+
+	&__input {
+		border: 1px solid $borders;
+		border-radius: 1.25rem;
+		width: 100%;
+		height: 2.25rem;
+		padding-left: 1rem;
+		margin-bottom: 1rem;
+
+		@include tablet {
+			height: 2.375rem;
+			margin-bottom: 1.5rem;
+		}
+
+		&:focus {
+			outline: $interactive-elements solid 1px;
+		}
+	}
+
+	&__desc-input {
+		border: 1px solid $borders;
+		border-radius: 1.25rem;
+		width: 100%;
+		height: 7.5rem;
+		padding: 0.75rem 1rem;
+		margin-bottom: 0.5rem;
+		resize: none;
+
+		@include tablet {
+			margin-bottom: 1.5rem;
+		}
+
+		&:focus {
+			outline: $interactive-elements solid 1px;
+		}
+	}
+
+	&__select-wrap {
+		position: relative;
+	}
+
+	&__select-wrap::after {
+		content: url("../../assets/Icons/arrow_drop_down-24px.svg");
+		fill: $table-sorting-icon;
+		top: 6px;
+		right: 1.25rem;
+		position: absolute;
+	}
+
+	&__select {
+		appearance: none;
+		border: 1px solid $borders;
+		border-radius: 1.25rem;
+		width: 100%;
+		height: 2.25rem;
+		padding-left: 1rem;
+		margin-bottom: 0.5rem;
+		background-color: $global-white;
+
+		@include tablet {
+			height: 2.375rem;
+		}
+		&:focus {
+			outline: $interactive-elements solid 1px;
+		}
+	}
+}
+
+.error {
+    outline: $error-states solid 1px;
+}
+
+.details__required {
+	display: none;
+}
+
+.show {
+	display: flex;
 }
