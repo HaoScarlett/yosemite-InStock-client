@@ -6,13 +6,13 @@ import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx';
 
-function ItemRow({ item, showWarehouse }) {
+function ItemRow({ item, showWarehouse,onItemClick }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const inStock = item.status === 'In Stock';
 
   const MobileView = ({ item, showWarehouse }) => {
     return (
-      <div className='item-row'>
+      <div className='item-row' onClick={() => onItemClick(item.id)}>
         <div className="inventory-item">
           <div className='inventory-item__name'>
             <span data-label="INVENTORY ITEM">
@@ -45,7 +45,7 @@ function ItemRow({ item, showWarehouse }) {
 
   const DesktopView = ({ item, showWarehouse }) => {
     return (
-      <tr className='item-row'>
+      <tr className='item-row' onClick={() => onItemClick(item.id)}>
         <td className="inventory-item__name">
           <a className='item-name' href="#">{item.item_name}</a>
           <img className='icon' src={chevronIcon} alt="chevron icon" />

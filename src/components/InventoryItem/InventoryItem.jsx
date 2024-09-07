@@ -5,24 +5,27 @@ import SectionHeader from '../LowLevelComponents/SectionHeader/SectionHeader.jsx
 import EditButton from '../LowLevelComponents/Editbutton/Editbutton.jsx';
 import { fetchInventoryItem } from '../../utils/api.js';
 
-export default function InventoryItem({ itemId }) {
-	const [inventoryItem, setInventoryItem] = useState({});
-	if (!itemId) {
-		itemId = 1;
-	}
+export default function InventoryItem({ itemId, inventoryItem }) {
+	// const [inventoryItem, setInventoryItem] = useState({});
+	// if (!itemId) {
+	// 	itemId = 1;
+	// }
 
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await fetchInventoryItem(itemId);
-				setInventoryItem(response.data[0]);
-				console.log(response.data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		fetchData();
-	}, []);
+	// useEffect(() => {
+	// 	const fetchData = async () => {
+	// 		try {
+	// 			const response = await fetchInventoryItem(itemId);
+	// 			setInventoryItem(response.data[0]);
+	// 			console.log(response.data);
+	// 		} catch (error) {
+	// 			console.log(error);
+	// 		}
+	// 	};
+	// 	fetchData();
+	// }, []);
+	if (!inventoryItem) {
+		return <div>Item not found</div>;
+	}
 
 	const {
 		warehouse_name,
@@ -37,7 +40,7 @@ export default function InventoryItem({ itemId }) {
 	return (
 		<section className='inventory'>
 			<div className='inventory__header'>
-				<SectionHeader text={item_name} />
+				<SectionHeader text={item_name} url="/inventory" />
 				<EditButton />
 			</div>
 			<div className='inventory__body'>
