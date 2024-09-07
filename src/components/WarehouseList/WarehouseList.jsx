@@ -21,10 +21,10 @@ function WarehouseList() {
 	}, []);
 
 	return (
-		<div className='warehouse-list layout'>
+		<div className='warehouse-list'>
 			<h1 className='warehouse-list__title h1-page-header'>Warehouses</h1>
 			<SearchBar className='warehouse-list__search' />
-			<Link to='/warehouses/new' className='warehouse-list__add-link'>Add New Warehouse</Link>
+			<Link to='/warehouses/new' className='warehouse-list__add-link'>+ Add New Warehouse</Link>
 			<table className='warehouse-table'>
 				<thead>
 					<tr className='warehouse-header h4-table-header'>
@@ -35,7 +35,7 @@ function WarehouseList() {
 						<th>ACTIONS</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody className='warehouse-body'>
 					{warehouseList.map((warehouse) => (
 						<WarehouseItemRow
 							key={warehouse.id}

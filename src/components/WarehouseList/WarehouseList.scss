@@ -2,6 +2,8 @@
 @use '../../styles/partials/_mixins.scss' as m;
 @use '../../styles/partials/_variables.scss' as var;
 
+
+
 .warehouse-list {
 	@include m.page-overlap;
 
@@ -26,6 +28,7 @@
     line-height:36px;
     text-align: center;
     margin-top: 1rem;
+    padding-left: 0rem;
 	}
 }
 
@@ -39,6 +42,7 @@
 
 .warehouse-table {
 	width: 100%;
+  margin-left: -1rem;
 }
 
 .warehouse-item-row {
@@ -126,4 +130,8 @@
 	.actions .edit-btn:hover {
 		transform: scale(1.1);
 	}
+}
+
+.warehouse-body{
+  margin-left: -1rem;
 }
