@@ -86,4 +86,12 @@
             }
         }
     }
+    &__list{
+        position: relative;
+        top: 4rem;
+        @include tablet{
+            top: 0.8rem;
+        }
+        
+    }
 }

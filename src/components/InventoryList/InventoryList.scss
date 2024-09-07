@@ -20,14 +20,20 @@
   top: -9vh;
   width: 100%;
   padding: var.$spacing-small;
+  &.no-shadow {
+    box-shadow: none; 
+  }
 
   &__title {
     margin-block: var.$spacing-small;
   }
 
   &__search {
-    margin: 0 auto;
+    margin: var.$spacing-small auto;
   }
+}
+.hidden{
+  display: none;
 }
 
 .inventory-header {
@@ -55,6 +61,16 @@
     background-color: c.$global-white;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    &__header-wrapper{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__search {
+      margin-inline: auto 1rem;
+    }
   }
 
   .inventory-table {
@@ -143,5 +159,13 @@
   .actions .delete-btn:hover,
   .actions .edit-btn:hover {
     transform: scale(1.1);
+  }
+}
+
+@include m.desktop {
+  .inventory-list {
+    &__search {
+      margin-inline: auto 1rem;
+    }
   }
 }

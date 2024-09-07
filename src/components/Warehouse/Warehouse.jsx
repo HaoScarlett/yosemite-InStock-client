@@ -1,10 +1,11 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import dotenv from 'dotenv';
+import InventoryList from '../InventoryList/InventoryList';
 import './Warehouse.scss';
 import { Link } from 'react-router-dom';
 import backbtn from '../../assets/Icons/arrow_back-24px.svg';
-import Editbutton from '../LowLevelComponents/EditButton/EditButton';
+import Editbutton from '../LowLevelComponents/Editbutton/Editbutton';
 
 //Warehouse Details component. This does not include the inventory list below the warehouse details. 
 function Warehouse() {
@@ -74,7 +75,9 @@ function Warehouse() {
                         </div>
                     </div>
                 </div>
+                <div className='warehouse__list'><InventoryList id="2" className="hidden" /></div>
             </section>
+            
     </> );
 }
 
