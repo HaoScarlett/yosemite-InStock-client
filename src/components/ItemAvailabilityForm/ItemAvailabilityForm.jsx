@@ -28,13 +28,13 @@ function ItemAvailabilityForm({
 
 				<div className="avail__radio-set">
 					<input
-						className="avail__radio"
+						className="avail__radio p2-body-medium"
 						type="radio"
 						id="instock"
 						name="status"
 						value="In Stock"
 						onChange={handleChangeStatus}
-					/>
+						/>
 
 					<label className="avail__radio-label h3-labels" htmlFor="instock">
 						In stock
@@ -42,64 +42,63 @@ function ItemAvailabilityForm({
 				</div>
 				<div className="avail__radio-set h3-labels">
 					<input
-						className="avail__radio"
+						className="avail__radio p2-body-medium"
 						type="radio"
 						id="outofstock"
 						name="status"
 						value="Out of Stock"
 						onChange={handleChangeStatus}
-					/>
+						/>
 					<label
 						className="avail__radio-label h3-labels"
 						htmlFor="outofstock"
-					>
+						>
 						Out of stock
 					</label>
 					{submit === true && statusError === true && <InventoryItemErrorState />}
 				</div>
-
-				
 			</div>
-		<div className={status === "In Stock" ? "" : "out-of-stock"}>
-			<label htmlFor="quantity" className="avail__label h3-labels">
-				Quantity
-			</label>
-			<input
-				type="text"
-				className="avail__input"
-				value={quantity}
-				onChange={handleChangeQuantity}
-				placeholder=""
-				name="quantity"
-			/>
-		</div>
-		{submit === true && quantityError === true && <InventoryItemErrorState />}
 
-			<label htmlFor="" className="avail__label h3-labels">
-				Warehouse
-			</label>
-			<div className="avail__select-wrap">
-				<select
-					className="avail__warehouse p2-body-medium"
-					name="selectWarehouse"
-					id="avail_warehouse"
-					onChange={handleChangeSelectWarehouse}
-					value={selectWarehouse}
-				>
-					<option value="" readOnly>
-						Please select
-					</option>
-					{warehouses.map((warehouse) => (
-						<option 
-							key={warehouse.id} 
-							value={warehouse.id}>
-							{warehouse.warehouse_name}
+			<div className={status === "In Stock" ? "" : "out-of-stock"}>
+				<label htmlFor="quantity" className="avail__label h3-labels">
+					Quantity
+				</label>
+				<input
+					type="text"
+					className="avail__input p2-body-medium"
+					name="quantity"
+					value={quantity}
+					onChange={handleChangeQuantity}
+					placeholder=""
+					/>
+			</div>
+			{submit === true && quantityError === true && <InventoryItemErrorState />}
+
+				<label htmlFor="" className="avail__label h3-labels">
+					Warehouse
+				</label>
+				<div className="avail__select-wrap">
+					<select
+						className="avail__warehouse p2-body-medium"
+						name="selectWarehouse"
+						id="avail_warehouse"
+						onChange={handleChangeSelectWarehouse}
+						value={selectWarehouse}
+						>
+						<option value="" readOnly>
+							Please select
 						</option>
-					))}
-				</select>
+						{warehouses.map((warehouse) => (
+							<option 
+								key={warehouse.id} 
+								value={warehouse.id}>
+								{warehouse.warehouse_name}
+							</option>
+						))}
+					</select>
+				</div>
+				{submit === true && selectWarehouseError === true && <InventoryItemErrorState />}
 			</div>
-			{submit === true && selectWarehouseError === true && <InventoryItemErrorState />}
-		</div>
 	);
 }
 

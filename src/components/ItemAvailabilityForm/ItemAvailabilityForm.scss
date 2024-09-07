@@ -8,37 +8,36 @@
 
     @include tablet {
         width: 100%;
-        padding: 0 2rem;
-        margin: 1.5rem 0;
+        padding: 0 $unit-32;
+        margin: $unit-24 0;
     }
 
     @include desktop {
-		padding: 0 2.5rem;
+		padding: 0 $unit-40;
 	}
 
     &__title {
-        padding: 0 0 1.5rem;
+        padding: 0 0 $unit-24;
 
         @include tablet {
-            padding: 0 0 2rem;
+            padding: 0 0 $unit-32;
         }
     }
     &__label {
         display: block;
-        padding-bottom: 0.25rem;
+        padding-bottom: $unit-4;
     }
 
     &__input {
         border: 1px solid $borders;
-        border-radius: 1.25rem;
+        border-radius: $unit-20;
         width: 100%;
-        height: 2.25rem;
-        padding-left: 1rem;
-        margin-bottom: 1rem;
+        height: $unit-36;
+        padding-left: $unit-16;
+        margin-bottom: $unit-8;
         
         @include tablet {
-            height: 2.375rem;
-            margin-bottom: 1.5rem;
+            height: $unit-38;
         }
         
         &:focus {
@@ -49,7 +48,7 @@
     &__radio-container {
         display: flex;
         justify-content: space-between;
-        padding-bottom: 1rem;
+        padding-bottom: $unit-16;
         
         @include tablet {
 			padding-bottom: 1.625rem;
@@ -63,13 +62,14 @@
     }
 
     &__radio {
-        height: 1rem;
-        width: 1rem;
+        height: $unit-16;
+        width: $unit-16;
+        margin: 0;
     }
 
     &__radio-label {
-        font-size: .8125rem;
-        padding-left: .5rem;
+        padding-left: $unit-8;
+        margin: 0;
     }
 
     &__select-wrap {
@@ -79,25 +79,27 @@
     &__select-wrap::after {
         content: url('../../assets/Icons/arrow_drop_down-24px.svg');
         fill: $table-sorting-icon;
-        font-size: 1rem;
-        top: 6px;
-        right: 1.25rem;
+        width: 24px;
+        height: 24px;
         position: absolute;
+        top: 6px;
+        right: $unit-20;
     }
 
     &__warehouse {
         appearance: none;
         border: 1px solid $borders;
-        border-radius: 1.25rem;
+        border-radius: $unit-20;
         width: 100%;
-        height: 2.25rem;
-        padding-left: 1rem;
-        margin-bottom: .5rem;
+        height: $unit-36;
+        padding-left: $unit-16;
+        margin-bottom: $unit-8;
         background-color: $global-white;
         
         @include tablet {
-            height: 2.375rem;
+            height: $unit-38;
         }
+
         &:focus {
 			outline: $interactive-elements solid 1px;
 		}

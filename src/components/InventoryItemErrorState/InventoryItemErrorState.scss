@@ -1,16 +1,15 @@
 @use '../../styles/partials/colors' as *;
+@use '../../styles/partials/variables' as *;
 
 .error-container {
   display: flex;
   align-items: center;
   color: $error-states;
-  margin-top: 0.5rem;
+  margin-top: $unit-4;
 
   img {
-    margin-right: 0.5rem;
-  }
-
-  .error-container__message {
-    color: $error-states;
+    margin-right: $unit-4;
+    width: 16px;
+    height: 16px;
   }
 }

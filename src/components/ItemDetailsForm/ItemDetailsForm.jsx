@@ -3,17 +3,17 @@ import './ItemDetailsForm.scss';
 import InventoryItemErrorState from '../InventoryItemErrorState/InventoryItemErrorState';
 
 function ItemDetailsForm({
-  categoryArray,  // Receive category array
-  itemName,
-  desc,
-  category,
-  setItemName,
-  setDesc,
-  setCategory,
-  submit,
-  itemNameError,
-  descError,
-  categoryError
+	categoryArray, 
+	itemName, 
+	desc, 
+	category, 
+	handleChangeItemName, 
+	handleChangeDesc, 
+	handleChangeCategory, 
+	itemNameError,
+	descError,
+	categoryError, 
+	submit
 }) {
   
   return (
@@ -25,46 +25,52 @@ function ItemDetailsForm({
       </label>
       <input
         type="text"
-        className={`details__input p2-body-medium ${submit && itemNameError ? 'error' : ''}`}
+        className="details__input p2-body-medium"
         name="itemName"
         value={itemName}
-        onChange={(e) => setItemName(e.target.value)}
+        onChange={handleChangeItemName}
         placeholder="Item Name"
       />
-      {submit && itemNameError && <InventoryItemErrorState />}
+      {submit === true && itemNameError === true && <InventoryItemErrorState />}
 
       <label htmlFor="desc" className="details__label h3-labels">
         Description
       </label>
       <textarea
         type="text"
-        className={`details__desc-input p2-body-medium ${submit && descError ? 'error' : ''}`}
+        className="details__desc-input p2-body-medium"
         name="desc"
         value={desc}
-        onChange={(e) => setDesc(e.target.value)}
-        placeholder="Enter a brief item description..."
+        onChange={ handleChangeDesc }
+        placeholder="Please enter a brief item description..."
       />
-      {submit && descError && <InventoryItemErrorState />}
+      {submit === true && descError === true && <InventoryItemErrorState />}
 
       <label htmlFor="category" className="details__label h3-labels">
         Category
       </label>
-      <select
-        className={`details__select p2-body-medium ${submit && categoryError ? 'error' : ''}`}
-        name="category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      >
-        <option value="" disabled>
-          Select Category
-        </option>
-        {categoryArray.map((cat, index) => (
-          <option key={index} value={cat}>
-            {cat}
+      <div className="details__select-wrap">
+        <select
+          className="details__select p2-body-medium"
+          name="category"
+          id="details_select"
+					onChange={ handleChangeCategory }
+          value={category}
+        >
+          <option className="details__placeholder p2-body-medium" value="" readOnly>
+            Please select
           </option>
-        ))}
-      </select>
-      {submit && categoryError && <InventoryItemErrorState />}
+          {categoryArray.map((inventory) => (
+						<option
+							key={inventory}
+							value={inventory}
+						>
+							{inventory}
+						</option>
+					))}
+        </select>
+      </div>
+      {submit === true && categoryError === true && <InventoryItemErrorState />}
     </div>
   );
 }
