@@ -155,7 +155,7 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 					<label htmlFor='contact__tel'>
 						<h3 className='h3-labels'>Phone Number</h3>
 						<input
-							type='tel'
+							type='text'
 							name='contact__tel'
 							id='contact__tel'
 							placeholder='Phone Number'
@@ -165,7 +165,7 @@ export default function WarehouseForm({ getClassName, onSubmitFunction }) {
 					<label htmlFor='contact__email'>
 						<h3 className='h3-labels'>Email</h3>
 						<input
-							type='email'
+							type='text'
 							name='contact__email'
 							id='contact__email'
 							placeholder='Email'

@@ -15,3 +15,7 @@ export const fetchInventoryItem = (id) => {
 export const fetchWarehousesList = () =>{
 	return axios.get(`${API_URL}/api/warehouses`);
 }
+
+export const postWarehouse = (newWarehouse) =>{
+	return axios.post(`${API_URL}/api/warehouses`, newWarehouse);
+}
