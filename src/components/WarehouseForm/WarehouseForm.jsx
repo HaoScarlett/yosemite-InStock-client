@@ -1,5 +1,6 @@
 import React from 'react';
 import './WarehouseForm.scss';
+import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import { Link } from 'react-router-dom';
 import { fetchWarehousesList } from '../../utils/api.js';
 import { useEffect, useState } from 'react';
@@ -121,7 +122,7 @@ export default function WarehouseForm({ getClassName, onSubmitFunction,initialDa
 
                     <label htmlFor='warehouse_name'>
                         <h3 className='h3-labels'>Warehouse Name</h3>
-                        {warehouseNameField()}
+                        {warehouseNameOption()}
                     </label>
 
                     <label htmlFor='address'>
