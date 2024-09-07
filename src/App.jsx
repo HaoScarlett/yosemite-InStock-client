@@ -10,6 +10,9 @@ import AddWarehouse from './pages/AddWarehouse/AddWarehouse.jsx';
 import AddInventory from './pages/AddInventory/AddInventory.jsx';
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails.jsx';
 import InventoryDetails from './pages/InventoryDetails/InventoryDetails.jsx';
+import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx';
+import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
+
 // Layout component
 const Layout = () => {
   return (
@@ -30,10 +33,11 @@ const router = createBrowserRouter([
       { index: true, element: <Warehouses /> },
       { path: "/:id", element:<WarehouseDetails />},
       { path: "/new", element:<AddWarehouse />},
-
       { path: "inventory", element: <Inventory /> },
       { path: "inventory/:id", element:<InventoryDetails />},
       { path: "inventory/new", element:<AddInventory />},
+      { path: "warehouses/new", element: <NewWarehouse />},
+      { path: "inventory/:id", element: <Inventory /> }
     ],
   },
   { path: "*", element: <NotFound /> },
