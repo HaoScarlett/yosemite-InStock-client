@@ -34,9 +34,13 @@ function EditWarehouse() {
                     await postWarehouse(formData);
                 }
                 alert("Warehouse saved successfully!");
-            } catch (error) {
+            }  catch (error) {
                 console.error("Error saving warehouse:", error);
-                alert("Failed to save warehouse.");
+                if (error.response?.data?.errors) {
+                    throw error;  
+                } else {
+                    alert("An unknown error occurred.");
+                }
             }
         };
     
@@ -50,7 +54,6 @@ function EditWarehouse() {
 				/>
 			</div>
 			<WarehouseForm
-				getClassName='warehouse-edit'
 				onSubmitFunction={onSubmit}
                 initialData={initialData}
 			/>

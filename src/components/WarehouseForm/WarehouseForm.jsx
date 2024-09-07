@@ -63,10 +63,20 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 	};
 
 	// Submit the form
-	const handleSubmit = (event) =>{
+	const handleSubmit = async (event) =>{
         event.preventDefault();
         if (validateForm()) {
-			onSubmitFunction(formData); 
+			try{
+				await onSubmitFunction(formData); 
+			}
+			catch (error){
+				const backendErrors = error.response?.data?.errors;
+				setErrorState(prevErrorState => ({
+					...prevErrorState,
+					...backendErrors  
+				}));
+			}
+			
 		}
     }
 
@@ -238,11 +248,19 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 				<Link to='/' className='warehouse-form__buttons-cancel'>
 					<CTAButton variant='secondary' text='Cancel' /> 
 				</Link>
-				<CTAButton
-					variant='primary'
-					text='Save'
-					onClick={handleSubmit} 
-				/>
+				{initialData  ? (
+                            <CTAButton
+                                variant='primary'
+                                text='Save'
+                                onClick={handleSubmit}
+                            />
+                        ) : (
+                            <CTAButton
+                                variant='primary'
+                                text='+ Add Warehouse'
+                                onClick={handleSubmit}
+                            />
+                        )}
 			</div>
 		</form>
 	</section>

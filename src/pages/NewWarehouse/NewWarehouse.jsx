@@ -107,7 +107,6 @@ function NewWarehouse() {
 				/>
 			</div>
 			<WarehouseForm
-				getClassName='warehouse-add'
 				onSubmitFunction={onSubmit}
 			/>
 		</main>
