@@ -2,12 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './WarehouseForm.scss';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import { fetchWarehousesList } from '/src/utils/api.js';
-import { useEffect, useState } from 'react';
-=======
 import errorIcon from '../../assets/Icons/error-24px.svg';
->>>>>>> develop
 
 export default function WarehouseForm({ onSubmitFunction, initialData }) {
 	const [formData, setFormData] = useState({
