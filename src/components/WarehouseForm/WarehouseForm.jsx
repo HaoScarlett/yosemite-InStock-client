@@ -4,9 +4,24 @@ import { Link } from 'react-router-dom';
 import { fetchWarehousesList } from '../../utils/api.js';
 import { useEffect, useState } from 'react';
 
-export default function WarehouseForm({ getClassName, onSubmitFunction }) {
+export default function WarehouseForm({ getClassName, onSubmitFunction,initialData }) {
 	const [dropdownOptions, setDropdownOptions] = useState([]);
-
+	const [formData, setFormData] = useState({
+        warehouse_name: '',
+        address: '',
+        city: '',
+        country: '',
+        contact_name: '',
+        contact_position: '',
+        contact_phone: '',
+        contact_email: ''
+    });
+	// Pre-populate form data if initialData is provided (for edit mode)
+    useEffect(() => {
+        if (initialData) {
+            setFormData(initialData);
+        }
+    }, [initialData]);
 	async function editDropdown() {
 		const responseData = await getWarehouseData();
 		const warehouseNames = responseData.map(
