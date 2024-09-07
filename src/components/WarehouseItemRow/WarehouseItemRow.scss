@@ -60,10 +60,6 @@ label{
 @include m.tablet {
   .warehouse-item {
     &__details > span,
-    &__name > span {
-      flex: 1;
-      padding: .625rem;
-    }
 
     &__details > span:before,
     &__name > span:before {
@@ -84,6 +80,16 @@ label{
 
   .warehouse-actions {
     margin-top: 0;
+    display: flex;
+    gap: 1rem;
+    width: fit-content;
+    padding: 0;
+  }
+
+  .warehouse-item__name{
+    height: inherit;
+    align-items: center;
+    vertical-align: middle;
   }
 }
 
@@ -95,9 +101,6 @@ label{
 .warehouse-icon {
   height: 1.25rem;
   width: 1.25rem;
-  position: absolute;
-  right: 0%;
-  top: 40%;
 }
 
 .warehouse-item__name-link{
@@ -107,4 +110,9 @@ label{
 
 a{
   color: c.$interactive-elements;
+}
+
+td{
+  vertical-align: middle;
+  text-align: middle;
 }

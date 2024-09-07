@@ -32,15 +32,21 @@ function WarehouseItemRow({ warehouse }) {
 								/>
 							</Link>
 						</div>
-            <label>ADDRESS</label>
-						<div data-label='Address' className='p2-body-medium'>
+						<label>ADDRESS</label>
+						<div
+							data-label='Address'
+							className='p2-body-medium'
+						>
 							{warehouse.address}, {warehouse.city},{' '}
 							{warehouse.country}
 						</div>
 					</div>
 					<div className='warehouse-item__details'>
 						<label>CONTACT NAME</label>
-						<div data-label='Contact Name' className='p2-body-medium'>
+						<div
+							data-label='Contact Name'
+							className='p2-body-medium'
+						>
 							{warehouse.contact_name}
 						</div>
 						<div
@@ -88,47 +94,51 @@ function WarehouseItemRow({ warehouse }) {
 		return (
 			<>
 				<tr className='warehouse-item-row'>
-					<td className='warehouse-item__name'>
-						<Link
-							to='/'
-							className='warehouse-item__name-link'
-						>
-							{warehouse.warehouse_name}{' '}
-							<img
-								className='warehouse-icon'
-								src={chevronIcon}
-								alt='Chevron Icon'
-							/>
-						</Link>
+					<td className='warehouse-item__name p2-body-medium'>
+						<div>
+							<Link
+								to='/'
+								className='warehouse-item__name-link'
+							>
+								{warehouse.warehouse_name}{' '}
+								<img
+									className='warehouse-icon'
+									src={chevronIcon}
+									alt='Chevron Icon'
+								/>
+							</Link>
+						</div>
 					</td>
-					<td className='warehouse-item__address'>
+					<td className='warehouse-item__address p2-body-medium'>
 						{warehouse.address}, {warehouse.city},{' '}
 						{warehouse.country}
 					</td>
-					<td className='warehouse-item__contact-name'>
+					<td className='warehouse-item__contact-name p2-body-medium'>
 						{warehouse.contact_name}
 					</td>
-					<td className='warehouse-item__contact-info'>
+					<td className='warehouse-item__contact-info p2-body-medium'>
 						<div className='warehouse-item__contact-info--phone'>
 							{warehouse.contact_phone}
 						</div>
-						<div className='warehouse-item__contact-info--email'>
+						<div className='warehouse-item__contact-info--email p2-body-medium'>
 							{warehouse.contact_email}
 						</div>
 					</td>
-					<td className='warehouse-actions'>
-						<button className='warehouse-delete-btn'>
-							<img
-								src={deleteIcon}
-								alt='Delete button'
-							/>
-						</button>
-						<button className='warehouse-edit-btn'>
-							<img
-								src={editIcon}
-								alt='Edit button'
-							/>
-						</button>
+					<td>
+						<div className='warehouse-actions'>
+							<button className='warehouse-delete-btn'>
+								<img
+									src={deleteIcon}
+									alt='Delete button'
+								/>
+							</button>
+							<button className='warehouse-edit-btn'>
+								<img
+									src={editIcon}
+									alt='Edit button'
+								/>
+							</button>
+						</div>
 					</td>
 				</tr>
 			</>
