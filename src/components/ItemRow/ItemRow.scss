@@ -13,6 +13,11 @@
   gap: var.$unit-68;
   margin-bottom: 10px;
 
+  &__details{
+    margin: 0 auto;
+  }
+
+
   &__details > span,
   &__name > span {
     padding: 5px 0;

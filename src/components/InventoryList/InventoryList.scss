@@ -1,15 +1,39 @@
 @use "../../styles/partials/_colors.scss" as c;
 @use "../../styles/partials/_mixins.scss" as m;
 @use "../../styles/partials/_variables.scss" as var;
+
 .inventory-list {
-  position: absolute;
-  top: -70px;
-  width: 96%;
-  max-width: 1200px;
-  margin: 0 auto;
+  // position: absolute;
+  // top: -70px;
+  // width: 96%;
+  // max-width: 1200px;
+  // margin: 0 auto;
+  // background-color: c.$global-white;
+  // border-radius: 4px;
+  // right: 2%;
+  height: auto;
   background-color: c.$global-white;
+  box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
   border-radius: 4px;
-  right: 2%;
+  margin: auto;
+  position: relative;
+  top: -9vh;
+  width: 100%;
+  padding: var.$spacing-small;
+  &.no-shadow {
+    box-shadow: none; 
+  }
+
+  &__title {
+    margin-block: var.$spacing-small;
+  }
+
+  &__search {
+    margin: var.$spacing-small auto;
+  }
+}
+.hidden{
+  display: none;
 }
 
 .inventory-header {
@@ -19,14 +43,34 @@
   padding: var.$spacing-small 0;
 }
 
+.inventory-table {
+  width: 100%;
+}
+
+.item-row {
+  padding: 0;
+  margin-block: var.$spacing-small;
+}
+
 @include m.tablet {
   .inventory-list {
     max-width: 1200px;
     margin: 0 auto;
+    top: -5vh;
     padding: var.$unit-20;
     background-color: c.$global-white;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
+    &__header-wrapper{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__search {
+      margin-inline: auto 1rem;
+    }
   }
 
   .inventory-table {
@@ -115,5 +159,13 @@
   .actions .delete-btn:hover,
   .actions .edit-btn:hover {
     transform: scale(1.1);
+  }
+}
+
+@include m.desktop {
+  .inventory-list {
+    &__search {
+      margin-inline: auto 1rem;
+    }
   }
 }
