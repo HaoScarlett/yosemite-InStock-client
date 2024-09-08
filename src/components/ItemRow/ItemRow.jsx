@@ -31,17 +31,17 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete, warehouseName
 
   const mobileWarehouseName = ()=>{
     if(!item.warehouse_name){
-      return <span data-label="WAREHOUSE">{warehouseName}</span>
+      return;
     }else{
-      <span data-label="WAREHOUSE">{item.warehouse_name}</span>
+      return <span data-label="WAREHOUSE">{item.warehouse_name}</span>
     }
   }
 
   const desktopWarehouseName = () =>{
     if(!item.warehouse_name){
-      return <td className='inventory-item__warehouse'>{warehouseName}</td>
+      return;
     }else{
-      <td className='inventory-item__warehouse'>{item.warehouse_name}</td>
+      return <td className='inventory-item__warehouse'>{item.warehouse_name}</td>
     }
   }
   const MobileView = ({ item }) => {
