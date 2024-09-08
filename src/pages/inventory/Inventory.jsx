@@ -83,34 +83,20 @@ if (error) {
 
   return (
     <>
-      {/* {isItemView ? (
+      {id ? (
       selectedItem ? (
         <InventoryItem inventoryItem={selectedItem} />
       ) : (
         <div>Loading item...</div>
       )
     ) : (
-      <div className='inventory-list'>
-        <div className='inventory-list__header'>
-          <h1 className='inventory-list__title h1-page-header'>
-            Inventory
-          </h1>
-          <div className='inventory-list__interactive'>
-            <SearchBar className='inventory-list__search' />
-            <CTAButton 
-              text="+ Add New Item"
-              onClick={handleAddNewItem} 
-              variant="primary"
-              className='inventory-list__add-button'
-            />
-          </div>
-        </div> */}
+      <div>
         <InventoryList 
           inventoryList={inventoryList} 
           onItemClick={handleItemClick} 
         />
-       {/* </div>
-    )} */}
+       </div>
+    )}
     </>
   )
 }
