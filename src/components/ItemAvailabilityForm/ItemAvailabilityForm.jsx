@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import "./ItemAvailabilityForm.scss";
 import InventoryItemErrorState from "../InventoryItemErrorState/InventoryItemErrorState";
 
@@ -8,16 +9,21 @@ function ItemAvailabilityForm({
 	warehouses, 
 	status, 
 	quantity, 
+	setQuantity,
 	selectWarehouse, 
 	handleChangeStatus, 
 	handleChangeQuantity, 
 	handleChangeSelectWarehouse,
 	statusError,
-	stockError,
 	quantityError,
 	selectWarehouseError,
 	submit }) {
-		
+		useEffect(() => {
+			if (status === "In Stock" && quantity === "") {
+				setQuantity(1); 
+			}
+		}, [status, setQuantity]);
+
 
 	return (
 		<div className="avail">
@@ -44,7 +50,7 @@ function ItemAvailabilityForm({
 				</div>
 				<div className="avail__radio-set h3-labels">
 					<input
-						className={`avail__radio p2-body-medium ${stockError ? 'error' : ''}`}
+						className= "avail__radio p2-body-medium"
 						type="radio"
 						id="outofstock"
 						name="status"
@@ -71,7 +77,6 @@ function ItemAvailabilityForm({
 					name="quantity"
 					value={quantity}
 					onChange={handleChangeQuantity}
-					placeholder=""
 					/>
 			</div>
 			{submit === true && quantityError === true && <InventoryItemErrorState />}

@@ -19,6 +19,7 @@ function AddNewInventoryItem() {
   const [selectWarehouse, setSelectWarehouse] = useState('');
   const [warehouses, setWarehouses] = useState([]);
   const [submit, setSubmit] = useState(false);
+  
 
   // Error state
   const [itemNameError, setItemNameError] = useState(false);
@@ -125,6 +126,7 @@ function AddNewInventoryItem() {
               status={status}
               handleChangeQuantity={handleChangeQuantity}
               quantity={quantity}
+              setQuantity={setQuantity}
               handleChangeSelectWarehouse={handleChangeSelectWarehouse}
               selectWarehouse={selectWarehouse}
               statusError={statusError}
