@@ -6,20 +6,6 @@ import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
 
 function InventoryList({ id, className, inventoryList, onItemClick }) {
-    // const [inventoryList, setInventoryList] = useState([]);
-
-    // useEffect(() => {
-    // const fetchData = async () => {
-    //     try {
-    //     const response = await fetchInventoryList();
-    //     setInventoryList(response.data);
-    //     console.log(response.data);
-    //     } catch (error) {
-    //     console.error(error);
-    //     }
-    // };
-    // fetchData();
-    // }, [id]);
     console.log('InventoryList rendered with:', inventoryList);
 
     if (!Array.isArray(inventoryList) || inventoryList.length === 0) {

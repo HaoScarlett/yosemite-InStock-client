@@ -4,6 +4,7 @@ import { fetchInventoryItem, updateInventoryItem, fetchInventoryCategory, fetchW
 import { isInStock } from '../../utils/dataValidation.js'
 import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton.jsx'
 import SectionHeader from '../../components/LowLevelComponents/SectionHeader/SectionHeader.jsx'
+import InventoryItemErrorState from '../../components/InventoryItemErrorState/InventoryItemErrorState.jsx'
 import './InventoryEditForm.scss'
 
 export default function InventoryEditForm() {
@@ -12,7 +13,8 @@ export default function InventoryEditForm() {
     const [warehouses, setWarehouses] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [error, setError] = useState(null);
+    const [errors, setErrors] = useState({});
+    const [generalError, setGeneralError] = useState('');
     const navigate = useNavigate();
     const { id } = useParams();
 
@@ -34,7 +36,7 @@ export default function InventoryEditForm() {
                 // console.log('editItem', editItem.data[0]);
                 // console.log('warehouses', fetchedWarehouses.data);
             } catch (err) {
-                setError('Failed to load item data');
+                setGeneralError('Failed to load item data');
             } finally {
                 setIsLoading(false);
             }
@@ -42,18 +44,33 @@ export default function InventoryEditForm() {
         loadItem();
     }, [id]);
 
+    const validateForm = () => {
+        const newErrors = {};
+        const requiredFields = ['warehouse_id', 'item_name', 'description', 'category', 'status', 'quantity'];
+        requiredFields.forEach(field => {
+            if (!item[field] && item[field] !== 0) {
+                newErrors[field] = 'This field is required.';
+            }
+        });
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setItem(prevItem => ({
             ...prevItem,
             [name]: name === 'warehouse_id' || name === 'quantity' ? Number(value) : value
         }));
+        setErrors(prev => ({ ...prev, [name]: '' }));
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
         setIsSubmitting(true);
-        setError(null);
+        setGeneralError('');
+
 
         const itemToSubmit = {
             warehouse_id: Number(item.warehouse || item.warehouse_id),
@@ -72,9 +89,9 @@ export default function InventoryEditForm() {
         } catch (err) {
             console.error('Error response:', err.response?.data);
             if (err.response?.data?.errors) {
-                setError(err.response.data.errors.join(', '));
+                setGeneralError(err.response.data.errors.join(', '));
             } else {
-                setError('Failed to update item');
+                setGeneralError('Failed to update item');
             }
         } finally {
             setIsSubmitting(false);
@@ -85,14 +102,14 @@ export default function InventoryEditForm() {
         navigate(`/inventory/${id}`);
     };
 
+
     if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
     if (!item) return <div>Item not found</div>;
 
     return (
         <div id='inventory-edit' className='item-form'>
             <SectionHeader text={'Edit Inventory Item'} url={`/inventory/${id}`} />
-            {error && <div className="error-message">{error}</div>}
+            {generalError && <div className="error-message">{generalError}</div>}
             <div className="divider"></div>
             <form action="" onSubmit={handleSubmit} className='layout'>
                 <div className='item-form__details'>
@@ -109,6 +126,7 @@ export default function InventoryEditForm() {
                             maxLength={50}
                             min={0}
                         />
+                        {errors.item_name && <InventoryItemErrorState />}
                     </label>
                     <label htmlFor="item-description">
                         <h3 className="item-description">Description</h3>
@@ -119,6 +137,7 @@ export default function InventoryEditForm() {
                             required
                             min={0}
                         ></textarea>
+                        {errors.description && <InventoryItemErrorState />}
                     </label>
                     <label htmlFor="category">
                         <h3>Category</h3>
@@ -133,6 +152,7 @@ export default function InventoryEditForm() {
                                 <option key={index} value={category}>{category}</option>
                             ))}
                         </select>
+                        {errors.category && <InventoryItemErrorState />}
                     </label>
 
                 </div>
@@ -157,6 +177,7 @@ export default function InventoryEditForm() {
                                 onChange={handleChange}
                             />Out of Stock</label>
                         </div>
+                        {errors.status && <InventoryItemErrorState />}
                     </div>
                     {isInStock(item.status) && (
                         <label htmlFor="quantity">
@@ -170,6 +191,7 @@ export default function InventoryEditForm() {
                                 required
                                 min="1"
                             />
+                            {errors.quantity && <InventoryItemErrorState />}
                         </label>
                     )}
                     <label htmlFor="warehouse_id">
@@ -189,6 +211,7 @@ export default function InventoryEditForm() {
                                 </option>
                             ))}
                         </select>
+                        {errors.warehouse_id && <InventoryItemErrorState />}
                     </label>
                 </div>
                 <div className="button-wrapper">
