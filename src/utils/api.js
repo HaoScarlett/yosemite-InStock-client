@@ -39,14 +39,9 @@ export const updateInventoryItem = async (id, item) => {
     }
 };
 
-// export const fetchWarehousesList = () =>{
-// 	return axios.get(`${API_URL}/api/warehouses`);
-// };
-
-export const fetchWarehousesList = () => {
-	return api.get('/api/warehouses');
-  };
-  
+export const fetchWarehousesList = () =>{
+	return axios.get(`${API_URL}/api/warehouses`);
+};
 
 export const fetchWarehouseItem = (id) => {
 	return axios.get(`${API_URL}/api/warehouses/${id}`);
