@@ -1,7 +1,16 @@
 @use '../../../styles/partials/mixins' as *;
 
-body{
-    background-color: rgba(0, 0, 0, 0.5);
+
+.modal__overlay{
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    top:0;
+    left:0;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal__container{
@@ -19,7 +28,6 @@ body{
     height: 100%;
     &-close{
         float: right;
-        display: block;
     }
     &-buttons{
         display: flex;

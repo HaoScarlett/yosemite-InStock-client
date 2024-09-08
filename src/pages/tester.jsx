@@ -25,6 +25,7 @@ export default function Tester(){
 						deleteType='inventory item'
 						deleteName='Placeholder Name'
 						onDeleteSubmit={onDeleteSubmit}
+						closeModal={closeModal}
 					/>
 				</div>
 			)}
