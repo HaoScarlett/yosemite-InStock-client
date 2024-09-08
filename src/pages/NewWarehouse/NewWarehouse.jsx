@@ -27,7 +27,7 @@ function NewWarehouse() {
 			<div className='new-warehouse__header'>
 				<SectionHeader
 					text='Add New Warehouse'
-					url='/new'
+					url='/'
 				/>
 			</div>
 			<WarehouseForm
