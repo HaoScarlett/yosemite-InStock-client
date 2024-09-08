@@ -28,54 +28,19 @@ li .warehouses__container {
   }
 
   &__box {
-    padding-top: 2rem;
+    padding: $unit-32 $unit-24;
     box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+
     @include tablet {
       padding: 1rem;
     }
   }
 
-  &__search {
-    display: flex;
-    flex-direction: column;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 1rem;
+  &__title {
+    padding-bottom: $unit-16;
+}
 
-    @include tablet {
-      flex-direction: row;
-      padding: 0.5rem;
-    }
-  }
-
-//   &__btn {
-//     background: $interactive-elements;
-//     border-radius: 20px;
-//     border: 1px solid transparent;
-//     color: $global-white;
-//     padding: 0.5rem;
-//     font-weight: 600;
-//     margin-bottom: 1rem;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     &:hover {
-//       background-color: $global-text;
-//     }
-
-//     @include tablet {
-//       margin: 0;
-//       width: 35%;
-//       height: 38px;
-//       font-size: 0.9rem;
-//     }
-
-//     @include desktop {
-//       width: 25%;
-//     }
-//   }
-
-  &__form {
+  &__container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -87,22 +52,6 @@ li .warehouses__container {
     }
   }
 
-//   &__text {
-//     background: $global-white;
-//     border: 1px solid #bdc5d5;
-//     border-radius: 1.25rem;
-//     padding: 0.5rem 1rem;
-//     background-image: url("../../assets/Icons/search-24px.svg");
-//     background-repeat: no-repeat;
-//     background-position: center right 1rem;
-//     @include tablet {
-//       width: 39%;
-//       height: 38px;
-//     }
-//     @include desktop {
-//       width: 35%;
-//     }
-//   }
 
   &__list {
     list-style: none;

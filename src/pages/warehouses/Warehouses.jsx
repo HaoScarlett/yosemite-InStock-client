@@ -80,15 +80,13 @@ function Warehouses() {
       />
 
       <div className="warehouses__box">
-        <div className="warehouses__search">
-          <h1 className="warehouses__title">Warehouses</h1>
-          <form className="warehouses__form">
+          <h1 className="warehouses__title h1-page-header">Warehouses</h1>
+          <div className="warehouses__container">
             <SearchBar />
             <Link to={"/warehouses/add"}>
               <CTAButton text={'+ Add New Warehouse'} variant="primary" />
             </Link>
-          </form>
-        </div>
+          </div>
       </div>
 
       <div className="warehouses__list--tablet">
