@@ -6,7 +6,7 @@ export default function DeleteModal({
 	deleteType,
 	deleteName,
 	onDeleteSubmit,
-	closeModal,
+	closeModal
 }) {
 	return (
 		<div className='modal__overlay'>
@@ -42,7 +42,7 @@ export default function DeleteModal({
 						</button>
 						<button
 							className='modal__delete-btn'
-							onSubmit={onDeleteSubmit}
+							onClick={onDeleteSubmit}
 						>
 							Delete
 						</button>

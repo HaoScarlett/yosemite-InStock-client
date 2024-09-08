@@ -65,3 +65,6 @@ export const updateWarehouse = async (id, updatedWarehouse) => {
 	}
 };
 
+export const deleteInventoryItem = (id)=>{
+		return axios.delete(`${API_URL}/api/inventories/${id}`);
+}
