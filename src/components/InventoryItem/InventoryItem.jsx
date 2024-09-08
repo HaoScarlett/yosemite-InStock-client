@@ -5,23 +5,6 @@ import SectionHeader from '../LowLevelComponents/SectionHeader/SectionHeader.jsx
 import EditButton from '../LowLevelComponents/Editbutton/Editbutton.jsx';
 
 export default function InventoryItem({ itemId, inventoryItem }) {
-	// const [inventoryItem, setInventoryItem] = useState({});
-	// if (!itemId) {
-	// 	itemId = 1;
-	// }
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const response = await fetchInventoryItem(itemId);
-	// 			setInventoryItem(response.data[0]);
-	// 			console.log(response.data);
-	// 		} catch (error) {
-	// 			console.log(error);
-	// 		}
-	// 	};
-	// 	fetchData();
-	// }, []);
 	if (!inventoryItem) {
 		return <div>Item not found</div>;
 	}

@@ -64,7 +64,7 @@ function WarehouseInventory() {
                     <img className='warehouse__header-btn--back' src={backbtn} alt="back button" />
                 </Link>
                 <h1 className='warehouse__header-title .h1-page-header'>{warehouse.warehouse_name}</h1>
-                <div className='warehouse__header-btn--edit'><Editbutton /></div>
+                <div className='warehouse__header-btn--edit'><Editbutton to={`/${id}/edit`}/></div>
             </div>
             <div className="warehouse__details">
                 <div className='warehouse__details-address'>
