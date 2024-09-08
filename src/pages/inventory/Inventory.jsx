@@ -69,6 +69,13 @@ function Inventory() {
     navigate(`/inventory/${itemId}`)
   }
 
+
+  // Handle "Add New Item" button click
+  const handleAddNewItem = () => {
+    navigate('/inventory/add'); 
+  }
+
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -89,7 +96,18 @@ function Inventory() {
           <div>Loading item...</div>
         )
       ) : (
+        <div>
         <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
+      
+        {/* Handle "Add New Item" button */}
+        <div style={{ marginTop: '20px' }}>
+            <CTAButton 
+              text="+ Add New Item"
+              onClick={handleAddNewItem} 
+              variant="primary"
+            />
+          </div>
+        </div>
       )}
     </>
   )
