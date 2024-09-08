@@ -6,7 +6,7 @@ import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import { Link } from 'react-router-dom';
 
-function WarehouseItemRow({ warehouse }) {
+function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 	const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 
 	// Mobile view component for Warehouse Item
@@ -18,19 +18,20 @@ function WarehouseItemRow({ warehouse }) {
 						<div
 							data-label='warehouse'
 							className='warehouse-name'
+							onClick={() => handleWarehouseClick(warehouse.id)}
 						>
 							<label>WAREHOUSE</label>
-							<Link
+							{/* <Link
 								to='/'
 								className='warehouse-item__name-link h3-links'
 								href='#'
-							>
-								{warehouse.warehouse_name}
-								<img
-									src={chevronIcon}
-									alt='Chevron Icon'
-								/>
-							</Link>
+							> */}
+							{warehouse.warehouse_name}
+							<img
+								src={chevronIcon}
+								alt='Chevron Icon'
+							/>
+							{/* </Link> */}
 						</div>
 						<label>ADDRESS</label>
 						<div
@@ -75,7 +76,7 @@ function WarehouseItemRow({ warehouse }) {
 							/>
 						</Link>
 						<Link
-							to='/'
+							to={`warehouses/${warehouse.id}/edit`}
 							className='warehouse-edit-btn'
 						>
 							<img
@@ -94,7 +95,7 @@ function WarehouseItemRow({ warehouse }) {
 		return (
 			<>
 				<tr className='warehouse-item-row'>
-					<td className='warehouse-item__name p2-body-medium'>
+					<td className='warehouse-item__name p2-body-medium' onClick={() => handleWarehouseClick(warehouse.id)}>
 						<div>
 							<Link
 								to='/'
@@ -132,12 +133,12 @@ function WarehouseItemRow({ warehouse }) {
 									alt='Delete button'
 								/>
 							</button>
-							<button className='warehouse-edit-btn'>
+							<Link to={`warehouses/${warehouse.id}/edit`} className='warehouse-edit-btn'>
 								<img
 									src={editIcon}
 									alt='Edit button'
 								/>
-							</button>
+							</Link>
 						</div>
 					</td>
 				</tr>

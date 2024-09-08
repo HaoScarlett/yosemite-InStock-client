@@ -21,7 +21,7 @@
   width: 100%;
   padding: var.$spacing-small;
   &.no-shadow {
-    box-shadow: none; 
+    box-shadow: none;
   }
 
   &__title {
@@ -32,7 +32,7 @@
     margin: var.$spacing-small auto;
   }
 }
-.hidden{
+.hidden {
   display: none;
 }
 
@@ -61,15 +61,26 @@
     background-color: c.$global-white;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
-    &__header-wrapper{
+
+    &__mobile-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    &__title {
+      margin-block: 0;
+    }
+
+    &__header-wrapper {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-block: var.$unit-24;
     }
 
     &__search {
       margin-inline: auto 1rem;
+      margin-block: 0;
     }
     &__container{
       @include m.tablet{
