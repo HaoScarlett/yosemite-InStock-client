@@ -260,17 +260,23 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 					<CTAButton variant='secondary' text='Cancel' /> 
 				</Link>
 				{initialData  ? (
-                            <CTAButton
+					<Link to='/' className='warehouse-form__buttons-submit'>
+					<CTAButton
                                 variant='primary'
                                 text='Save'
                                 onClick={handleSubmit}
                             />
+					</Link>
+                            
                         ) : (
-                            <CTAButton
+							<Link to='/' className='warehouse-form__buttons-submit'>
+					<CTAButton
                                 variant='primary'
                                 text='+ Add Warehouse'
                                 onClick={handleSubmit}
                             />
+					</Link>
+                            
                         )}
 			</div>
 		</form>

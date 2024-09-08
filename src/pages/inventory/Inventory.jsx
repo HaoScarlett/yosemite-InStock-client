@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton';
 import InventoryItem from '../../components/InventoryItem/InventoryItem';
-import InventoryList from '../../components/InventoryList/InventoryList.jsx'
+import InventoryList from '../../components/InventoryList/InventoryList.jsx';
+import SearchBar from '../../components/LowLevelComponents/SearchBar/SearchBar.jsx';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { fetchInventoryList, fetchInventoryItem } from '../../utils/api.js';
 
@@ -80,21 +81,38 @@ if (error) {
   return <div>{error}</div>;
 }
 
-return (
-  <>
-    {id ? (
+  return (
+    <>
+      {/* {isItemView ? (
       selectedItem ? (
         <InventoryItem inventoryItem={selectedItem} />
       ) : (
         <div>Loading item...</div>
       )
     ) : (
-      <div>
-        <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
-      </div>
-    )}
-  </>
-)
+      <div className='inventory-list'>
+        <div className='inventory-list__header'>
+          <h1 className='inventory-list__title h1-page-header'>
+            Inventory
+          </h1>
+          <div className='inventory-list__interactive'>
+            <SearchBar className='inventory-list__search' />
+            <CTAButton 
+              text="+ Add New Item"
+              onClick={handleAddNewItem} 
+              variant="primary"
+              className='inventory-list__add-button'
+            />
+          </div>
+        </div> */}
+        <InventoryList 
+          inventoryList={inventoryList} 
+          onItemClick={handleItemClick} 
+        />
+       {/* </div>
+    )} */}
+    </>
+  )
 }
 
 export default Inventory

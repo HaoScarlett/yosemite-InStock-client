@@ -82,6 +82,12 @@
       margin-inline: auto 1rem;
       margin-block: 0;
     }
+    &__container{
+      @include m.tablet{
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 
   .inventory-table {
