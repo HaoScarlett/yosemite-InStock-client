@@ -10,6 +10,7 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
 	const [inventoryData, setInventoryData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [deleteItem, setDeletedItem] = useState(0);
 	const navigate = useNavigate(); //
 
 	useEffect(() => {
@@ -24,11 +25,15 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
 			}
 		};
 		fetchData();
-	}, [id]);
+	}, [id, deleteItem]);
 
 	const handleAddNewItem = () => {
 		navigate('/inventory/add');
 	};
+
+	const handleDelete = (id) =>{
+		setDeletedItem(prevCount => prevCount + 1);
+	}
 
 	if (isLoading) {
 		return <div>Loading inventory data...</div>;
@@ -85,12 +90,13 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
 					</tr>
 				</thead>
 				<tbody>
-					{inventoryList.map((inventory) => (
+					{inventoryData.map((inventory) => (
 						<ItemRow
 							key={inventory.id}
 							item={inventory}
 							showWarehouse={showWarehouse}
 							onItemClick={handleItemClick}
+							handleDelete={handleDelete}
 						/>
 					))}
 				</tbody>
