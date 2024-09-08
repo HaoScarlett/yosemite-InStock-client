@@ -53,7 +53,7 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
                             key={inventory.id}
                             item={inventory}
                             showWarehouse={showWarehouse}
-                            onItemClick={() => handleItemClick(inventory.id)}
+                            onItemClick={handleItemClick}
                         />
                     ))}
                 </tbody>

@@ -14,9 +14,9 @@ function ItemRow({ item, showWarehouse, onItemClick }) {
   const MobileView = ({ item, showWarehouse }) => {
     return (
       <>
-        <div className='item-row' onClick={() => onItemClick(item.id)}>
+        <div className='item-row' >
           <div className="inventory-item">
-            <div className='inventory-item__name'>
+            <div className='inventory-item__name' onClick={() => onItemClick(item.id)}>
               <span data-label="INVENTORY ITEM">
                 <a className='item-name h3-links' href="">{item.item_name}</a>
                 <img className='icon' src={chevronIcon} alt="" />
@@ -50,8 +50,8 @@ function ItemRow({ item, showWarehouse, onItemClick }) {
 
   const DesktopView = ({ item, showWarehouse }) => {
     return (
-      <tr className='item-row' onClick={() => onItemClick(item.id)}>
-        <td className="inventory-item__name">
+      <tr className='item-row' >
+        <td className="inventory-item__name" onClick={() => onItemClick(item.id)}>
           <a className='item-name' href="#">{item.item_name}</a>
           <img className='icon' src={chevronIcon} alt="chevron icon" />
         </td>

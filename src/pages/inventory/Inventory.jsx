@@ -72,8 +72,7 @@ function Inventory() {
 
   // Handle item click
   const handleItemClick = (itemId) => {
-    console.log('Item clicked:', itemId);
-    navigate(`/inventory/${itemId}`)
+    navigate(`/inventory/${itemId}`, { replace: true });
   }
 
 
@@ -91,12 +90,12 @@ function Inventory() {
     return <div>{error}</div>;
   }
 
-  const isItemView = location.pathname.includes(`/inventory/`) && id;
-  console.log('Is item view:', isItemView);
+  // const isItemView = location.pathname.includes(`/inventory/`) && id;
+  // console.log('Is item view:', isItemView);
 
   return (
     <>
-      {isItemView ? (
+      {id ? (
         selectedItem ? (
           <InventoryItem inventoryItem={selectedItem} />
         ) : (
@@ -105,15 +104,6 @@ function Inventory() {
       ) : (
         <div>
           <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
-
-          {/* Handle "Add New Item" button */}
-          <div style={{ marginTop: '20px' }}>
-            {/* <CTAButton
-              text="+ Add New Item"
-              onClick={handleAddNewItem}
-              variant="primary"
-            /> */}
-          </div>
         </div>
       )}
     </>
