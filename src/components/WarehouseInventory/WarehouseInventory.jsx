@@ -87,7 +87,7 @@ function WarehouseInventory() {
                     </div>
                 </div>
             </div>
-            <div className='warehouse__list'>{id && <InventoryList key={id} warehouseId={id} />}</div>
+            <div className='warehouse__list'>{id && <InventoryList key={id} warehouseId={id} warehouseName={warehouse.warehouse_name}/>}</div>
         </section>
 
     </>);

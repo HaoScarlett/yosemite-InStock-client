@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { fetchInventoryList } from '../../utils/api.js';
+import { fetchInventoryList, fetchSpecificInventory } from '../../utils/api.js';
 import ItemRow from '../ItemRow/ItemRow.jsx';
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
 import { useNavigate, Link } from 'react-router-dom';
 
-function InventoryList({ id, className, inventoryList, onItemClick }) {
+function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=null }) {
 	const [inventoryData, setInventoryData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [deleteItem, setDeletedItem] = useState(0);
 	const navigate = useNavigate(); //
+
+
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -24,7 +26,23 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
 				setIsLoading(false);
 			}
 		};
-		fetchData();
+		const fetchSpecificData = async (warehouseId)=>{
+			try{
+				const response = await fetchSpecificInventory(warehouseId);
+				setInventoryData(response.data);
+				setIsLoading(false);
+			}catch (error) {
+				console.error(error);
+				setIsLoading(false);
+			}
+		};
+
+		if(!warehouseId){
+			fetchData();
+		}else{
+			fetchSpecificData(warehouseId);
+		}
+		
 	}, [id, deleteItem]);
 
 	const handleAddNewItem = () => {

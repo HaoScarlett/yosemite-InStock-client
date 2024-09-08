@@ -37,7 +37,7 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
           <div className="inventory-item">
             <div className='inventory-item__name' onClick={() => onItemClick(item.id)}>
               <span data-label="INVENTORY ITEM">
-                <a className='item-name h3-links' href="">{item.item_name}</a>
+                <Link className='item-name h3-links' to={`/inventory/${item.id}`}>{item.item_name}</Link>
                 <img className='icon' src={chevronIcon} alt="" />
               </span>
               <span data-label="CATEGORY">{item.category}</span>
@@ -71,7 +71,7 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
     return (
       <tr className='item-row' >
         <td className="inventory-item__name" onClick={() => onItemClick(item.id)}>
-          <a className='item-name' href="#">{item.item_name}</a>
+          <Link className='item-name' to={`/inventory/${item.id}`}>{item.item_name}</Link>
           <img className='icon' src={chevronIcon} alt="chevron icon" />
         </td>
         <td className='inventory-item__category'>{item.category}</td>

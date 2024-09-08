@@ -72,3 +72,7 @@ export const deleteInventoryItem = (id)=>{
 export const deleteWarehouse = (id) =>{
 	return axios.delete(`${API_URL}/api/warehouses/${id}`);
 }
+
+export const fetchSpecificInventory = (id) => {
+	return axios.get(`${API_URL}/api/warehouses/${id}/inventories`);
+}
