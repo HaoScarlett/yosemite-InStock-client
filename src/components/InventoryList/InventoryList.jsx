@@ -6,7 +6,7 @@ import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
 import { useNavigate, Link } from 'react-router-dom';
 
-function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=null }) {
+function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=null, warehouseName }) {
 	const [inventoryData, setInventoryData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -115,6 +115,7 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=
 							showWarehouse={showWarehouse}
 							onItemClick={handleItemClick}
 							handleDelete={handleDelete}
+							warehouseName= {warehouseName}
 						/>
 					))}
 				</tbody>

@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { deleteInventoryItem } from '../../utils/api.js';
 import { Link } from 'react-router-dom';
 
-function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
+function ItemRow({ item, showWarehouse, onItemClick, handleDelete, warehouseName }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const inStock = item.status === 'In Stock';
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -22,7 +22,6 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
     try {
       // Await the asynchronous delete operation
       const response = await deleteInventoryItem(item.id);
-      console.log('Item deleted successfully:', response.data);
       closeModal();
       handleDelete();
     } catch (error) {
@@ -30,7 +29,22 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
     }
   };
 
-  const MobileView = ({ item, showWarehouse }) => {
+  const mobileWarehouseName = ()=>{
+    if(!item.warehouse_name){
+      return <span data-label="WAREHOUSE">{warehouseName}</span>
+    }else{
+      <span data-label="WAREHOUSE">{item.warehouse_name}</span>
+    }
+  }
+
+  const desktopWarehouseName = () =>{
+    if(!item.warehouse_name){
+      return <td className='inventory-item__warehouse'>{warehouseName}</td>
+    }else{
+      <td className='inventory-item__warehouse'>{item.warehouse_name}</td>
+    }
+  }
+  const MobileView = ({ item }) => {
     return (
       <>
         <div className='item-row' >
@@ -47,7 +61,7 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
                 <InOutStock inStock={inStock} />
               </span>
               <span data-label="QTY">{item.quantity}</span>
-              {showWarehouse && <span data-label="WAREHOUSE">{item.warehouse_name}</span>}
+              {mobileWarehouseName()}
             </div>
           </div>
           <div className='actions'>
@@ -67,7 +81,7 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
     );
   };
 
-  const DesktopView = ({ item, showWarehouse }) => {
+  const DesktopView = ({ item}) => {
     return (
       <tr className='item-row' >
         <td className="inventory-item__name" onClick={() => onItemClick(item.id)}>
@@ -79,7 +93,7 @@ function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
           <InOutStock inStock={inStock} />
         </td>
         <td className='inventory-item__quantity'>{item.quantity}</td>
-        {showWarehouse && <td className='inventory-item__warehouse'>{item.warehouse_name}</td>}
+        {desktopWarehouseName()}
         <td className='actions'>
           <button className="delete-btn" onClick={openModal}>
             <img src={deleteIcon} alt="delete button" />
