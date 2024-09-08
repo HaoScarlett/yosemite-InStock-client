@@ -1,47 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { fetchInventoryList } from '../../utils/api.js';
 import ItemRow from '../ItemRow/ItemRow.jsx';
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
+import { useNavigate, Link } from 'react-router-dom';
 
-function InventoryList({ id, className, inventoryList, onItemClick, warehouseId }) {
-    console.log('InventoryList rendered with:', inventoryList);
-    const [inventoryItems, setInventoryItems] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        console.log('InventoryList useEffect triggered. warehouseId:', warehouseId);
-        if (!warehouseId) {
-            console.error('No warehouseId provided to InventoryList');
-            setError('No warehouse ID provided');
-            setLoading(false);
-            return;
-        }
-
-        const fetchInventory = async () => {
-            setLoading(true);
-            try {
-                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/warehouses/${warehouseId}/inventories`);
-
-                if (!response.ok) {
-                    throw new Error('Failed to fetch inventory data');
-                }
-
-                const data = await response.json();
-                console.log('Inventory data fetched:', data);
-                setInventoryItems(data);
-            } catch (error) {
-                console.error('Error fetching inventory:', error);
-                setError('Failed to load inventory. Please try again later.');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchInventory();
-    }, [warehouseId]);
+function InventoryList({ id, className, inventoryList, onItemClick }) {
+    const navigate = useNavigate();
 
     if (!Array.isArray(inventoryList) || inventoryList.length === 0) {
         return <div>No inventory items available.</div>;
@@ -63,11 +28,14 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId 
                 <div className='inventory-list__mobile-wrapper'>
                     <h1 className="inventory-list__title">Inventory</h1>
                     <SearchBar className="inventory-list__search" />
-                    <CTAButton
-                        text="+ Add New Item"
-                        onClick={handleAddNewItem}
-                        variant="primary"
-                    />
+                    <Link to={'/inventory/add'}>
+                        <CTAButton
+                            text="+ Add New Item"
+                            onClick={handleAddNewItem}
+                            variant="primary"
+                        />
+                    </Link>
+
                 </div>
             )}
 
@@ -88,7 +56,7 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId 
                             key={inventory.id}
                             item={inventory}
                             showWarehouse={showWarehouse}
-                            onItemClick={() => handleItemClick(inventory.id)}
+                            onItemClick={handleItemClick}
                         />
                     ))}
                 </tbody>

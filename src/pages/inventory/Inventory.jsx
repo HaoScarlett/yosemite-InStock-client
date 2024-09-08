@@ -17,25 +17,6 @@ function Inventory() {
 
   const fetchInventoryData = useCallback(async () => {
     console.log('Fetching inventory list');
-
-    const fetchData = async () => {
-      if (!id) {
-        setIsLoading(true);
-        try {
-          const response = await fetchInventoryList(); // Inspect response data
-          setInventoryList(response.data || []);
-        } catch (error) {
-          setError('Failed to fetch inventory list. Please try again later.');
-          console.error('Error fetching inventory list:', error);
-          setInventoryList([]);
-        } finally {
-          setIsLoading(false)
-        }
-      }
-    };
-    fetchData();
-  }, [id]);
-
     setIsLoading(true);
     try {
       const response = await fetchInventoryList();
@@ -50,90 +31,70 @@ function Inventory() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!id) {
-      fetchInventoryData();
-    }
-  }, [id, fetchInventoryData]);
+useEffect(() => {
+  if (!id) {
+    fetchInventoryData();
+  }
+}, [id, fetchInventoryData]);
 
-  useEffect(() => {
-    const fromEditPage = location.state && location.state.fromEdit;
-    if (fromEditPage && !id) {
-      fetchInventoryData();
-    }
-  }, [location, id, fetchInventoryData]);
+useEffect(() => {
+  const fromEditPage = location.state && location.state.fromEdit;
+  if (fromEditPage && !id) {
+    fetchInventoryData();
+  }
+}, [location, id, fetchInventoryData]);
 
 
-  // Fetch the selected item when id changes
-  useEffect(() => {
-    console.log('ID changed, fetching item data');
-    if (id) {
-      const fetchItemData = async () => {
-        setIsLoading(true)
-        try {
-          const response = await fetchInventoryItem(id);
-          setSelectedItem(response.data[0]);
-        } catch (error) {
-          console.log(error);
-          setError('Failed to fetch inventory item. Please try again later.');
-        } finally {
-          setIsLoading(false);
-        }
+// Fetch the selected item when id changes
+useEffect(() => {
+  console.log('ID changed, fetching item data');
+  if (id) {
+    const fetchItemData = async () => {
+      setIsLoading(true)
+      try {
+        const response = await fetchInventoryItem(id);
+        setSelectedItem(response.data[0]);
+      } catch (error) {
+        console.log(error);
+        setError('Failed to fetch inventory item. Please try again later.');
+      } finally {
+        setIsLoading(false);
       }
-      fetchItemData();
-    } else {
-      setSelectedItem(null);
     }
-  }, [id])
-
-  // Handle item click
-  const handleItemClick = (itemId) => {
-    console.log('Item clicked:', itemId);
-    navigate(`/inventory/${itemId}`)
+    fetchItemData();
+  } else {
+    setSelectedItem(null);
   }
+}, [id])
 
+// Handle item click
+const handleItemClick = (itemId) => {
+  navigate(`/inventory/${itemId}`, { replace: true });
+}
 
-  // Handle "Add New Item" button click
-  // const handleAddNewItem = () => {
-  //   navigate('/inventory/add');
-  // }
+if (isLoading) {
+  return <div>Loading...</div>;
+}
 
+if (error) {
+  return <div>{error}</div>;
+}
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  const isItemView = location.pathname.includes(`/inventory/`) && id;
-  console.log('Is item view:', isItemView);
-
-  return (
-    <>
-      {isItemView ? (
-        selectedItem ? (
-          <InventoryItem inventoryItem={selectedItem} />
-        ) : (
-          <div>Loading item...</div>
-        )
+return (
+  <>
+    {id ? (
+      selectedItem ? (
+        <InventoryItem inventoryItem={selectedItem} />
       ) : (
-        <div>
-          <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
-
-          {/* Handle "Add New Item" button */}
-          <div style={{ marginTop: '20px' }}>
-            {/* <CTAButton
-              text="+ Add New Item"
-              onClick={handleAddNewItem}
-              variant="primary"
-            /> */}
-          </div>
-        </div>
-      )}
-    </>
-  )
+        <div>Loading item...</div>
+      )
+    ) : (
+      <div>
+        <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
+      </div>
+    )}
+  </>
+)
 }
 
 export default Inventory
