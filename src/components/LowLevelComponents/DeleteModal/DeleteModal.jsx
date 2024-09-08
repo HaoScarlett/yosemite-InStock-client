@@ -10,8 +10,7 @@ export default function DeleteModal({
 }) {
 	return (
 		<div className='modal__overlay'>
-		<section className='modal__container'>
-			
+			<section className='modal__container'>
 				<div className='modal__content'>
 					<div>
 						<div className='modal__content-close'>
@@ -23,14 +22,16 @@ export default function DeleteModal({
 							</button>
 						</div>
 
-						<h1 className='h1-page-header '>
-							Delete {deleteName} {deleteType}?
-						</h1>
-						<p className='p2-body-medium'>
-							Please confirm that you’d like to delete the{' '}
-							{deleteName} from the list of {deleteType}s. You
-							won’t be able to undo this action.
-						</p>
+						<div className='modal__content-text'>
+							<h1 className='h1-page-header '>
+								Delete {deleteName} {deleteType}?
+							</h1>
+							<p className='p2-body-medium'>
+								Please confirm that you’d like to delete the{' '}
+								{deleteName} from the list of {deleteType}s. You
+								won’t be able to undo this action.
+							</p>
+						</div>
 					</div>
 					<div className='modal__content-buttons'>
 						<button
@@ -47,8 +48,7 @@ export default function DeleteModal({
 						</button>
 					</div>
 				</div>
-			
-		</section>
+			</section>
 		</div>
 	);
 }

@@ -19,6 +19,10 @@
     background-color: white;
     margin: auto;
     padding: 1rem;
+    @include tablet{
+        height: 16.375rem;
+        width: 87.5%;
+    }
 }
 
 .modal__content{
@@ -26,13 +30,30 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+
+    @include tablet{
+        padding: 0 2rem;
+        gap: 1.5rem;
+    }
+
     &-close{
         float: right;
     }
+
     &-buttons{
         display: flex;
         gap: 1rem;
         width: 100%;
+
+        @include tablet{
+            justify-content: flex-end;
+        }
+    }
+
+    &-text{
+        @include tablet{
+            width: 90%;
+        }
     }
 }
 
