@@ -1,5 +1,6 @@
 @use '../../styles/partials/colors.scss' as *;
 @use '../../styles/partials/mixins.scss' as *;
+@use '../../styles/partials/variables' as *;
 
 input {
 	height: 2.25rem;
@@ -50,17 +51,25 @@ h2 {
 .warehouse-form {
 	@include tablet {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
 	}
 
 	& > div {
-		width: 100%;
+		width: inherit;
         @include tablet{
             margin-top: 1.5rem;
         }
 	}
+	&__container{
+		@include tablet{
+			display: flex;
+			justify-content: space-between;
+		}
+		
+	}
 
 	&__details {
+		flex: 1;
 		border-bottom: 0.0625rem solid $outlines;
 		margin: 0 -1rem;
 		padding: 0 1rem 1rem 1rem;
@@ -73,6 +82,7 @@ h2 {
 	}
 
 	&__contact {
+		flex: 1;
 		@include tablet {
 			box-sizing: content-box;
 			padding-left: 1.5rem;
@@ -86,28 +96,24 @@ h2 {
 		padding: 1rem;
 		display: flex;
 		gap: 1rem;
-		width: inherit;
+
         @include tablet{
             margin: 1rem -2rem -2rem -2rem;
             justify-content: flex-end;
         }
-		&-cancel {
-			display: block;
-            padding: 0 1rem;
-			background-color: $global-white;
-			border: 0.0625rem solid $outlines;
-			width: 100%;
-			height: 2.25rem;
-			border-radius: 1.25rem;
-			text-align: center;
-			line-height: 2.25rem;
-			color: $placeholder-text;
-
-            @include tablet{
-                width:fit-content;
-            }
-            
+		&-cancel{
+			flex: 1;
+			@include tablet{
+				flex: 0;
+			}
 		}
+		&-submit{
+			flex: 1;
+			@include tablet{
+				flex: 0;
+			}
+		}
+		
 	}
 }
 
@@ -116,3 +122,26 @@ h2 {
         margin-top: 0rem;
     }   
 }
+
+.input-error {
+    border: 2px solid $error-states;
+}
+
+.error-text {
+    color: $error-states; 
+	font-weight: 400;
+	font-size: small;
+    margin-top: 5px;
+}
+.error-icon{
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-top: .125rem;
+	margin-right: .3rem;
+}
+
+.error-message-container {
+    display: flex;
+    align-items: center;
+}
+
