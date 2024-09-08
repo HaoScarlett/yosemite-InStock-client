@@ -33,7 +33,6 @@ function EditWarehouse() {
                 } else {
                     await postWarehouse(formData);
                 }
-                alert("Warehouse saved successfully!");
             }  catch (error) {
                 console.error("Error saving warehouse:", error);
                 if (error.response?.data?.errors) {

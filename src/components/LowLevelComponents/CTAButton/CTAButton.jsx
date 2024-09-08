@@ -1,11 +1,11 @@
-import React from 'react'
-import './CTAButton.scss'
+import React from 'react';
+import './CTAButton.scss';
 
-function CTAButton({ variant = 'primary', onClick, text }) {
+function CTAButton({ variant = 'primary', onClick, text, type = 'button' }) {
     const getBtnStyle = () => {
         switch (variant) {
             case 'primary':
-                return 'btn-primary'
+                return 'btn-primary';
             case 'secondary':
                 return 'btn-secondary';
             case 'delete':
@@ -13,16 +13,13 @@ function CTAButton({ variant = 'primary', onClick, text }) {
             default:
                 return 'btn-primary';
         }
-    }
+    };
 
     return (
-        <button className={getBtnStyle()} onClick={onClick} >{text}</button>
-    )
+        <button className={getBtnStyle()} onClick={onClick} type={type}>
+            {text}
+        </button>
+    );
 }
 
-/* Use example
-<CTAButton text={'+ Add item'}/>
-<CTAButton text={'+ Add item'} variant='secondary' />
-<CTAButton text={'Delete'} variant='delete' /> */
-
-export default CTAButton
+export default CTAButton;
