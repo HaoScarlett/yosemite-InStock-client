@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchWarehouseList } from '../../utils/api.js';
+import { fetchWarehousesList } from '../../utils/api.js';
 import WarehouseItemRow from '../WarehouseItemRow/WarehouseItemRow.jsx';
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ function WarehouseList() {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await fetchWarehouseList();
+				const response = await fetchWarehousesList();
 				setWarehouseList(response.data);
 			} catch (error) {
 				console.error(error);

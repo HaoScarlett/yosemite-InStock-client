@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './WarehouseForm.scss';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import { Link } from 'react-router-dom';
-import { fetchWarehouseList } from '/src/utils/api.js';
-import { useEffect, useState } from 'react';
 import { fetchWarehousesList } from '/src/utils/api.js';
 import errorIcon from '../../assets/Icons/error-24px.svg';
 
@@ -43,12 +41,14 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 	const getWarehouseData = () => {
 		const getResponse = async () => {
 			try {
-				const response = await fetchWarehouseList();
+				const response = await fetchWarehousesList();
 				const responseData = response.data;
 
 				return responseData;
 			} catch (error) {
 				return console.error(error);
+			}
+		}
 
 	// Handle input changes
 	const handleChange = (e) => {
