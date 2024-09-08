@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import './WarehouseForm.scss';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import { Link } from 'react-router-dom';
+import { fetchWarehouseList } from '/src/utils/api.js';
+import { useEffect, useState } from 'react';
 import { fetchWarehousesList } from '/src/utils/api.js';
 import errorIcon from '../../assets/Icons/error-24px.svg';
+
 
 export default function WarehouseForm({ onSubmitFunction, initialData }) {
 	const [formData, setFormData] = useState({
@@ -25,6 +28,27 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
             setFormData(initialData);
         }
     }, [initialData]);
+
+
+		return warehouseNames.map((warehouseName) => (
+			<option
+				key={warehouseName}
+				value={warehouseName}
+			>
+				{warehouseName}
+			</option>
+		));
+	}
+
+	const getWarehouseData = () => {
+		const getResponse = async () => {
+			try {
+				const response = await fetchWarehouseList();
+				const responseData = response.data;
+
+				return responseData;
+			} catch (error) {
+				return console.error(error);
 
 	// Handle input changes
 	const handleChange = (e) => {
@@ -56,6 +80,7 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 		requiredFields.forEach(field => {
 			if (!formData[field]) {
 				errors[field] = "This field is required";
+
 			}
 		});
 		setErrorState(errors);

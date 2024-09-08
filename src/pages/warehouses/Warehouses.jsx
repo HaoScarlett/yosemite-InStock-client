@@ -1,15 +1,13 @@
-import React from 'react'
-import Warehouse from '../../components/Warehouse/Warehouse'
-import InventoryList from '../../components/InventoryList/InventoryList'
-import WarehouseForm from '../../components/WarehouseForm/WarehouseForm.jsx'
+import React from 'react';
+import WarehouseList from '../../components/WarehouseList/WarehouseList';
 
 function Warehouses() {
-  return (
-    <div>
-      {/* <Warehouse /> */}
-      <WarehouseForm />
-    </div>
-  )
+
+	return (
+		<div>
+			<WarehouseList />
+		</div>
+	);
 }
 
-export default Warehouses
+export default Warehouses;

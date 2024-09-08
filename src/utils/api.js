@@ -20,6 +20,7 @@ export const fetchInventoryItem = (id) => {
 	return axios.get(`${API_URL}/api/inventories/${id}`);
 };
 
+
 export const fetchInventoryCategory =(id) => {
 	return axios.get(`${API_URL}/api/inventories/categories`);
 };
@@ -30,7 +31,11 @@ export const updateInventoryItem = (id) => {
 
 export const fetchWarehousesList = () =>{
 	return axios.get(`${API_URL}/api/warehouses`);
-}
+};
+
+export const fetchWarehouseItem = (id) => {
+	return axios.get(`${API_URL}/api/warehouses/${id}`);
+};
 
 export const fetchSingleWarehouse = (id) => {
 	return axios.get(`${API_URL}/api/warehouses/${id}`);
@@ -49,3 +54,4 @@ export const updateWarehouse = async (id, updatedWarehouse) => {
 		throw error;
 	}
 };
+
