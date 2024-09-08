@@ -114,7 +114,7 @@ export default function InventoryEditForm() {
             <form action="" onSubmit={handleSubmit} className='layout item-form__field'>
                 <div className="item-form__wrapper">
                     <div className='item-form__details'>
-                        <h2 className='h2-subheader'>Item Details</h2>
+                        <h2 className='h2-subheader item-form__details-title'>Item Details</h2>
                         <label htmlFor="item_name">
                             <h3 className="item-name">Item Name</h3>
                             <input type="text"
@@ -156,64 +156,65 @@ export default function InventoryEditForm() {
                             {errors.category && <InventoryItemErrorState />}
                         </label>
 
-                </div>
-                <div className="divider"></div>
-                <div className="item-form__availability">
-                    <h2>Item Availability</h2>
-                    <div className='item-form__status'>
-                        <h3>Status</h3>
-                        <div className='item-form__status-wrapper'>
-                            <label htmlFor="status" className='item-form__radio-wrapper'><input type="radio"
-                                name='status'
-                                className='item-form__radio'
-                                value={'In Stock'}
-                                checked={isInStock(item.status)}
-                                onChange={handleChange}
-                            />In Stock</label>
-                            <label htmlFor="status" className='item-form__radio-wrapper'><input type="radio"
-                                name='status'
-                                className='item-form__radio'
-                                value={'Out of Stock'}
-                                checked={isInStock(item.status)}
-                                onChange={handleChange}
-                            />Out of Stock</label>
-                        </div>
-                        {errors.status && <InventoryItemErrorState />}
                     </div>
-                    {isInStock(item.status) && (
-                        <label htmlFor="quantity">
-                            <h3>Quantity</h3>
-                            <input
-                                type="number"
-                                name="quantity"
-                                id="quantity"
-                                value={item.quantity || ''}
+                    <div className="divider"></div>
+                    <div className="item-form__availability">
+                        <h2>Item Availability</h2>
+                        <div className='item-form__status'>
+                            <h3>Status</h3>
+                            <div className='item-form__status-wrapper'>
+                                <label htmlFor="status" className='item-form__radio-wrapper'><input type="radio"
+                                    name='status'
+                                    className='item-form__radio'
+                                    value={'In Stock'}
+                                    checked={isInStock(item.status)}
+                                    onChange={handleChange}
+                                />In Stock</label>
+                                <label htmlFor="status" className='item-form__radio-wrapper'><input type="radio"
+                                    name='status'
+                                    className='item-form__radio'
+                                    value={'Out of Stock'}
+                                    checked={isInStock(item.status)}
+                                    onChange={handleChange}
+                                />Out of Stock</label>
+                            </div>
+                            {errors.status && <InventoryItemErrorState />}
+                        </div>
+                        {isInStock(item.status) && (
+                            <label htmlFor="quantity">
+                                <h3>Quantity</h3>
+                                <input
+                                    type="number"
+                                    name="quantity"
+                                    id="quantity"
+                                    value={item.quantity || ''}
+                                    onChange={handleChange}
+                                    required
+                                    min="1"
+                                />
+                                {errors.quantity && <InventoryItemErrorState />}
+                            </label>
+                        )}
+                        <label htmlFor="warehouse_id">
+                            <h3>Warehouse</h3>
+                            <select
+                                name="warehouse_id"
+                                id="warehouse_id"
+                                className='item-form__dropdown'
+                                value={item.warehouse_id || ''}
                                 onChange={handleChange}
                                 required
-                                min="1"
-                            />
-                            {errors.quantity && <InventoryItemErrorState />}
+                            >
+                                <option value="">Select a warehouse</option>
+                                {warehouses.map((warehouse) => (
+                                    <option key={warehouse.id} value={warehouse.id}>
+                                        {warehouse.warehouse_name}
+                                    </option>
+                                ))}
+                            </select>
+                            {errors.warehouse_id && <InventoryItemErrorState />}
                         </label>
-                    )}
-                    <label htmlFor="warehouse_id">
-                        <h3>Warehouse</h3>
-                        <select
-                            name="warehouse_id"
-                            id="warehouse_id"
-                            className='item-form__dropdown'
-                            value={item.warehouse_id || ''}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Select a warehouse</option>
-                            {warehouses.map((warehouse) => (
-                                <option key={warehouse.id} value={warehouse.id}>
-                                    {warehouse.warehouse_name}
-                                </option>
-                            ))}
-                        </select>
-                        {errors.warehouse_id && <InventoryItemErrorState />}
-                    </label>
+                    </div>
                 </div>
                 <div className="button-wrapper">
                     <CTAButton text={'Cancel'} variant='secondary' onClick={handleCancel} type='button' />

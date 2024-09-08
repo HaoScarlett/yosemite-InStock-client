@@ -18,13 +18,22 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
         onItemClick(itemId);
     };
 
+    const handleAddNewItem = () => {
+        navigate('/inventory/add');
+      }
+
     return (
         <div className={`inventory-list layout ${!showWarehouse ? 'no-shadow' : ''}`}>
             {showWarehouse && (
-                <>
+                <div className='inventory-list__mobile-wrapper'>
                     <h1 className="inventory-list__title">Inventory</h1>
                     <SearchBar className="inventory-list__search" />
-                </>
+                    <CTAButton
+              text="+ Add New Item"
+              onClick={handleAddNewItem}
+              variant="primary"
+            />
+                </div>
             )}
 
             <table className="inventory-table">

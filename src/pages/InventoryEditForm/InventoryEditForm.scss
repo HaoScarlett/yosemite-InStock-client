@@ -62,7 +62,7 @@ h2 {
   margin: 1.5rem 0;
 }
 
-.divider{
+.divider {
   height: 1px;
   background-color: $dividers;
   margin-block: $spacing-medium;
@@ -85,9 +85,9 @@ h2 {
     background-color: $global-white;
   }
 
-  &__status-wrapper{
+  &__status-wrapper {
     display: flex;
-    gap:50%;
+    gap: 50%;
   }
 
   &__radio {
@@ -102,17 +102,42 @@ h2 {
   }
 }
 
-.button-wrapper{
+.button-wrapper {
   display: flex;
-  gap:1rem;
+  gap: 1rem;
   padding-block: $spacing-small;
-  
 }
 
 @include tablet {
   .item-form {
+    padding-top: $spacing-medium;
     &__dropdown {
       height: 2.375rem;
     }
+
+    &__wrapper {
+      display: flex;
+      gap: 5%;
+    }
+
+    &__details {
+      flex: 1;
+    }
+
+    &__availability {
+      flex: 1;
+    }
+
+    &__details-title {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .button-wrapper {
+    justify-content: flex-end;
+  }
+
+  .divider {
+    display: none;
   }
 }
