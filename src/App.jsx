@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.scss';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import Warehouses from './pages/warehouses/Warehouses.jsx';
+import WarehouseInventory from './components/WarehouseInventory/WarehouseInventory.jsx'
 import Inventory from './pages/inventory/Inventory';
+import Warehouses from './pages/warehouses/Warehouses';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
@@ -34,6 +35,8 @@ const router = createBrowserRouter([
       { path: "inventory", element: <Inventory /> },
       { path: "inventory/add", element: <AddNewInventoryItem /> },
       { path: "warehouses/new", element: <NewWarehouse /> },
+      { path: "warehouses/:id", element: <WarehouseInventory /> },
+      { path: "warehouses/:id/edit", element: <EditWarehouse /> },
       { path: "inventory/:id", element: <Inventory /> },
       { path: "inventory/:id/edit", element: <InventoryEditForm /> }
     ],

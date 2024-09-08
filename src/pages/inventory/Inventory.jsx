@@ -14,9 +14,9 @@ function Inventory() {
   const [error, setError] = useState(null);
   const { id } = useParams();
 
-  console.log('Inventory component rendered');
-  console.log('Current location:', location);
-  console.log('Current ID:', id);
+  // console.log('Inventory component rendered');
+  // console.log('Current location:', location);
+  // console.log('Current ID:', id);
 
 
   const fetchInventoryData = useCallback(async () => {
