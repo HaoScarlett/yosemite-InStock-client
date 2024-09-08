@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './AddNewInventoryItem.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
-import { fetchWarehousesList, fetchInventoryCategory, postInventoryItem } from '../../utils/api';  // 导入 api.js 中的函数
+import { fetchWarehousesList, fetchInventoryCategory, postInventoryItem } from '../../utils/api';  
 import ItemDetailsForm from '../../components/ItemDetailsForm/ItemDetailsForm';
 import ItemAvailabilityForm from '../../components/ItemAvailabilityForm/ItemAvailabilityForm';
 import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton';
@@ -13,12 +13,13 @@ function AddNewInventoryItem() {
   const [itemName, setItemName] = useState('');
   const [desc, setDesc] = useState('');
   const [category, setCategory] = useState('');
-  const [categories, setCategories] = useState([]);  // State to hold categories
+  const [categories, setCategories] = useState([]);  
   const [status, setStatus] = useState('In Stock');
   const [quantity, setQuantity] = useState('');
   const [selectWarehouse, setSelectWarehouse] = useState('');
   const [warehouses, setWarehouses] = useState([]);
   const [submit, setSubmit] = useState(false);
+  
 
   // Error state
   const [itemNameError, setItemNameError] = useState(false);
@@ -51,7 +52,7 @@ function AddNewInventoryItem() {
     setSelectWarehouseError(!selectWarehouse);
 
     if (!itemName || !category || (status === 'In Stock' && !quantity) || !selectWarehouse) {
-      alert('Please fill out all required fields');
+      
       return;
     }
 
@@ -66,7 +67,6 @@ function AddNewInventoryItem() {
 
     try {
       await postInventoryItem(newInventoryItem);  
-      alert('Item added successfully');
       navigate('/inventory');
     } catch (error) {
       console.error('Error adding item:', error);
@@ -126,6 +126,7 @@ function AddNewInventoryItem() {
               status={status}
               handleChangeQuantity={handleChangeQuantity}
               quantity={quantity}
+              setQuantity={setQuantity}
               handleChangeSelectWarehouse={handleChangeSelectWarehouse}
               selectWarehouse={selectWarehouse}
               statusError={statusError}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from 'react';
 import "./ItemAvailabilityForm.scss";
 import InventoryItemErrorState from "../InventoryItemErrorState/InventoryItemErrorState";
 
@@ -8,6 +9,7 @@ function ItemAvailabilityForm({
 	warehouses, 
 	status, 
 	quantity, 
+	setQuantity,
 	selectWarehouse, 
 	handleChangeStatus, 
 	handleChangeQuantity, 
@@ -16,6 +18,12 @@ function ItemAvailabilityForm({
 	quantityError,
 	selectWarehouseError,
 	submit }) {
+		useEffect(() => {
+			if (status === "In Stock" && quantity === "") {
+				setQuantity(1); 
+			}
+		}, [status, setQuantity]);
+
 
 	return (
 		<div className="avail">
@@ -28,7 +36,7 @@ function ItemAvailabilityForm({
 
 				<div className="avail__radio-set">
 					<input
-						className="avail__radio p2-body-medium"
+						className={`avail__radio p2-body-medium ${statusError ? 'error' : ''}`}
 						type="radio"
 						id="instock"
 						name="status"
@@ -42,7 +50,7 @@ function ItemAvailabilityForm({
 				</div>
 				<div className="avail__radio-set h3-labels">
 					<input
-						className="avail__radio p2-body-medium"
+						className= "avail__radio p2-body-medium"
 						type="radio"
 						id="outofstock"
 						name="status"
@@ -65,11 +73,10 @@ function ItemAvailabilityForm({
 				</label>
 				<input
 					type="text"
-					className="avail__input p2-body-medium"
+					className= {`avail__input p2-body-medium ${quantityError ? 'error' : ''}`}
 					name="quantity"
 					value={quantity}
 					onChange={handleChangeQuantity}
-					placeholder=""
 					/>
 			</div>
 			{submit === true && quantityError === true && <InventoryItemErrorState />}
@@ -79,7 +86,7 @@ function ItemAvailabilityForm({
 				</label>
 				<div className="avail__select-wrap">
 					<select
-						className="avail__warehouse p2-body-medium"
+						className= {`avail__warehouse p2-body-medium ${selectWarehouseError ? 'error' : ''}`}
 						name="selectWarehouse"
 						id="avail_warehouse"
 						onChange={handleChangeSelectWarehouse}
