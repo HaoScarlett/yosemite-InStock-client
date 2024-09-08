@@ -14,13 +14,28 @@ function Inventory() {
   const [error, setError] = useState(null);
   const { id } = useParams();
 
-  // console.log('Inventory component rendered');
-  // console.log('Current location:', location);
-  // console.log('Current ID:', id);
-
 
   const fetchInventoryData = useCallback(async () => {
     console.log('Fetching inventory list');
+
+    const fetchData = async () => {
+      if (!id) {
+        setIsLoading(true);
+        try {
+          const response = await fetchInventoryList(); // Inspect response data
+          setInventoryList(response.data || []);
+        } catch (error) {
+          setError('Failed to fetch inventory list. Please try again later.');
+          console.error('Error fetching inventory list:', error);
+          setInventoryList([]);
+        } finally {
+          setIsLoading(false)
+        }
+      }
+    };
+    fetchData();
+  }, [id]);
+
     setIsLoading(true);
     try {
       const response = await fetchInventoryList();
@@ -47,6 +62,7 @@ function Inventory() {
       fetchInventoryData();
     }
   }, [location, id, fetchInventoryData]);
+
 
   // Fetch the selected item when id changes
   useEffect(() => {
