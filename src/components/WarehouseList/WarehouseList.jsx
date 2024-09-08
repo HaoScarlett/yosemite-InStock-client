@@ -8,6 +8,7 @@ import sortIcon from '../../assets/Icons/sort-24px.svg';
 
 function WarehouseList() {
 	const [warehouseList, setWarehouseList] = useState([]);
+	const [deletedItem, setDeletedItem] = useState(0);
 	const navigate = useNavigate();
 	
 	useEffect(() => {
@@ -20,11 +21,15 @@ function WarehouseList() {
 			}
 		};
 		fetchData();
-	}, []);
+	}, [deletedItem]);
 
 	const handleWarehouseClick = (warehouseId) => {
 		navigate(`/warehouses/${warehouseId}`);
 	};
+
+	const handleDeletedItem = ()=>{
+		setDeletedItem(prevCount => prevCount + 1);
+	}
 
 	return (
 		<div className='warehouse-list'>
@@ -90,6 +95,7 @@ function WarehouseList() {
 							key={warehouse.id}
 							warehouse={warehouse}
 							handleWarehouseClick={handleWarehouseClick}
+							handleDeletedItem={handleDeletedItem}
 						/>
 					))}
 				</tbody>

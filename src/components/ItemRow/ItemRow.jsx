@@ -10,7 +10,7 @@ import { useState } from 'react';
 import { deleteInventoryItem } from '../../utils/api.js';
 import { Link } from 'react-router-dom';
 
-function ItemRow({ item, showWarehouse, onItemClick }) {
+function ItemRow({ item, showWarehouse, onItemClick, handleDelete }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
   const inStock = item.status === 'In Stock';
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,9 +23,8 @@ function ItemRow({ item, showWarehouse, onItemClick }) {
       // Await the asynchronous delete operation
       const response = await deleteInventoryItem(item.id);
       console.log('Item deleted successfully:', response.data);
-
-      console.log('Submitted');
       closeModal();
+      handleDelete();
     } catch (error) {
       console.error('Error deleting item:', error);
     }
