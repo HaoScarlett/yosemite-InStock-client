@@ -1,13 +1,33 @@
 import React from 'react';
+import { useState } from 'react';
 import './WarehouseItemRow.scss';
 import { useMediaQuery } from 'react-responsive';
 import chevronIcon from '../../assets/Icons/chevron_right-24px.svg';
 import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import { Link } from 'react-router-dom';
+import { deleteWarehouse } from '../../utils/api';
+import DeleteModal from '../LowLevelComponents/DeleteModal/DeleteModal';
 
 function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 	const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const openModal = () => setIsModalOpen(true);
+	const closeModal = () => setIsModalOpen(false);
+
+	const onDeleteSubmit = async () => {
+		try {
+			// Await the asynchronous delete operation
+			const response = await deleteWarehouse(warehouse.id);
+			console.log('Item deleted successfully:', response.data);
+
+			console.log('Submitted');
+			closeModal();
+		} catch (error) {
+			console.error('Error deleting item:', error);
+		}
+	};
 
 	// Mobile view component for Warehouse Item
 	const MobileView = ({ warehouse }) => {
@@ -21,17 +41,11 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 							onClick={() => handleWarehouseClick(warehouse.id)}
 						>
 							<label>WAREHOUSE</label>
-							{/* <Link
-								to='/'
-								className='warehouse-item__name-link h3-links'
-								href='#'
-							> */}
 							{warehouse.warehouse_name}
 							<img
 								src={chevronIcon}
 								alt='Chevron Icon'
 							/>
-							{/* </Link> */}
 						</div>
 						<label>ADDRESS</label>
 						<div
@@ -66,15 +80,15 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 				</div>
 				<div className='warehouse-actions'>
 					<div className='warehouse-actions__wrapper'>
-						<Link
-							to='/'
+						<button
+							onClick={openModal}
 							className='warehouse-delete-btn'
 						>
 							<img
 								src={deleteIcon}
 								alt='Delete button'
 							/>
-						</Link>
+						</button>
 						<Link
 							to={`warehouses/${warehouse.id}/edit`}
 							className='warehouse-edit-btn'
@@ -95,7 +109,10 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 		return (
 			<>
 				<tr className='warehouse-item-row'>
-					<td className='warehouse-item__name p2-body-medium' onClick={() => handleWarehouseClick(warehouse.id)}>
+					<td
+						className='warehouse-item__name p2-body-medium'
+						onClick={() => handleWarehouseClick(warehouse.id)}
+					>
 						<div>
 							<Link
 								to='/'
@@ -127,13 +144,19 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 					</td>
 					<td>
 						<div className='warehouse-actions'>
-							<button className='warehouse-delete-btn'>
+							<button
+								onClick={openModal}
+								className='warehouse-delete-btn'
+							>
 								<img
 									src={deleteIcon}
 									alt='Delete button'
 								/>
 							</button>
-							<Link to={`warehouses/${warehouse.id}/edit`} className='warehouse-edit-btn'>
+							<Link
+								to={`warehouses/${warehouse.id}/edit`}
+								className='warehouse-edit-btn'
+							>
 								<img
 									src={editIcon}
 									alt='Edit button'
@@ -149,6 +172,16 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 	// Render based on screen size
 	return (
 		<>
+			{isModalOpen && (
+				<div className='modal-overlay'>
+					<DeleteModal
+						deleteType='warehouse'
+						deleteName={warehouse.warehouse_name}
+						onDeleteSubmit={onDeleteSubmit}
+						closeModal={closeModal}
+					/>
+				</div>
+			)}
 			{isDesktop ? (
 				<DesktopView warehouse={warehouse} />
 			) : (
