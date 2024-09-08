@@ -2,20 +2,23 @@ import React from 'react';
 import './App.scss';
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Warehouses from './pages/warehouses/Warehouses.jsx';
-import Inventory from './pages/inventory/inventory';
+import Inventory from './pages/inventory/Inventory';
 import NotFound from './pages/NotFound/NotFound';
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx';
 import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
+import InventoryEditForm from './pages/InventoryEditForm/InventoryEditForm.jsx'
+import AddNewInventoryItem from './pages/AddNewInventoryItem/AddNewInventoryItem.jsx';
+import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx';
 
 // Layout component
 const Layout = () => {
   return (
     <div>
-        <Header />
-        <Outlet />
-        <Footer />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };
@@ -27,9 +30,12 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Warehouses /> },
+      // use for test page:{ index: true, element: <EditWarehouse /> },
       { path: "inventory", element: <Inventory /> },
-      { path: "warehouses/new", element: <NewWarehouse />},
-      { path: "inventory/:id", element: <Inventory /> }
+      { path: "inventory/add", element: <AddNewInventoryItem /> },
+      { path: "warehouses/new", element: <NewWarehouse /> },
+      { path: "inventory/:id", element: <Inventory /> },
+      { path: "inventory/:id/edit", element: <InventoryEditForm /> }
     ],
   },
   { path: "*", element: <NotFound /> },

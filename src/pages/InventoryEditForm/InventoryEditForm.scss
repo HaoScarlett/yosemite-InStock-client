@@ -1,0 +1,59 @@
+@use "../../styles/partials/_colors.scss" as *;
+@use "../../styles/partials/_mixins.scss" as *;
+@use "../../styles/partials/_variables" as *;
+
+input {
+  height: 2.25rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1.25rem;
+  margin-top: 0.25rem;
+  border: 0.0625rem solid $outlines;
+  line-height: 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+
+  @include tablet {
+    height: 2.375rem;
+    line-height: 1.375rem;
+    font-size: 0.875rem;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid $interactive-elements;
+  }
+}
+
+select {
+  @extend input;
+  padding: 0 0 0 1rem;
+  color: $placeholder-text;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+textarea {
+  height: 120px;
+  border-radius: 20px;
+  border: 1px solid $borders;
+  width: 100%;
+  padding: $spacing-small;
+  margin-block: 4px;
+}
+
+option {
+  line-height: 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: $global-text;
+}
+
+h3 {
+  color: $global-text;
+  margin-block: $spacing-mini;
+}
+
+h2 {
+  margin: 1.5rem 0;
+}
