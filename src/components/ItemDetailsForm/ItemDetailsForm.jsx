@@ -7,15 +7,14 @@ function ItemDetailsForm({
 	itemName, 
 	desc, 
 	category, 
-	handleChangeItemName, 
-	handleChangeDesc, 
-	handleChangeCategory, 
+	setItemName, 
+	setDesc, 
+	setCategory, 
 	itemNameError,
 	descError,
 	categoryError, 
 	submit
 }) {
-  
   return (
     <div className="details">
       <h2 className="details__title h2-subheader">Item Details</h2>
@@ -28,7 +27,7 @@ function ItemDetailsForm({
         className="details__input p2-body-medium"
         name="itemName"
         value={itemName}
-        onChange={handleChangeItemName}
+        onChange={(e) => setItemName(e.target.value)}  
         placeholder="Item Name"
       />
       {submit === true && itemNameError === true && <InventoryItemErrorState />}
@@ -37,11 +36,10 @@ function ItemDetailsForm({
         Description
       </label>
       <textarea
-        type="text"
         className="details__desc-input p2-body-medium"
         name="desc"
         value={desc}
-        onChange={ handleChangeDesc }
+        onChange={(e) => setDesc(e.target.value)} 
         placeholder="Please enter a brief item description..."
       />
       {submit === true && descError === true && <InventoryItemErrorState />}
@@ -54,20 +52,17 @@ function ItemDetailsForm({
           className="details__select p2-body-medium"
           name="category"
           id="details_select"
-					onChange={ handleChangeCategory }
+          onChange={(e) => setCategory(e.target.value)} 
           value={category}
         >
-          <option className="details__placeholder p2-body-medium" value="" readOnly>
+          <option className="details__placeholder p2-body-medium" value="">
             Please select
           </option>
           {categoryArray.map((inventory) => (
-						<option
-							key={inventory}
-							value={inventory}
-						>
-							{inventory}
-						</option>
-					))}
+            <option key={inventory} value={inventory}>
+              {inventory}
+            </option>
+          ))}
         </select>
       </div>
       {submit === true && categoryError === true && <InventoryItemErrorState />}
