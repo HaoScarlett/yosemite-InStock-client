@@ -51,7 +51,7 @@ function AddNewInventoryItem() {
     setSelectWarehouseError(!selectWarehouse);
 
     if (!itemName || !category || (status === 'In Stock' && !quantity) || !selectWarehouse) {
-      alert('Please fill out all required fields');
+      
       return;
     }
 
@@ -66,7 +66,6 @@ function AddNewInventoryItem() {
 
     try {
       await postInventoryItem(newInventoryItem);  
-      alert('Item added successfully');
       navigate('/inventory');
     } catch (error) {
       console.error('Error adding item:', error);
