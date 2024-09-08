@@ -8,6 +8,7 @@ import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx';
 import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
+import InventoryEditForm from './pages/InventoryEditForm/InventoryEditForm.jsx'
 import AddNewInventoryItem from './pages/AddNewInventoryItem/AddNewInventoryItem.jsx';
 import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx';
 
@@ -15,9 +16,9 @@ import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx';
 const Layout = () => {
   return (
     <div>
-        <Header />
-        <Outlet />
-        <Footer />
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };
@@ -32,8 +33,9 @@ const router = createBrowserRouter([
       // use for test page:{ index: true, element: <EditWarehouse /> },
       { path: "inventory", element: <Inventory /> },
       { path: "inventory/add", element: <AddNewInventoryItem /> },
-      { path: "warehouses/new", element: <NewWarehouse />},
-      { path: "inventory/:id", element: <Inventory /> }
+      { path: "warehouses/new", element: <NewWarehouse /> },
+      { path: "inventory/:id", element: <Inventory /> },
+      { path: "inventory/:id/edit", element: <InventoryEditForm /> }
     ],
   },
   { path: "*", element: <NotFound /> },

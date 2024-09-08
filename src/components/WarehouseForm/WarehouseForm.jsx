@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './WarehouseForm.scss';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import { Link } from 'react-router-dom';
+import { fetchWarehousesList } from '/src/utils/api.js';
 import errorIcon from '../../assets/Icons/error-24px.svg';
 
 export default function WarehouseForm({ onSubmitFunction, initialData }) {
