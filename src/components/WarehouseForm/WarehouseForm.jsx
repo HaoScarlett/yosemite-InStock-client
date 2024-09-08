@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './WarehouseForm.scss';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate
 import { fetchWarehousesList } from '/src/utils/api.js';
 import errorIcon from '../../assets/Icons/error-24px.svg';
-
 
 export default function WarehouseForm({ onSubmitFunction, initialData }) {
 	const [formData, setFormData] = useState({
@@ -17,61 +16,50 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
         contact_phone: '',
         contact_email: ''
     });
-
-	// Add error state
 	const [errorState, setErrorState] = useState({});
-	const [warehouseNames, setWarehouseNames] = useState([]);  // To store warehouse names
+	const navigate = useNavigate();  // Hook to navigate programmatically
 
 	// Pre-populate form data if initialData is provided (for edit mode)
-	useEffect(() => {
+    useEffect(() => {
         if (initialData) {
             setFormData(initialData);
         }
     }, [initialData]);
 
-	// Fetch warehouses list
-	useEffect(() => {
-		const getWarehouseData = async () => {
-			try {
-				const response = await fetchWarehousesList();
-				setWarehouseNames(response.data.map(warehouse => warehouse.warehouse_name));  // Assuming the response has `warehouse_name` field
-			} catch (error) {
-				console.error('Error fetching warehouse data:', error);
-			}
-		};
-		getWarehouseData();
-	}, []);
-
 	// Handle input changes
 	const handleChange = (e) => {
-		const { name, value } = e.target;
-		setFormData({
-			...formData,
-			[name]: value,
-		});
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
 		// Clear error message when user starts typing
-		setErrorState({
-			...errorState,
-			[name]: ''
-		});
-	};
+        setErrorState({
+            ...errorState,
+            [name]: ''
+        });
+    };
 
-	// Validate the form
+	// Form validation
 	const validateForm = () => {
 		let errors = {};
 		const requiredFields = [
-			'warehouse_name', 'address', 'city', 'country', 
-			'contact_name', 'contact_position', 'contact_phone', 'contact_email'
+			'warehouse_name',
+			'address',
+			'city',
+			'country',
+			'contact_name',
+			'contact_position',
+			'contact_phone',
+			'contact_email'
 		];
 
-		// Loop through each required field and check if it's empty
 		requiredFields.forEach(field => {
 			if (!formData[field]) {
 				errors[field] = "This field is required";
 			}
 		});
 		setErrorState(errors);
-
 		return Object.keys(errors).length === 0;
 	};
 
@@ -80,14 +68,20 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 		event.preventDefault();
 		if (validateForm()) {
 			try {
-				await onSubmitFunction(formData); 
+				console.log('Form is valid, attempting to submit...');
+				await onSubmitFunction(formData);
+				console.log('Form submitted successfully, navigating to home...');
+				navigate('/');  // Redirect to home after successful submit
 			} catch (error) {
 				const backendErrors = error.response?.data?.errors;
 				setErrorState(prevErrorState => ({
 					...prevErrorState,
-					...backendErrors
+					...backendErrors  
 				}));
+				console.log('Error submitting the form:', error);
 			}
+		} else {
+			console.log('Form validation failed.');
 		}
 	};
 
@@ -259,25 +253,14 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 				<Link to='/' className='warehouse-form__buttons-cancel'>
 					<CTAButton variant='secondary' text='Cancel' /> 
 				</Link>
-				{initialData  ? (
-					<Link to='/' className='warehouse-form__buttons-submit'>
-					<CTAButton
-                                variant='primary'
-                                text='Save'
-                                onClick={handleSubmit}
-                            />
-					</Link>
-                            
-                        ) : (
-							<Link to='/' className='warehouse-form__buttons-submit'>
-					<CTAButton
-                                variant='primary'
-                                text='+ Add Warehouse'
-                                onClick={handleSubmit}
-                            />
-					</Link>
-                            
-                        )}
+				<div className='warehouse-form__buttons-submit'>
+				<CTAButton
+						variant='primary'
+						text={initialData ? 'Save' : '+ Add Warehouse'}
+						type='submit' 
+					/>
+				</div>
+				
 			</div>
 		</form>
 	</section>
