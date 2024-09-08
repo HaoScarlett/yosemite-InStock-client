@@ -1,0 +1,54 @@
+@use '../../../styles/partials/mixins' as *;
+
+body{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal__container{
+    width: 80%;
+    height: 80vh;
+    background-color: white;
+    margin: auto;
+    padding: 1rem;
+}
+
+.modal__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    &-close{
+        float: right;
+        display: block;
+    }
+    &-buttons{
+        display: flex;
+        gap: 1rem;
+        width: 100%;
+    }
+}
+
+h1{
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.modal__cancel-btn{
+    @include btn-styles(
+        white,
+        .0625rem solid #BDC5D5,
+        #5C667E,
+        none,
+        #2E66E5
+    )
+}
+
+.modal__delete-btn{
+    @include btn-styles(
+        #C94515,
+        none,
+        white,
+        #232940,
+        none
+    )
+}

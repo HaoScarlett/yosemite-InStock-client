@@ -11,6 +11,7 @@ import InventoryItem from './components/InventoryItem/InventoryItem.jsx'
 import InventoryEditForm from './pages/InventoryEditForm/InventoryEditForm.jsx'
 import AddNewInventoryItem from './pages/AddNewInventoryItem/AddNewInventoryItem.jsx';
 import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx';
+import Tester from './pages/tester.jsx';
 
 // Layout component
 const Layout = () => {
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
       { path: "inventory/add", element: <AddNewInventoryItem /> },
       { path: "warehouses/new", element: <NewWarehouse /> },
       { path: "inventory/:id", element: <Inventory /> },
-      { path: "inventory/:id/edit", element: <InventoryEditForm /> }
+      { path: "inventory/:id/edit", element: <InventoryEditForm /> },
+      {path:"/tester", element: <Tester />}
     ],
   },
   { path: "*", element: <NotFound /> },
