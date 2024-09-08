@@ -14,10 +14,6 @@ function Inventory() {
   const [error, setError] = useState(null);
   const { id } = useParams();
 
-  console.log('Inventory component rendered');
-  console.log('Current location:', location);
-  console.log('Current ID:', id);
-
 
   // fetch inventory list
   useEffect(() => {
@@ -26,8 +22,7 @@ function Inventory() {
       if (!id) {
         setIsLoading(true);
         try {
-          const response = await fetchInventoryList();
-          console.log('Inventory list fetched:', response.data); // Inspect response data
+          const response = await fetchInventoryList(); // Inspect response data
           setInventoryList(response.data || []);
         } catch (error) {
           setError('Failed to fetch inventory list. Please try again later.');

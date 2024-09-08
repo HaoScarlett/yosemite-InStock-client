@@ -20,7 +20,6 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
     // };
     // fetchData();
     // }, [id]);
-    console.log('InventoryList rendered with:', inventoryList);
 
     if (!Array.isArray(inventoryList) || inventoryList.length === 0) {
         return <div>No inventory items available.</div>;
