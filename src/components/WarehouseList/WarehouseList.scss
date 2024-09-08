@@ -34,8 +34,10 @@
 }
 
 .warehouse-list__header{
-  padding-left: 1rem;
-  padding-right: 1rem;
+//   padding-left: 1rem;
+//   padding-right: 1rem;
+	padding-inline: var.$spacing-mobile-medium;
+
 }
 
 .warehouse-header {
@@ -46,13 +48,11 @@
 }
 
 .warehouse-table {
-	width: 96vw;
-  margin-left: -1rem;
-  padding-left: 1rem;
+	width: 100%;
 }
 
 .warehouse-item-row {
-	padding: 0;
+	padding-inline: var.$spacing-mobile-medium;
 	margin-block: var.$spacing-small;
 }
 

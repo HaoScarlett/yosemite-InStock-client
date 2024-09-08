@@ -1,72 +1,99 @@
-@use './variables' as *;
-@use './colors' as *;
+@use "./variables" as *;
+@use "./colors" as *;
 
 //media queriy manager
-@mixin tablet {
-	@media (min-width: $tablet-bp) {
-		@content;
-	}
+// @mixin tablet {
+// 	@media (min-width: $tablet-bp) {
+// 		@content;
+// 	}
+// }
+
+// @mixin desktop {
+// 	@media (min-width: $desktop-bp) {
+// 		@content;
+// 	}
+// }
+
+// Breakpoints
+$desktop-min: 1280px;
+$tablet-min: 768px;
+$tablet-max: 1279px;
+$mobile-max: 767px;
+
+// Mixin for desktop styles
+@mixin desktop {
+  @media (min-width: $desktop-min) {
+    @content;
+  }
 }
 
-@mixin desktop {
-	@media (min-width: $desktop-bp) {
-		@content;
-	}
+// Mixin for tablet styles
+@mixin tablet {
+  @media (min-width: $tablet-min) and (max-width: $tablet-max) {
+    @content;
+  }
+}
+
+// Mixin for mobile styles
+@mixin mobile {
+  @media (max-width: $mobile-max) {
+    @content;
+  }
 }
 
 //flexbox
 @mixin flex-center {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //page overlap
 @mixin page-overlap {
-	width: 100%;
-	height: auto;
-	background-color: $global-white;
-	box-shadow: 0rem 0.125rem 0.3125rem 0rem $box-shadow;
-	border-radius: 0.25rem;
-	padding: 0 1rem 1rem 1rem;
-	position: relative;
-	top: -4rem;
+  width: 100%;
+  height: auto;
+  background-color: $global-white;
+  box-shadow: 0rem 0.125rem 0.3125rem 0rem $box-shadow;
+  border-radius: 0.25rem;
+  padding: 0 1rem 1rem 1rem;
+  position: relative;
+  top: -4rem;
 
-	@include tablet {
-		padding: 0 2rem 2rem 2rem;
-		top: -5.5rem;
-	}
+  @include tablet {
+    padding: 0 2rem 2rem 2rem;
+    top: -5.5rem;
+  }
 }
 
 @mixin btn-styles(
-	$bg-color,
-	$border: none,
-	$color: c.$global-white,
-	$hover-bg-color: null,
-	$hover-border-color: null
+  $bg-color,
+  $border: none,
+  $color: c.$global-white,
+  $hover-bg-color: null,
+  $hover-border-color: null
 ) {
-	height: 36px;
-	width: 100%;
-	border-radius: 20px;
-	font-size: 0.8125rem;
-	line-height: 1.25rem;
-	font-weight: 600;
-	background-color: $bg-color;
-	border: $border;
-	color: $color;
+  height: 36px;
+  width: 100%;
+  border-radius: 20px;
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+  background-color: $bg-color;
+  border: $border;
+  color: $color;
 
-	&:hover {
-		@if $hover-bg-color {
-			background-color: $hover-bg-color;
-		}
-		@if $hover-border-color {
-			border-color: $hover-border-color;
-		}
-	}
+  &:hover {
+    @if $hover-bg-color {
+      background-color: $hover-bg-color;
+    }
+    @if $hover-border-color {
+      border-color: $hover-border-color;
+    }
+  }
 
-	@include tablet {
-		height: 38px;
-		padding-inline: $unit-16;
-		width: fit-content;
-	}
+  @include tablet {
+    height: 38px;
+    padding-inline: $unit-16;
+    width: fit-content;
+  }
 }
