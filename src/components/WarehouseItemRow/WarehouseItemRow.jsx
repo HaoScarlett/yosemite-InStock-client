@@ -76,7 +76,7 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 							/>
 						</Link>
 						<Link
-							to='/'
+							to={`warehouses/${warehouse.id}/edit`}
 							className='warehouse-edit-btn'
 						>
 							<img
@@ -133,12 +133,12 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick }) {
 									alt='Delete button'
 								/>
 							</button>
-							<button className='warehouse-edit-btn'>
+							<Link to={`warehouses/${warehouse.id}/edit`} className='warehouse-edit-btn'>
 								<img
 									src={editIcon}
 									alt='Edit button'
 								/>
-							</button>
+							</Link>
 						</div>
 					</td>
 				</tr>
