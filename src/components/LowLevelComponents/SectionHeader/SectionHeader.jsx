@@ -17,8 +17,8 @@ export default function SectionHeader({ text, url }) {
 
 	return (
 		<div className='header__left'>
-			<a
-				href="#"
+			<Link
+				href="./"
 				className='header__back'
 				onClick={handleBack}
 			>
@@ -26,7 +26,7 @@ export default function SectionHeader({ text, url }) {
 					src={arrow}
 					alt='Blue arrow pointing left'
 				/>
-			</a>
+			</Link>
 			<h1 className='h1-page-header'>{text}</h1>
 		</div>
 	);

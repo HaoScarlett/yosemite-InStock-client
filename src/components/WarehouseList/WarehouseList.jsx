@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { fetchWarehousesList } from '../../utils/api.js';
 import WarehouseItemRow from '../WarehouseItemRow/WarehouseItemRow.jsx';
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx';
-import { Link } from 'react-router-dom';
 import './WarehouseList.scss';
 import sortIcon from '../../assets/Icons/sort-24px.svg';
 
 function WarehouseList() {
 	const [warehouseList, setWarehouseList] = useState([]);
-
+	const navigate = useNavigate();
+	
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -20,6 +21,10 @@ function WarehouseList() {
 		};
 		fetchData();
 	}, []);
+
+	const handleWarehouseClick = (warehouseId) => {
+		navigate(`/warehouses/${warehouseId}`);
+	};
 
 	return (
 		<div className='warehouse-list'>
@@ -84,6 +89,7 @@ function WarehouseList() {
 						<WarehouseItemRow
 							key={warehouse.id}
 							warehouse={warehouse}
+							handleWarehouseClick={handleWarehouseClick}
 						/>
 					))}
 				</tbody>
