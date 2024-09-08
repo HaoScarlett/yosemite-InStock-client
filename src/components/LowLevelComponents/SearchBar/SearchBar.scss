@@ -20,8 +20,8 @@
 
     &__icon {
         position: absolute;
-        top: 50%;
-        right: 1rem;
+        top: 42%;
+        right: $unit-16;
         pointer-events: none;
         transform: translateY(-50%); 
     }
@@ -30,7 +30,7 @@
         background-color: $global-white;
         border: 1px solid $borders;
         border-radius: $unit-20;
-        text-indent: $unit-16;
+        text-indent: $unit-4;
         width: 100%; 
         height: $unit-36;
 
