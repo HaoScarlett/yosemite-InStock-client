@@ -71,6 +71,12 @@
     &__search {
       margin-inline: auto 1rem;
     }
+    &__container{
+      @include m.tablet{
+        display: flex;
+        align-items: center;
+      }
+    }
   }
 
   .inventory-table {

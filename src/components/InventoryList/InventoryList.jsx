@@ -58,13 +58,16 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
         <div className={`inventory-list layout ${!showWarehouse ? 'no-shadow' : ''}`}>
             {showWarehouse && (
                 <>
+                <div className="inventory-list__container">
                     <h1 className="inventory-list__title">Inventory</h1>
                     <SearchBar className="inventory-list__search" />
-                    <CTAButton
+                    <CTAButton 
                                 variant='primary'
                                 text='+ Add New Item'
                                 onClick={handleAddNewItem}
                             />
+                    </div>
+                    
                     
                 </>
             )}
