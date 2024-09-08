@@ -24,7 +24,7 @@ function ItemDetailsForm({
       </label>
       <input
         type="text"
-        className="details__input p2-body-medium"
+        className={`details__input p2-body-medium ${itemNameError ? 'error' : ''}`}  // 动态应用 error 类
         name="itemName"
         value={itemName}
         onChange={(e) => setItemName(e.target.value)}  
@@ -36,7 +36,7 @@ function ItemDetailsForm({
         Description
       </label>
       <textarea
-        className="details__desc-input p2-body-medium"
+        className={`details__desc-input p2-body-medium ${descError ? 'error' : ''}`}  // 动态应用 error 类
         name="desc"
         value={desc}
         onChange={(e) => setDesc(e.target.value)} 
@@ -49,7 +49,7 @@ function ItemDetailsForm({
       </label>
       <div className="details__select-wrap">
         <select
-          className="details__select p2-body-medium"
+          className={`details__select p2-body-medium ${categoryError ? 'error' : ''}`}  // 动态应用 error 类
           name="category"
           id="details_select"
           onChange={(e) => setCategory(e.target.value)} 
