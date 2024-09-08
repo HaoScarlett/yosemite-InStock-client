@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './AddNewInventoryItem.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import ArrowBack from "../../assets/Icons/arrow_back-24px.svg";
-import axios from 'axios';
+import { fetchWarehousesList, fetchInventoryCategory, postInventoryItem } from '../../utils/api';  // 导入 api.js 中的函数
 import ItemDetailsForm from '../../components/ItemDetailsForm/ItemDetailsForm';
 import ItemAvailabilityForm from '../../components/ItemAvailabilityForm/ItemAvailabilityForm';
 import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton';
 
 function AddNewInventoryItem() {
-  const api = import.meta.env.VITE_API_URL; 
   const navigate = useNavigate();
 
   const [itemName, setItemName] = useState('');
@@ -30,14 +29,14 @@ function AddNewInventoryItem() {
   const [selectWarehouseError, setSelectWarehouseError] = useState(false);
 
   useEffect(() => {
-    axios.get(`${api}/warehouses`)
+    fetchWarehousesList()
       .then((response) => setWarehouses(response.data))
       .catch((error) => console.error('Error fetching warehouses:', error));
 
-    axios.get(`${api}/categories`)
+    fetchInventoryCategory()
       .then((response) => setCategories(response.data))
       .catch((error) => console.error('Error fetching categories:', error));
-  }, [api]);
+  }, []);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -66,7 +65,7 @@ function AddNewInventoryItem() {
     };
 
     try {
-      await axios.post(`${api}/inventories`, newInventoryItem);
+      await postInventoryItem(newInventoryItem);  
       alert('Item added successfully');
       navigate('/inventory');
     } catch (error) {
@@ -147,7 +146,7 @@ function AddNewInventoryItem() {
 
             <CTAButton
               variant="primary"
-              onClick={handleFormSubmit}
+              type="submit"  
               text="+ Add Item"
             />
 
