@@ -4,6 +4,7 @@ import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import { Link } from 'react-router-dom';
 import { fetchWarehouseList } from '/src/utils/api.js';
 import { useEffect, useState } from 'react';
+import { fetchWarehousesList } from '/src/utils/api.js';
 import errorIcon from '../../assets/Icons/error-24px.svg';
 
 
