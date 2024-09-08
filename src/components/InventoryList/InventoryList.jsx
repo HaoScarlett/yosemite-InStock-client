@@ -65,4 +65,4 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
     );
 }
 
-export default InventoryList;
+export default React.memo(InventoryList);
