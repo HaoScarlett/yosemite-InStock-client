@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import CTAButton from '../../components/LowLevelComponents/CTAButton/CTAButton';
 import InventoryItem from '../../components/InventoryItem/InventoryItem';
 import InventoryList from '../../components/InventoryList/InventoryList.jsx'
@@ -19,27 +19,34 @@ function Inventory() {
   console.log('Current ID:', id);
 
 
-  // fetch inventory list
-  useEffect(() => {
+  const fetchInventoryData = useCallback(async () => {
     console.log('Fetching inventory list');
-    const fetchData = async () => {
-      if (!id) {
-        setIsLoading(true);
-        try {
-          const response = await fetchInventoryList();
-          console.log('Inventory list fetched:', response.data); // Inspect response data
-          setInventoryList(response.data || []);
-        } catch (error) {
-          setError('Failed to fetch inventory list. Please try again later.');
-          console.error('Error fetching inventory list:', error);
-          setInventoryList([]);
-        } finally {
-          setIsLoading(false)
-        }
-      }
-    };
-    fetchData();
-  }, [id]);
+    setIsLoading(true);
+    try {
+      const response = await fetchInventoryList();
+      console.log('Inventory list fetched:', response.data);
+      setInventoryList(response.data || []);
+    } catch (error) {
+      setError('Failed to fetch inventory list. Please try again later.');
+      console.error('Error fetching inventory list:', error);
+      setInventoryList([]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!id) {
+      fetchInventoryData();
+    }
+  }, [id, fetchInventoryData]);
+
+  useEffect(() => {
+    const fromEditPage = location.state && location.state.fromEdit;
+    if (fromEditPage && !id) {
+      fetchInventoryData();
+    }
+  }, [location, id, fetchInventoryData]);
 
   // Fetch the selected item when id changes
   useEffect(() => {
@@ -72,7 +79,7 @@ function Inventory() {
 
   // Handle "Add New Item" button click
   const handleAddNewItem = () => {
-    navigate('/inventory/add'); 
+    navigate('/inventory/add');
   }
 
 
@@ -97,13 +104,13 @@ function Inventory() {
         )
       ) : (
         <div>
-        <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
-      
-        {/* Handle "Add New Item" button */}
-        <div style={{ marginTop: '20px' }}>
-            <CTAButton 
+          <InventoryList inventoryList={inventoryList} onItemClick={handleItemClick} />
+
+          {/* Handle "Add New Item" button */}
+          <div style={{ marginTop: '20px' }}>
+            <CTAButton
               text="+ Add New Item"
-              onClick={handleAddNewItem} 
+              onClick={handleAddNewItem}
               variant="primary"
             />
           </div>
