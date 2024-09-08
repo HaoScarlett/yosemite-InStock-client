@@ -1,0 +1,118 @@
+@use "../../styles/partials/_colors.scss" as c;
+@use "../../styles/partials/_variables.scss" as var;
+@use "../../styles/partials/_mixins.scss" as m;
+@use "../../styles/partials/_typography.scss" as t;
+
+.warehouse-item-row {
+  border-bottom: .0625rem solid c.$borders;
+  width: 100%;
+}
+
+.warehouse-item {
+  display: flex;
+  margin-bottom: .625rem;
+  
+
+  &__details {
+    margin: 0 auto;
+  }
+
+  &__details > span,
+  &__name > span {
+    padding: .3125rem 0;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+}
+
+.warehouse-item__name{
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 50%;
+}
+
+label{
+    font-weight: bold;
+    display: inline-block;
+    width: 100%;
+    color: c.$table-column-headers-text;
+    font-size: 0.6875rem;
+    line-height: 1rem;
+    font-weight: t.$semi;
+}
+
+.warehouse-status {
+  padding: .1875rem .5rem;
+  border-radius: .25rem;
+  display: inline-block;
+}
+
+.warehouse-actions {
+  margin-block: var.$spacing-btn;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+  }
+}
+
+@include m.tablet {
+  .warehouse-item {
+    &__details > span,
+
+    &__details > span:before,
+    &__name > span:before {
+      display: none;
+    }
+
+    &__contact-name { //add
+      white-space: nowrap;
+    }
+
+    &__contact-info { //add
+      display: flex;
+      flex-direction: column; 
+      gap: var.$spacing-xsmall; 
+      white-space: normal; 
+    }
+  }
+
+  .warehouse-actions {
+    margin-top: 0;
+    display: flex;
+    gap: 1rem;
+    width: fit-content;
+    padding: 0;
+  }
+
+  .warehouse-item__name{
+    height: inherit;
+    align-items: center;
+    vertical-align: middle;
+  }
+}
+
+.warehouse-item__name {
+  position: relative;
+  display: table-cell;
+}
+
+.warehouse-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.warehouse-item__name-link{
+  display: flex;
+  align-items: center;
+}
+
+a{
+  color: c.$interactive-elements;
+}
+
+td{
+  vertical-align: middle;
+  text-align: middle;
+}
