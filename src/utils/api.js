@@ -12,6 +12,10 @@ const api = axios.create({
 },
 });
 
+export const postInventoryItem = (newItem) => {
+	return api.post('/api/inventories', newItem);
+};
+
 export const fetchInventoryList = () => {
 	return axios.get(`${API_URL}/api/inventories`);
 };
