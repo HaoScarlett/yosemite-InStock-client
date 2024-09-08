@@ -111,49 +111,50 @@ export default function InventoryEditForm() {
             <SectionHeader text={'Edit Inventory Item'} url={`/inventory/${id}`} />
             {generalError && <div className="error-message">{generalError}</div>}
             <div className="divider"></div>
-            <form action="" onSubmit={handleSubmit} className='layout'>
-                <div className='item-form__details'>
-                    <h2 className='h2-subheader'>Item Details</h2>
-                    <label htmlFor="item_name">
-                        <h3 className="item-name">Item Name</h3>
-                        <input type="text"
-                            name='item_name'
-                            id='item_name'
-                            value={item.item_name || ''}
-                            placeholder={item.item_name}
-                            onChange={handleChange}
-                            required
-                            maxLength={50}
-                            min={0}
-                        />
-                        {errors.item_name && <InventoryItemErrorState />}
-                    </label>
-                    <label htmlFor="item-description">
-                        <h3 className="item-description">Description</h3>
-                        <textarea name="description" id="description" cols="30" rows="10"
-                            value={item.description}
-                            onChange={handleChange}
-                            placeholder={item.description}
-                            required
-                            min={0}
-                        ></textarea>
-                        {errors.description && <InventoryItemErrorState />}
-                    </label>
-                    <label htmlFor="category">
-                        <h3>Category</h3>
-                        <select name="category" id="category"
-                            className='item-form__dropdown'
-                            value={item.category || ''}
-                            onChange={handleChange}
-                            required
-                        >
-                            <option value="">Select a category</option>
-                            {categories.map((category, index) => (
-                                <option key={index} value={category}>{category}</option>
-                            ))}
-                        </select>
-                        {errors.category && <InventoryItemErrorState />}
-                    </label>
+            <form action="" onSubmit={handleSubmit} className='layout item-form__field'>
+                <div className="item-form__wrapper">
+                    <div className='item-form__details'>
+                        <h2 className='h2-subheader'>Item Details</h2>
+                        <label htmlFor="item_name">
+                            <h3 className="item-name">Item Name</h3>
+                            <input type="text"
+                                name='item_name'
+                                id='item_name'
+                                value={item.item_name || ''}
+                                placeholder={item.item_name}
+                                onChange={handleChange}
+                                required
+                                maxLength={50}
+                                min={0}
+                            />
+                            {errors.item_name && <InventoryItemErrorState />}
+                        </label>
+                        <label htmlFor="item-description">
+                            <h3 className="item-description">Description</h3>
+                            <textarea name="description" id="description" cols="30" rows="10"
+                                value={item.description}
+                                onChange={handleChange}
+                                placeholder={item.description}
+                                required
+                                min={0}
+                            ></textarea>
+                            {errors.description && <InventoryItemErrorState />}
+                        </label>
+                        <label htmlFor="category">
+                            <h3>Category</h3>
+                            <select name="category" id="category"
+                                className='item-form__dropdown'
+                                value={item.category || ''}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select a category</option>
+                                {categories.map((category, index) => (
+                                    <option key={index} value={category}>{category}</option>
+                                ))}
+                            </select>
+                            {errors.category && <InventoryItemErrorState />}
+                        </label>
 
                 </div>
                 <div className="divider"></div>
