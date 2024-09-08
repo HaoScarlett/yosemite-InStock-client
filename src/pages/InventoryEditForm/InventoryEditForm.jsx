@@ -82,9 +82,10 @@ export default function InventoryEditForm() {
     if (!item) return <div>Item not found</div>;
 
     return (
-        <>
+        <div id='inventory-edit' className='item-form'>
             <SectionHeader text={'Edit Inventory Item'} url={`/inventory/${id}`} />
             {error && <div className="error-message">{error}</div>}
+            <div className="divider"></div>
             <form action="" onSubmit={handleSubmit} className='layout'>
                 <div className='item-form__details'>
                     <h2 className='h2-subheader'>Item Details</h2>
@@ -114,6 +115,7 @@ export default function InventoryEditForm() {
                     <label htmlFor="category">
                         <h3>Category</h3>
                         <select name="category" id="category"
+                            className='item-form__dropdown'
                             value={item.category || ''}
                             onChange={handleChange}
                             required
@@ -126,22 +128,27 @@ export default function InventoryEditForm() {
                     </label>
 
                 </div>
+                <div className="divider"></div>
                 <div className="item-form__availability">
                     <h2>Item Availability</h2>
                     <div className='item-form__status'>
                         <h3>Status</h3>
-                        <label htmlFor=""><input type="radio"
-                            name='status'
-                            value={'In Stock'}
-                            checked={isInStock(item.status)}
-                            onChange={handleChange}
-                        />In Stock</label>
-                        <label htmlFor=""><input type="radio"
-                            name='status'
-                            value={'Out of Stock'}
-                            checked={isInStock(item.status)}
-                            onChange={handleChange}
-                        />Out of Stock</label>
+                        <div className='item-form__status-wrapper'>
+                            <label htmlFor="status" className='item-form__radio-wrapper'><input type="radio"
+                                name='status'
+                                className='item-form__radio'
+                                value={'In Stock'}
+                                checked={isInStock(item.status)}
+                                onChange={handleChange}
+                            />In Stock</label>
+                            <label htmlFor="status" className='item-form__radio-wrapper'><input type="radio"
+                                name='status'
+                                className='item-form__radio'
+                                value={'Out of Stock'}
+                                checked={isInStock(item.status)}
+                                onChange={handleChange}
+                            />Out of Stock</label>
+                        </div>
                     </div>
                     {isInStock(item.status) && (
                         <label htmlFor="quantity">
@@ -160,6 +167,7 @@ export default function InventoryEditForm() {
                     <label htmlFor="warehouse_id">
                         <h3>Warehouse</h3>
                         <select name="warehouse" id="warehouse_id"
+                            className='item-form__dropdown'
                             value={warehouses.warehouse_name}
                             onChange={handleChange}
                             required
@@ -171,9 +179,11 @@ export default function InventoryEditForm() {
                         </select>
                     </label>
                 </div>
+                <div className="button-wrapper">
                 <CTAButton text={'Cancel'} variant='secondary' onClick={handleCancel} type='button' />
                 <CTAButton text={isSubmitting ? 'Saving...' : 'Save'} type='submit' disabled={isSubmitting} />
+                </div>
 
-            </form></>
+            </form></div>
     )
 }

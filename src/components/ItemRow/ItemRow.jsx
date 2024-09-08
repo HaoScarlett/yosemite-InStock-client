@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import deleteIcon from '../../assets/Icons/delete_outline-24px.svg';
 import editIcon from '../../assets/Icons/edit-24px.svg';
 import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx';
+import { Link } from 'react-router-dom';
 
 function ItemRow({ item, showWarehouse, onItemClick }) {
   const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
@@ -35,9 +36,11 @@ function ItemRow({ item, showWarehouse, onItemClick }) {
               <button className="delete-btn">
                 <img src={deleteIcon} alt="delete button" />
               </button>
-              <button className="edit-btn">
-                <img src={editIcon} alt="edit button" />
-              </button>
+              <Link to='inventory/:id/edit'>
+                <button className="edit-btn">
+                  <img src={editIcon} alt="edit button" />
+                </button>
+              </Link>
             </span>
           </div>
         </div>
@@ -77,7 +80,7 @@ function ItemRow({ item, showWarehouse, onItemClick }) {
         : <MobileView item={item} showWarehouse={showWarehouse} />
       }
     </>
-  );   
+  );
 }
 
 export default ItemRow;
