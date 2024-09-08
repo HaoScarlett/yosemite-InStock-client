@@ -1,38 +1,38 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import SectionHeader from '../../components/LowLevelComponents/SectionHeader/SectionHeader';
 import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
 import './NewWarehouse.scss';
 import { postWarehouse } from '../../utils/api';
 
 function NewWarehouse() {
-
-	const [errorState, setErrorState] = useState({}); 
+	const [errorState, setErrorState] = useState({});
 
 	const onSubmit = async (formData) => {
-        try {
-            const response = await postWarehouse(formData);
-            console.log('Warehouse created:', response.data);
-        } catch (error) {
-            console.error('Error creating warehouse:', error.response?.data?.errors || error);
-            if (error.response?.data?.errors) {
+		try {
+
+			const newWarehouse = {
+				warehouse_name: formData.warehouse_name,
+				address: formData.address,
+				city: formData.city,
+				country: formData.country,
+				contact_name: formData.contact_name,
+				contact_position: formData.contact_position,
+				contact_phone: formData.contact_phone,  
+				contact_email: formData.contact_email,
+			};
+
+
+			const response = await postWarehouse(newWarehouse);
+			console.log('Warehouse created:', response.data);
+		} catch (error) {
+			console.error('Error creating warehouse:', error.response?.data?.errors || error);
+			if (error.response?.data?.errors) {
+				setErrorState(error.response.data.errors); 
 				throw error;  
 			} else {
 				alert("An unknown error occurred.");
 			}
-        }
-
-		const newWarehouse = {
-			warehouse_name: warehouse__name.value,
-			address: warehouse__address.value,
-			city: warehouse__city.value,
-			country: warehouse__country.value,
-			contact_name: contact__name.value,
-			contact_position: contact__position.value,
-			contact_phone: formattedPhoneNumber,
-			contact_email: contact__email.value,
-		};
-        console.log(postWarehouse(newWarehouse));
+		}
 	};
 
 	return (
@@ -49,6 +49,5 @@ function NewWarehouse() {
 		</main>
 	);
 }
-
 
 export default NewWarehouse;
