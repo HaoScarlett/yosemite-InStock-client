@@ -12,6 +12,10 @@ const api = axios.create({
 },
 });
 
+export const postInventoryItem = (newItem) => {
+	return api.post('/api/inventories', newItem);
+};
+
 export const fetchInventoryList = () => {
 	return axios.get(`${API_URL}/api/inventories`);
 };
@@ -25,9 +29,15 @@ export const fetchInventoryCategory =(id) => {
 	return axios.get(`${API_URL}/api/inventories/categories`);
 };
 
-export const updateInventoryItem = (id) => {
-	return axios.put(`${API_URL}/api/inventories/${id}`);
-}
+export const updateInventoryItem = async (id, item) => {
+    try {
+        const response = await axios.put(`${API_URL}/api/inventories/${id}`, item);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating inventory item:', error.response?.data);
+        throw error;
+    }
+};
 
 export const fetchWarehousesList = () =>{
 	return axios.get(`${API_URL}/api/warehouses`);

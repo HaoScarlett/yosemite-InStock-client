@@ -7,16 +7,48 @@ import editIcon from '../../assets/Icons/edit-24px.svg';
 import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx';
 import DeleteModal from '../LowLevelComponents/DeleteModal/DeleteModal.jsx';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function ItemRow({ item, showWarehouse, onItemClick }) {
 	const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 	const inStock = item.status === 'In Stock';
-
-	const [isModalOpen, setIsModalOpen] = useState(false);
-
-	// Functions to open and close the modal
-	const openModal = () => setIsModalOpen(true);
-	const closeModal = () => setIsModalOpen(false);
+  
+  const MobileView = ({ item, showWarehouse }) => {
+    return (
+      <>
+        <div className='item-row' onClick={() => onItemClick(item.id)}>
+          <div className="inventory-item">
+            <div className='inventory-item__name'>
+              <span data-label="INVENTORY ITEM">
+                <a className='item-name h3-links' href="">{item.item_name}</a>
+                <img className='icon' src={chevronIcon} alt="" />
+              </span>
+              <span data-label="CATEGORY">{item.category}</span>
+            </div>
+            <div className='inventory-item__details'>
+              <span data-label="STATUS" className='status'>
+                <InOutStock inStock={inStock} />
+              </span>
+              <span data-label="QTY">{item.quantity}</span>
+              {showWarehouse && <span data-label="WAREHOUSE">{item.warehouse_name}</span>}
+            </div>
+          </div>
+          <div className='actions'>
+            <span data-label="ACTIONS" className='actions__wrapper'>
+              <button className="delete-btn">
+                <img src={deleteIcon} alt="delete button" />
+              </button>
+              <Link to='inventory/:id/edit'>
+                <button className="edit-btn">
+                  <img src={editIcon} alt="edit button" />
+                </button>
+              </Link>
+            </span>
+          </div>
+        </div>
+      </>
+    );
+  };
 
 	const onDeleteSubmit = () => {
 		console.log('Submitted');
@@ -166,6 +198,16 @@ function ItemRow({ item, showWarehouse, onItemClick }) {
 			)}
 		</>
 	);
+
+  return (
+    <>
+      {isDesktop
+        ? <DesktopView item={item} showWarehouse={showWarehouse} />
+        : <MobileView item={item} showWarehouse={showWarehouse} />
+      }
+    </>
+  );
+
 }
 
 export default ItemRow;
