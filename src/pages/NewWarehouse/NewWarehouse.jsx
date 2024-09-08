@@ -6,6 +6,7 @@ import './NewWarehouse.scss';
 import { postWarehouse } from '../../utils/api';
 
 function NewWarehouse() {
+
 	const [errorState, setErrorState] = useState({}); 
 
 	const onSubmit = async (formData) => {
@@ -20,7 +21,19 @@ function NewWarehouse() {
 				alert("An unknown error occurred.");
 			}
         }
-    };
+
+		const newWarehouse = {
+			warehouse_name: warehouse__name.value,
+			address: warehouse__address.value,
+			city: warehouse__city.value,
+			country: warehouse__country.value,
+			contact_name: contact__name.value,
+			contact_position: contact__position.value,
+			contact_phone: formattedPhoneNumber,
+			contact_email: contact__email.value,
+		};
+        console.log(postWarehouse(newWarehouse));
+	};
 
 	return (
 		<main>
