@@ -1,26 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { fetchInventoryList } from '../../utils/api.js';
 import ItemRow from '../ItemRow/ItemRow.jsx';
 import SearchBar from '../LowLevelComponents/SearchBar/SearchBar.jsx';
 import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
+import { useNavigate, Link } from 'react-router-dom';
 
 function InventoryList({ id, className, inventoryList, onItemClick }) {
-    // const [inventoryList, setInventoryList] = useState([]);
-
-    // useEffect(() => {
-    // const fetchData = async () => {
-    //     try {
-    //     const response = await fetchInventoryList();
-    //     setInventoryList(response.data);
-    //     console.log(response.data);
-    //     } catch (error) {
-    //     console.error(error);
-    //     }
-    // };
-    // fetchData();
-    // }, [id]);
-    console.log('InventoryList rendered with:', inventoryList);
+    const navigate = useNavigate();
 
     if (!Array.isArray(inventoryList) || inventoryList.length === 0) {
         return <div>No inventory items available.</div>;
@@ -32,13 +18,25 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
         onItemClick(itemId);
     };
 
+    const handleAddNewItem = () => {
+        navigate('/inventory/add');
+    }
+
     return (
         <div className={`inventory-list layout ${!showWarehouse ? 'no-shadow' : ''}`}>
             {showWarehouse && (
-                <>
+                <div className='inventory-list__mobile-wrapper'>
                     <h1 className="inventory-list__title">Inventory</h1>
                     <SearchBar className="inventory-list__search" />
-                </>
+                    <Link to={'/inventory/add'}>
+                        <CTAButton
+                            text="+ Add New Item"
+                            onClick={handleAddNewItem}
+                            variant="primary"
+                        />
+                    </Link>
+
+                </div>
             )}
 
             <table className="inventory-table">
@@ -58,7 +56,7 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
                             key={inventory.id}
                             item={inventory}
                             showWarehouse={showWarehouse}
-                            onItemClick={() => handleItemClick(inventory.id)}
+                            onItemClick={handleItemClick}
                         />
                     ))}
                 </tbody>
@@ -67,4 +65,4 @@ function InventoryList({ id, className, inventoryList, onItemClick }) {
     );
 }
 
-export default InventoryList;
+export default React.memo(InventoryList);

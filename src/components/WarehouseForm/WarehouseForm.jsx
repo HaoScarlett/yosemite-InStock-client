@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { fetchWarehousesList } from '/src/utils/api.js';
 import errorIcon from '../../assets/Icons/error-24px.svg';
 
+
 export default function WarehouseForm({ onSubmitFunction, initialData }) {
 	const [formData, setFormData] = useState({
         warehouse_name: '',
@@ -16,42 +17,53 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
         contact_phone: '',
         contact_email: ''
     });
-	//add error state
+
+	// Add error state
 	const [errorState, setErrorState] = useState({});
+	const [warehouseNames, setWarehouseNames] = useState([]);  // To store warehouse names
 
 	// Pre-populate form data if initialData is provided (for edit mode)
-    useEffect(() => {
+	useEffect(() => {
         if (initialData) {
             setFormData(initialData);
         }
     }, [initialData]);
 
+	// Fetch warehouses list
+	useEffect(() => {
+		const getWarehouseData = async () => {
+			try {
+				const response = await fetchWarehousesList();
+				setWarehouseNames(response.data.map(warehouse => warehouse.warehouse_name));  // Assuming the response has `warehouse_name` field
+			} catch (error) {
+				console.error('Error fetching warehouse data:', error);
+			}
+		};
+		getWarehouseData();
+	}, []);
+
 	// Handle input changes
 	const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+		const { name, value } = e.target;
+		setFormData({
+			...formData,
+			[name]: value,
+		});
 		// Clear error message when user starts typing
-        setErrorState({
-            ...errorState,
-            [name]: ''
-        });
-    };
+		setErrorState({
+			...errorState,
+			[name]: ''
+		});
+	};
+
+	// Validate the form
 	const validateForm = () => {
 		let errors = {};
 		const requiredFields = [
-			'warehouse_name',
-			'address',
-			'city',
-			'country',
-			'contact_name',
-			'contact_position',
-			'contact_phone',
-			'contact_email'
+			'warehouse_name', 'address', 'city', 'country', 
+			'contact_name', 'contact_position', 'contact_phone', 'contact_email'
 		];
-	
+
 		// Loop through each required field and check if it's empty
 		requiredFields.forEach(field => {
 			if (!formData[field]) {
@@ -59,27 +71,25 @@ export default function WarehouseForm({ onSubmitFunction, initialData }) {
 			}
 		});
 		setErrorState(errors);
-	
-		return Object.keys(errors).length === 0; 
+
+		return Object.keys(errors).length === 0;
 	};
 
 	// Submit the form
-	const handleSubmit = async (event) =>{
-        event.preventDefault();
-        if (validateForm()) {
-			try{
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		if (validateForm()) {
+			try {
 				await onSubmitFunction(formData); 
-			}
-			catch (error){
+			} catch (error) {
 				const backendErrors = error.response?.data?.errors;
 				setErrorState(prevErrorState => ({
 					...prevErrorState,
-					...backendErrors  
+					...backendErrors
 				}));
 			}
-			
 		}
-    }
+	};
 
 	return (
 	<section>

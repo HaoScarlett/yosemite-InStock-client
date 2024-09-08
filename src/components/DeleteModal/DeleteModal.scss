@@ -1,0 +1,63 @@
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+
+
+.delete-modal {
+  padding: $unit-16;
+  position: absolute;
+  background-color: $global-white;
+
+  @include tablet {
+    padding: $unit-32 $unit-64;
+    top: 202px;
+    left: 48px;
+    right: 48px;
+    height: 19rem;
+  }
+
+  @include desktop {
+    top: 220px;
+    left: 265px;
+    right: 265px;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $global-white;
+
+    @include tablet {
+      background-color: rgba(7, 9, 16, 0.5);
+    }
+  }
+
+  &__title {
+    margin: $unit-60 0 $unit-16;
+    font-size: 1.75rem;
+
+    @include tablet {
+      margin-bottom: $unit-32;
+    }
+  }
+
+  &__text {
+    margin-bottom: 22rem;
+
+    @include tablet {
+      margin-bottom: $unit-32;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: right;
+    gap: $unit-16;
+    cursor: pointer;
+  }
+}
