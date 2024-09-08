@@ -14,11 +14,11 @@ input {
   font-size: 0.8125rem;
   font-weight: 400;
 
-  @include tablet {
-    height: 2.375rem;
-    line-height: 1.375rem;
-    font-size: 0.875rem;
-  }
+  // @include tablet {
+  //   height: 2.375rem;
+  //   line-height: 1.375rem;
+  //   font-size: 0.875rem;
+  // }
 
   &:focus {
     outline: none;
@@ -72,7 +72,7 @@ h2 {
 .item-form {
   @include page-overlap;
   padding-top: 2rem;
-  padding-bottom: 1rem;
+  // padding-bottom: 1rem;
 
   &__dropdown {
     appearance: none;

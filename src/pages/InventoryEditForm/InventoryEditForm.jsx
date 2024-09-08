@@ -24,12 +24,15 @@ export default function InventoryEditForm() {
                     fetchInventoryCategory(),
                     fetchWarehousesList()
                 ]);
-                setItem(editItem.data[0]);
+                setItem({
+                    ...editItem.data[0],
+                    warehouse_id: editItem.data[0].warehouse_id || editItem.data[0].warehouse
+                });
                 setCategories(fetchedCategories.data);
                 setWarehouses(fetchedWarehouses.data)
-                console.log('categories', fetchedCategories.data);
-                console.log('editItem', editItem.data[0]);
-                console.log('warehouses', fetchedWarehouses.data);
+                // console.log('categories', fetchedCategories.data);
+                // console.log('editItem', editItem.data[0]);
+                // console.log('warehouses', fetchedWarehouses.data);
             } catch (err) {
                 setError('Failed to load item data');
             } finally {
@@ -39,39 +42,44 @@ export default function InventoryEditForm() {
         loadItem();
     }, [id]);
 
-    const handleChange = async (e) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
-        setItem(prevItem => {
-            const updateItem = {
-                ...prevItem,
-                [name]: value
-            }
-            if (name === 'status') {
-                if (!isInStock(value)) {
-                    updateItem.quantity = 0;
-                } else if (updateItem.quantity === 0) {
-                    updateItem.quantity = 1;
-                }
-            }
-            return updateItem;
-        }
-        )
-
-    }
+        setItem(prevItem => ({
+            ...prevItem,
+            [name]: name === 'warehouse_id' || name === 'quantity' ? Number(value) : value
+        }));
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setError(null);
+
+        const itemToSubmit = {
+            warehouse_id: Number(item.warehouse || item.warehouse_id),
+            item_name: item.item_name,
+            description: item.description,
+            category: item.category,
+            status: item.status,
+            quantity: Number(item.quantity)
+        };
+
+        console.log('Submitting item data:', JSON.stringify(itemToSubmit, null, 2));
+
         try {
-            await updateInventoryItem(id, item);
+            await updateInventoryItem(id, itemToSubmit);
             navigate(`/inventory/${id}`);
         } catch (err) {
-            setError('Failed to update item');
+            console.error('Error response:', err.response?.data);
+            if (err.response?.data?.errors) {
+                setError(err.response.data.errors.join(', '));
+            } else {
+                setError('Failed to update item');
+            }
         } finally {
-            setIsSubmitting(false)
+            setIsSubmitting(false);
         }
-    }
+    };
 
     const handleCancel = () => {
         navigate(`/inventory/${id}`);
@@ -166,22 +174,26 @@ export default function InventoryEditForm() {
                     )}
                     <label htmlFor="warehouse_id">
                         <h3>Warehouse</h3>
-                        <select name="warehouse" id="warehouse_id"
+                        <select
+                            name="warehouse_id"
+                            id="warehouse_id"
                             className='item-form__dropdown'
-                            value={warehouses.warehouse_name}
+                            value={item.warehouse_id || ''}
                             onChange={handleChange}
                             required
                         >
                             <option value="">Select a warehouse</option>
                             {warehouses.map((warehouse) => (
-                                <option key={warehouse.id} value={warehouse.id}>{warehouse.warehouse_name}</option>
+                                <option key={warehouse.id} value={warehouse.id}>
+                                    {warehouse.warehouse_name}
+                                </option>
                             ))}
                         </select>
                     </label>
                 </div>
                 <div className="button-wrapper">
-                <CTAButton text={'Cancel'} variant='secondary' onClick={handleCancel} type='button' />
-                <CTAButton text={isSubmitting ? 'Saving...' : 'Save'} type='submit' disabled={isSubmitting} />
+                    <CTAButton text={'Cancel'} variant='secondary' onClick={handleCancel} type='button' />
+                    <CTAButton text={isSubmitting ? 'Saving...' : 'Save'} type='submit' disabled={isSubmitting} />
                 </div>
 
             </form></div>
