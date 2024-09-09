@@ -76,7 +76,7 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=
 
 	return (
 		<div
-			className={`inventory-list layout ${
+			className={`inventory-list ${
 				!showWarehouse ? 'no-shadow' : ''
 			}`}
 		>
