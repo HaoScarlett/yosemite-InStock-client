@@ -6,10 +6,10 @@
   @include m.page-overlap;
   padding: 0rem;
 
-  &__title {
-    padding-top: 32px;
-    padding-bottom: 16px;
-  }
+	&__title {
+		padding-top: 2rem;
+		padding-bottom: 1rem;
+	}
 
   &__search {
     margin: 0;

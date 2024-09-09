@@ -1,113 +1,104 @@
-@use "./mixins.scss" as *;
-@use "./colors" as *;
-
-
+@use './mixins.scss' as *;
+@use './colors' as *;
 
 //font sources
 @font-face {
-    font-family: 'Titillium Web';
-    src: url('../../assets/Fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),
-        url('../../assets/Fonts/TitilliumWeb-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Titillium Web';
+	src: url('../../assets/Fonts/TitilliumWeb-SemiBold.woff2') format('woff2'),
+		url('../../assets/Fonts/TitilliumWeb-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-    font-family: 'Titillium Web';
-    src: url('../../assets/Fonts/TitilliumWeb-Regular.woff2') format('woff2'),
-        url('../../assets/Fonts/TitilliumWeb-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+	font-family: 'Titillium Web';
+	src: url('../../assets/Fonts/TitilliumWeb-Regular.woff2') format('woff2'),
+		url('../../assets/Fonts/TitilliumWeb-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
-
-
 
 //type base
 $family: 'Titillium Web', sans-serif;
 $regular: 400;
 $semi: 600;
 
-
-
 // responsive text styles
 .h1-page-header {
-    font-size: 1.75rem;
-    line-height: 2.25rem;
-    font-weight: $semi;
+	font-size: 1.75rem;
+	line-height: 2.25rem;
+	font-weight: $semi;
 
-    @include tablet {
-        font-size: 2rem;
-        line-height: 2.5rem;
-    }
+	@include tablet {
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
 }
 
 .h2-subheader {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: $semi;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	font-weight: $semi;
 
-    @include tablet {
-        font-size: 1.5rem;
-        line-height: 2rem;
-    }
+	@include tablet {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
 }
 
 .h3-labels,
 .h3-links,
 .h3-buttons {
-    font-size: .8125rem;
-    line-height: 1.25rem;
-    font-weight: $semi;
+	font-size: 0.8125rem;
+	line-height: 1.25rem;
+	font-weight: $semi;
 
-    @include tablet {
-        font-size: .875rem;
-        line-height: 1.375rem;
-    }
+	@include tablet {
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+	}
 }
 
 .h4-table-header {
-    color: $table-column-headers-text;
-    font-size: .6875rem;
-    line-height: 1rem;
-    font-weight: $semi;
+	color: $table-column-headers-text;
+	font-size: 0.6875rem;
+	line-height: 1rem;
+	font-weight: $semi;
 
-    @include tablet {
-        font-size: .75rem;
-        line-height: 1.125rem;
-    }
+	@include tablet {
+		font-size: 0.75rem;
+		line-height: 1.125rem;
+	}
 }
 
 .p1-body-large {
-    font-size: .9375rem;
-    line-height: 1.625rem;
+	font-size: 0.9375rem;
+	line-height: 1.625rem;
 
-    @include tablet {
-        font-size: 1rem;
-        line-height: 1.75rem;
-    }
+	@include tablet {
+		font-size: 1rem;
+		line-height: 1.75rem;
+	}
 }
 
 .p2-body-medium {
-    font-size: .8125rem;
-    line-height: 1.25rem;
+	font-size: 0.8125rem;
+	line-height: 1.25rem;
 
-    @include tablet {
-        font-size: .875rem;
-        line-height: 1.375rem;
-    }
+	@include tablet {
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+	}
 }
 
 .p3-body-small {
-    font-size: .6875rem;
-    line-height: 1rem;
+	font-size: 0.6875rem;
+	line-height: 1rem;
 
-    @include tablet {
-        font-size: .75rem;
-        line-height: 1.125rem;
-    }
+	@include tablet {
+		font-size: 0.75rem;
+		line-height: 1.125rem;
+	}
 }
-
-
-

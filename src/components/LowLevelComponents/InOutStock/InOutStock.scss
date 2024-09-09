@@ -3,24 +3,22 @@
 .inOutStock {
 	display: block;
 	box-sizing: border-box;
-	height: 24px;
+	height: 1.5rem;
 	width: fit-content;
-	border-radius: 20px;
-	padding: 4px 8px 4px 8px;
-	font-size: 12px;
+	border-radius: 1.25rem;
+	padding: .25rem .5rem .25rem .5rem;
+	font-size: .75rem;
 	font-weight: 600;
-	line-height: 18px;
+	line-height: 1.125rem;
 	text-align: center;
 }
 
-.inStock{
+.inStock {
 	color: $label-in-stock;
-	background-color: rgba(rgb(21, 132, 99), 0.07);;
+	background-color: rgba(rgb(21, 132, 99), 0.07);
 }
 
-.outStock{
+.outStock {
 	color: $label-out-of-stock;
-	background-color: rgba(rgb(201, 69, 21),0.07);
+	background-color: rgba(rgb(201, 69, 21), 0.07);
 }
-
-

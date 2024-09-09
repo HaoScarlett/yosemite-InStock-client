@@ -77,6 +77,15 @@ label {
   margin-bottom: 0.25rem;
 }
 
+.item-name{
+    position: relative;
+}
+
+.icon{
+    height: 25px;
+    width: 25px;
+}
+
 @include tablet {
   .inventory {
     padding: 0 2rem 2rem 2rem;

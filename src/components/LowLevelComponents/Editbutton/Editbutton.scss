@@ -3,35 +3,34 @@
 @use '../../../styles/partials/variables' as *;
 
 .edit-button {
-    @include flex-center;
-    background-color: $interactive-elements;
-    border: none;
-    text-decoration: none;
-    cursor: pointer;
+	@include flex-center;
+	background-color: $interactive-elements;
+	border: none;
+	text-decoration: none;
+	cursor: pointer;
 
-    //mobile round button
-    width: $unit-38;
-    height: $unit-38;
-    border-radius: 50%;
-    //large screen button
-    @include tablet{
-        width: 5.2rem; 
-        height: $unit-40;
-        border-radius: $unit-24;
-        padding: 0 $unit-20; 
-    }
-    &__icon{
-        width: $unit-20;
-        height: $unit-20;
-    }
+	//mobile round button
+	width: $unit-38;
+	height: $unit-38;
+	border-radius: 50%;
+	//large screen button
+	@include tablet {
+		width: 5.2rem;
+		height: $unit-40;
+		border-radius: $unit-24;
+		padding: 0 $unit-20;
+	}
+	&__icon {
+		width: $unit-20;
+		height: $unit-20;
+	}
 
-    &__label {
-        display: none;
-        @include tablet{
-            display: inline-block;
-            color: $global-white;
-            margin-left: $unit-4;
-        }
-    }
-
+	&__label {
+		display: none;
+		@include tablet {
+			display: inline-block;
+			color: $global-white;
+			margin-left: $unit-4;
+		}
+	}
 }

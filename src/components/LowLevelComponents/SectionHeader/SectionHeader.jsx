@@ -9,16 +9,16 @@ export default function SectionHeader({ text, url }) {
 	const handleBack = (e) => {
 		e.preventDefault();
 		if (url) {
-			navigate(url)
+			navigate(url);
 		} else {
-			navigate(-1)
+			navigate(-1);
 		}
-	}
+	};
 
 	return (
 		<div className='header__left'>
 			<Link
-				href="./"
+				href='./'
 				className='header__back'
 				onClick={handleBack}
 			>
