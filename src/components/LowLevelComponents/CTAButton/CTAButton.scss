@@ -1,37 +1,37 @@
-@use "../../../styles/partials/_colors.scss" as c;
-@use "../../../styles/partials/_typography.scss" as t;
-@use "../../../styles/partials/_mixins.scss" as m;
-@use "../../../styles/partials/_variables.scss" as var;
+@use '../../../styles/partials/_colors.scss' as c;
+@use '../../../styles/partials/_typography.scss' as t;
+@use '../../../styles/partials/_mixins.scss' as m;
+@use '../../../styles/partials/_variables.scss' as var;
 
 .btn-primary {
-  @include m.btn-styles(
-    c.$interactive-elements,
-    none,
-    c.$global-white,
-    c.$cta-btn-hover
-  );
+	@include m.btn-styles(
+		c.$interactive-elements,
+		none,
+		c.$global-white,
+		c.$cta-btn-hover
+	);
 }
 
 .btn-secondary {
-  @include m.btn-styles(
-    c.$cta-bg,
-    1px solid c.$outlines,
-    c.$global-text,
-    null,
-    1px solid c.$interactive-elements
-  );
-  &:hover {
-    border: 1px solide c.$interactive-elements;
-    color: c.$interactive-elements;
-  }
+	@include m.btn-styles(
+		c.$cta-bg,
+		1px solid c.$outlines,
+		c.$global-text,
+		null,
+		1px solid c.$interactive-elements
+	);
+	&:hover {
+		border: 1px solid c.$interactive-elements;
+		color: c.$interactive-elements;
+	}
 }
 
 .btn-delete {
-  @include m.btn-styles(
-    c.$error-states,
-    none,
-    c.$global-white,
-    c.$cta-btn-hover,
-    null
-  );
+	@include m.btn-styles(
+		c.$error-states,
+		none,
+		c.$global-white,
+		c.$cta-btn-hover,
+		null
+	);
 }

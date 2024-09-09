@@ -9,7 +9,6 @@ function NewWarehouse() {
 
 	const onSubmit = async (formData) => {
 		try {
-
 			const newWarehouse = {
 				warehouse_name: formData.warehouse_name,
 				address: formData.address,
@@ -17,20 +16,22 @@ function NewWarehouse() {
 				country: formData.country,
 				contact_name: formData.contact_name,
 				contact_position: formData.contact_position,
-				contact_phone: formData.contact_phone,  
+				contact_phone: formData.contact_phone,
 				contact_email: formData.contact_email,
 			};
-
 
 			const response = await postWarehouse(newWarehouse);
 			console.log('Warehouse created:', response.data);
 		} catch (error) {
-			console.error('Error creating warehouse:', error.response?.data?.errors || error);
+			console.error(
+				'Error creating warehouse:',
+				error.response?.data?.errors || error
+			);
 			if (error.response?.data?.errors) {
-				setErrorState(error.response.data.errors); 
-				throw error;  
+				setErrorState(error.response.data.errors);
+				throw error;
 			} else {
-				alert("An unknown error occurred.");
+				alert('An unknown error occurred.');
 			}
 		}
 	};
@@ -43,9 +44,7 @@ function NewWarehouse() {
 					url='/'
 				/>
 			</div>
-			<WarehouseForm
-				onSubmitFunction={onSubmit}
-			/>
+			<WarehouseForm onSubmitFunction={onSubmit} />
 		</main>
 	);
 }

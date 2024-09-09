@@ -13,14 +13,12 @@
 	text-align: center;
 }
 
-.inStock{
+.inStock {
 	color: $label-in-stock;
-	background-color: rgba(rgb(21, 132, 99), 0.07);;
+	background-color: rgba(rgb(21, 132, 99), 0.07);
 }
 
-.outStock{
+.outStock {
 	color: $label-out-of-stock;
-	background-color: rgba(rgb(201, 69, 21),0.07);
+	background-color: rgba(rgb(201, 69, 21), 0.07);
 }
-
-

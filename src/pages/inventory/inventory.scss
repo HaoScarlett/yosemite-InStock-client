@@ -1,32 +1,25 @@
 @use '../../styles/partials/_colors.scss' as c;
 @use '../../styles/partials/_mixins.scss' as m;
 @use '../../styles/partials/_variables.scss' as var;
-// .inventory{
-//     // position: relative;
-//     // background-color: c.$page-bg;
-// }
 
 .inventory-list {
-    @include m.page-overlap;
-    padding: 0rem;
+	@include m.page-overlap;
+	padding: 0rem;
 }
 
 .inventory-list__header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
 }
 
 .inventory-list__interactive {
-display: flex;
-align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .inventory-list__search {
-margin-right: 20px; 
+	margin-right: 20px;
 }
 
-.inventory-list__add-button {
-
-}

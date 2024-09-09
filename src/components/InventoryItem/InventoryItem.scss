@@ -2,82 +2,77 @@
 @use '../../styles/partials/colors.scss' as *;
 @use '../../styles/partials/variables.scss' as *;
 
-.inventory{
-    width: 100%;
-    height: auto;
-    background-color: $global-white;
-    box-shadow: 0rem .125rem .3125rem 0rem $box-shadow;
-    padding: 0 1rem 1rem 1rem;
-    position: relative;
-    top: -4rem;
-    border-radius: .25rem;
+.inventory {
+	width: 100%;
+	height: auto;
+	background-color: $global-white;
+	box-shadow: 0rem 0.125rem 0.3125rem 0rem $box-shadow;
+	padding: 0 1rem 1rem 1rem;
+	position: relative;
+	top: -4rem;
+	border-radius: 0.25rem;
 
-    @include tablet{
-        padding: 0 2rem 2rem 2rem; 
-        top: -5.5rem;
-    }
+	@include tablet {
+		padding: 0 2rem 2rem 2rem;
+		top: -5.5rem;
+	}
 
-    &__body{
-        @include tablet{
-            display: flex;
-        }
-        &>div{
-            @include tablet{
-                width: 50%;
-            }
-        }
+	&__body {
+		@include tablet {
+			display: flex;
+		}
+		& > div {
+			@include tablet {
+				width: 50%;
+			}
+		}
 
-        &-right{
-            @include tablet{
-                border-left: .0625rem solid $dividers;
-                padding-left: 1rem;
-                margin-top: 1rem;
-            }
-        }
-    }
+		&-right {
+			@include tablet {
+				border-left: 0.0625rem solid $dividers;
+				padding-left: 1rem;
+				margin-top: 1rem;
+			}
+		}
+	}
 
-    &__header{
-        display: flex;
-        box-sizing: content-box;
-        justify-content: space-between;
-        align-content: center;
-        border-bottom: 1px solid $dividers;
-        margin: 0 -1rem;
-        padding: 1.5rem 1rem;
+	&__header {
+		display: flex;
+		box-sizing: content-box;
+		justify-content: space-between;
+		align-content: center;
+		border-bottom: 1px solid $dividers;
+		margin: 0 -1rem;
+		padding: 1.5rem 1rem;
 
-        @include tablet{
-            margin: 0 -2rem;
-            padding: 1.5rem 2rem;
-        }
+		@include tablet {
+			margin: 0 -2rem;
+			padding: 1.5rem 2rem;
+		}
+	}
 
+	&-stats__status-quant {
+		display: flex;
+		width: 100%;
 
-    }
+		& > div > label {
+			@include tablet {
+				margin-top: 0rem;
+			}
+		}
+	}
 
-    &-stats__status-quant{
-        display: flex;
-        width: 100%;
-
-        &>div>label{
-            @include tablet{
-                margin-top: 0rem;
-            }
-        }
-
-    }
-
-    &-stats__status-quant > div{
-        width: 50%;
-    }
-    
+	&-stats__status-quant > div {
+		width: 50%;
+	}
 }
 
-label{
-    display: block;
-    font-size: .6875rem;
-    font-weight: 600;
-    line-height: 1rem;
-    color: $placeholder-text;
-    margin-top: 1rem;
-    margin-bottom: .25rem;
+label {
+	display: block;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	line-height: 1rem;
+	color: $placeholder-text;
+	margin-top: 1rem;
+	margin-bottom: 0.25rem;
 }
-

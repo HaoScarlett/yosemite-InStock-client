@@ -19,25 +19,25 @@ input {
 		font-size: 0.875rem;
 	}
 
-    &:focus {
+	&:focus {
 		outline: none;
 		border: 1px solid $interactive-elements;
 	}
 }
 
-select{
-    @extend input;
-    padding: 0 0 0 1rem;
-    color: $placeholder-text;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+select {
+	@extend input;
+	padding: 0 0 0 1rem;
+	color: $placeholder-text;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
-option{
-    line-height: 1.25rem;
+option {
+	line-height: 1.25rem;
 	font-size: 0.8125rem;
 	font-weight: 400;
-    color: $global-text;
+	color: $global-text;
 }
 
 h3 {
@@ -56,16 +56,15 @@ h2 {
 
 	& > div {
 		width: inherit;
-        @include tablet{
-            margin-top: 1.5rem;
-        }
+		@include tablet {
+			margin-top: 1.5rem;
+		}
 	}
-	&__container{
-		@include tablet{
+	&__container {
+		@include tablet {
 			display: flex;
 			justify-content: space-between;
 		}
-		
 	}
 
 	&__details {
@@ -76,8 +75,8 @@ h2 {
 
 		@include tablet {
 			border-bottom: none;
-            margin-right: 1.5rem;
-            padding-right: 0;
+			margin-right: 1.5rem;
+			padding-right: 0;
 		}
 	}
 
@@ -97,51 +96,49 @@ h2 {
 		display: flex;
 		gap: 1rem;
 
-        @include tablet{
-            margin: 1rem -2rem -2rem -2rem;
-            justify-content: flex-end;
-        }
-		&-cancel{
+		@include tablet {
+			margin: 1rem -2rem -2rem -2rem;
+			justify-content: flex-end;
+		}
+		&-cancel {
 			flex: 1;
-			@include tablet{
+			@include tablet {
 				flex: 0;
 			}
 		}
-		&-submit{
+		&-submit {
 			flex: 1;
-			@include tablet{
+			@include tablet {
 				flex: 0;
 			}
 		}
-		
 	}
 }
 
-.h2-subheader{
-    @include tablet{
-        margin-top: 0rem;
-    }   
+.h2-subheader {
+	@include tablet {
+		margin-top: 0rem;
+	}
 }
 
 .input-error {
-    border: 2px solid $error-states;
+	border: 2px solid $error-states;
 }
 
 .error-text {
-    color: $error-states; 
+	color: $error-states;
 	font-weight: 400;
 	font-size: small;
-    margin-top: 5px;
+	margin-top: 5px;
 }
-.error-icon{
+.error-icon {
 	width: 1.25rem;
 	height: 1.25rem;
-	margin-top: .125rem;
-	margin-right: .3rem;
+	margin-top: 0.125rem;
+	margin-right: 0.3rem;
 }
 
 .error-message-container {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
-

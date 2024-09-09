@@ -6,14 +6,19 @@ import CTAButton from '../LowLevelComponents/CTAButton/CTAButton.jsx';
 import './InventoryList.scss';
 import { useNavigate, Link } from 'react-router-dom';
 
-function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=null, warehouseName }) {
+function InventoryList({
+	id,
+	className,
+	inventoryList,
+	onItemClick,
+	warehouseId = null,
+	warehouseName,
+}) {
 	const [inventoryData, setInventoryData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [deleteItem, setDeletedItem] = useState(0);
 	const navigate = useNavigate(); //
-
-
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -26,32 +31,31 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=
 				setIsLoading(false);
 			}
 		};
-		const fetchSpecificData = async (warehouseId)=>{
-			try{
+		const fetchSpecificData = async (warehouseId) => {
+			try {
 				const response = await fetchSpecificInventory(warehouseId);
 				setInventoryData(response.data);
 				setIsLoading(false);
-			}catch (error) {
+			} catch (error) {
 				console.error(error);
 				setIsLoading(false);
 			}
 		};
 
-		if(!warehouseId){
+		if (!warehouseId) {
 			fetchData();
-		}else{
+		} else {
 			fetchSpecificData(warehouseId);
 		}
-		
 	}, [id, deleteItem]);
 
 	const handleAddNewItem = () => {
 		navigate('/inventory/add');
 	};
 
-	const handleDelete = (id) =>{
-		setDeletedItem(prevCount => prevCount + 1);
-	}
+	const handleDelete = () => {
+		setDeletedItem((prevCount) => prevCount + 1);
+	};
 
 	if (isLoading) {
 		return <div>Loading inventory data...</div>;
@@ -81,7 +85,7 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=
 			}`}
 		>
 			{showWarehouse && (
-                <>
+				<>
 					<div className='inventory-list__mobile-wrapper'>
 						<h1 className='inventory-list__title'>Inventory</h1>
 						<SearchBar className='inventory-list__search' />
@@ -115,7 +119,7 @@ function InventoryList({ id, className, inventoryList, onItemClick, warehouseId=
 							showWarehouse={showWarehouse}
 							onItemClick={handleItemClick}
 							handleDelete={handleDelete}
-							warehouseName= {warehouseName}
+							warehouseName={warehouseName}
 						/>
 					))}
 				</tbody>

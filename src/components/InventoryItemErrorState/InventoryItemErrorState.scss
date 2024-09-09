@@ -2,14 +2,14 @@
 @use '../../styles/partials/variables' as *;
 
 .error-container {
-  display: flex;
-  align-items: center;
-  color: $error-states;
-  margin-top: $unit-4;
+	display: flex;
+	align-items: center;
+	color: $error-states;
+	margin-top: $unit-4;
 
-  img {
-    margin-right: $unit-4;
-    width: 16px;
-    height: 16px;
-  }
+	img {
+		margin-right: $unit-4;
+		width: 16px;
+		height: 16px;
+	}
 }

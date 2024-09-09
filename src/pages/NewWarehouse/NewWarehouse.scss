@@ -1,19 +1,18 @@
 @use '../../styles/partials/mixins.scss' as *;
 @use '../../styles/partials/colors' as *;
 
-main{
-    @include page-overlap;
-    
+main {
+	@include page-overlap;
 }
 
-.new-warehouse__header{
-    align-content: center;
-    border-bottom: 1px solid $dividers;
-    margin: 0 -1rem;
-    padding: 1.5rem 1rem;
+.new-warehouse__header {
+	align-content: center;
+	border-bottom: 1px solid $dividers;
+	margin: 0 -1rem;
+	padding: 1.5rem 1rem;
 
-    @include tablet{
-        margin: 0 -2rem;
-        padding: 1.5rem 2rem;
-    }
+	@include tablet {
+		margin: 0 -2rem;
+		padding: 1.5rem 2rem;
+	}
 }

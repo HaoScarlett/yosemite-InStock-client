@@ -1,12 +1,12 @@
-import React from 'react'
-import InventoryItem from '../../components/InventoryItem/InventoryItem.jsx'
+import React from 'react';
+import InventoryItem from '../../components/InventoryItem/InventoryItem.jsx';
 
 function ItemDetailPage() {
-    return (
-        <div>
-            <InventoryItem />
-        </div>
-    )
+	return (
+		<div>
+			<InventoryItem />
+		</div>
+	);
 }
 
-export default ItemDetailPage
+export default ItemDetailPage;
