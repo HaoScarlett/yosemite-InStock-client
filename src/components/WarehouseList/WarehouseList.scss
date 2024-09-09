@@ -16,7 +16,9 @@
   }
 
 	&__add-link {
-		display: block;
+		display: flex;
+    justify-content: center;
+    align-items: center;
 		line-height: 2.25rem;
 		text-align: center;
 		margin-top: 1rem;
