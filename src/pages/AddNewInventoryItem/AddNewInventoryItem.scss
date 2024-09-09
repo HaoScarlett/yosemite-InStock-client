@@ -9,8 +9,8 @@
   background-color: $global-white;
   text-align: left;
   color: $global-text;
-  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-  border-radius: 3px;
+  box-shadow: 0rem .125rem .3125rem rgba(19, 24, 44, 0.1);
+  border-radius: .1875rem;
 
   @include tablet {
       margin-top: -5.55rem;
@@ -20,7 +20,7 @@
 
 .add-inventory-heading {
   padding: $unit-24 1.75rem;
-  border-bottom: 1px solid $borders;
+  border-bottom: .0625rem solid $borders;
   display: flex;
 
   &__link {
@@ -44,7 +44,7 @@
 
   &__component-container {
       padding: $unit-16 $unit-24;
-      border-bottom: 1px solid $borders;
+      border-bottom: .0625rem solid $borders;
 
       @include tablet {
           border-bottom: none;

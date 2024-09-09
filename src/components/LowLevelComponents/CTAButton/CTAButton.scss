@@ -15,13 +15,13 @@
 .btn-secondary {
   @include m.btn-styles(
     c.$cta-bg,
-    1px solid c.$outlines,
+    .0625rem solid c.$outlines,
     c.$global-text,
     null,
-    1px solid c.$interactive-elements
+    .0625rem solid c.$interactive-elements
   );
   &:hover {
-    border: 1px solide c.$interactive-elements;
+    border: .0625rem solide c.$interactive-elements;
     color: c.$interactive-elements;
   }
 }

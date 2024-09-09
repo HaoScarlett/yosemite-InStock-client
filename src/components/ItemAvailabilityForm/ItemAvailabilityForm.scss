@@ -29,7 +29,7 @@
     }
 
     &__input {
-        border: 1px solid $borders;
+        border: .0625rem solid $borders;
         border-radius: $unit-20;
         width: 100%;
         height: $unit-36;
@@ -41,7 +41,7 @@
         }
         
         &:focus {
-			outline: $interactive-elements solid 1px;
+			outline: $interactive-elements solid .0625rem;
 		}
     }
 
@@ -79,16 +79,16 @@
     &__select-wrap::after {
         content: url('../../assets/Icons/arrow_drop_down-24px.svg');
         fill: $table-sorting-icon;
-        width: 24px;
-        height: 24px;
+        width: 1.5rem;
+        height: 1.5rem;
         position: absolute;
-        top: 6px;
+        top: .375rem;
         right: $unit-20;
     }
 
     &__warehouse {
         appearance: none;
-        border: 1px solid $borders;
+        border: .0625rem solid $borders;
         border-radius: $unit-20;
         width: 100%;
         height: $unit-36;
@@ -101,13 +101,13 @@
         }
 
         &:focus {
-			outline: $interactive-elements solid 1px;
+			outline: $interactive-elements solid .0625rem;
 		}
     }
 }
 
 .error {
-    outline: $error-states solid 1px;
+    outline: $error-states solid .0625rem;
 }
 
 .out-of-stock {

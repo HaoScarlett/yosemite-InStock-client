@@ -21,7 +21,7 @@ input {
 
     &:focus {
 		outline: none;
-		border: 1px solid $interactive-elements;
+		border: .0625rem solid $interactive-elements;
 	}
 }
 
@@ -100,11 +100,13 @@ h2 {
         @include tablet{
             margin: 1rem -2rem -2rem -2rem;
             justify-content: flex-end;
+			width: fit-content;
         }
 		&-cancel{
 			flex: 1;
 			@include tablet{
 				flex: 0;
+				width: fit-content;
 			}
 		}
 		&-submit{
@@ -124,14 +126,14 @@ h2 {
 }
 
 .input-error {
-    border: 2px solid $error-states;
+    border: .125rem solid $error-states;
 }
 
 .error-text {
     color: $error-states; 
 	font-weight: 400;
 	font-size: small;
-    margin-top: 5px;
+    margin-top: .3125rem;
 }
 .error-icon{
 	width: 1.25rem;

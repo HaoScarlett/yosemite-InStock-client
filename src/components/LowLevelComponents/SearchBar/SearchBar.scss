@@ -10,11 +10,11 @@
     width: 100%;
 
     @include tablet {
-        width: 185px; 
+        width: 11.5625rem; 
     }
 
     @include desktop {
-        width: 274px; 
+        width: 17.125rem; 
     }
 
 
@@ -28,7 +28,7 @@
 
     &__field {
         background-color: $global-white;
-        border: 1px solid $borders;
+        border: .0625rem solid $borders;
         border-radius: $unit-20;
         text-indent: $unit-16;
         width: 100%; 
