@@ -3,8 +3,8 @@
 @use "../../styles/partials/_variables.scss" as var;
 
 .warehouse-list {
-  @include m.page-overlap;
-  padding: 0rem;
+	padding: 0rem;
+	@include m.page-overlap;
 
 	&__title {
 		padding-top: 2rem;
@@ -15,20 +15,20 @@
     margin: 0;
   }
 
-  &__add-link {
-    display: block;
-    @include m.btn-styles(
-      c.$interactive-elements,
-      none,
-      c.$global-white,
-      c.$cta-btn-hover,
-      none
-    );
-    line-height: 36px;
-    text-align: center;
-    margin-top: 1rem;
-    padding-left: 0rem;
-  }
+	&__add-link {
+		display: block;
+		line-height: 2.25rem;
+		text-align: center;
+		margin-top: 1rem;
+		padding-left: 0rem;
+		@include m.btn-styles(
+			c.$interactive-elements,
+			none,
+			c.$global-white,
+			c.$cta-btn-hover,
+			none
+		);
+	}
 }
 
 .warehouse-list__header {
