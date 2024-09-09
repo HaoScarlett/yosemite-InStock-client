@@ -3,15 +3,8 @@
 @use '../../styles/partials/_variables.scss' as var;
 
 .inventory-list {
-	height: auto;
-	background-color: c.$global-white;
-	box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
-	border-radius: 0.25rem;
-	margin: auto;
-	position: relative;
-	top: -9vh;
-	width: 100%;
-	padding: var.$spacing-small;
+	@include m.page-overlap;
+
 	&.no-shadow {
 		box-shadow: none;
 	}
@@ -46,13 +39,7 @@
 
 @include m.tablet {
 	.inventory-list {
-		max-width: 75rem;
-		margin: 0 auto;
-		top: -5vh;
-		padding: var.$unit-20;
-		background-color: c.$global-white;
-		border-radius: 0.25rem;
-		box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+		@include m.page-overlap;
 
 		&__mobile-wrapper {
 			display: flex;
@@ -94,10 +81,9 @@
 
 	.inventory-header th {
 		padding: var.$spacing-small;
-		background-color: #f4f4f4;
+		background-color: rgba(rgb(247, 248, 249), 0.7);
 		text-align: left;
-		border-bottom: 0.125rem solid #ddd;
-		font-size: 0.875rem;
+		border-bottom: none;
 		line-height: 1.375rem;
 	}
 
