@@ -63,9 +63,9 @@ h2 {
 }
 
 .item-form {
-	@include page-overlap;
 	padding-top: 2rem;
-	// padding-bottom: 1rem;
+	@include page-overlap;
+
 
 	&__dropdown {
 		appearance: none;
