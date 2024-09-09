@@ -10,7 +10,7 @@ function WarehouseList() {
 	const [warehouseList, setWarehouseList] = useState([]);
 	const [deletedItem, setDeletedItem] = useState(0);
 	const navigate = useNavigate();
-	
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -27,9 +27,9 @@ function WarehouseList() {
 		navigate(`/warehouses/${warehouseId}`);
 	};
 
-	const handleDeletedItem = ()=>{
-		setDeletedItem(prevCount => prevCount + 1);
-	}
+	const handleDeletedItem = () => {
+		setDeletedItem((prevCount) => prevCount + 1);
+	};
 
 	return (
 		<div className='warehouse-list'>

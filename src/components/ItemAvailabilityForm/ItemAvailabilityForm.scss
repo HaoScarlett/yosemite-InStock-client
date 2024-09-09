@@ -1,33 +1,47 @@
-@use "../../styles/partials/colors" as *;
-@use "../../styles/partials/typography" as *;
-@use "../../styles/partials/mixins" as *;
-@use "../../styles/partials/variables" as *;  
-
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 .avail {
+	@include tablet {
+		width: 100%;
+		padding: 0 $unit-32;
+		margin: $unit-24 0;
+	}
 
-    @include tablet {
-        width: 100%;
-        padding: 0 $unit-32;
-        margin: $unit-24 0;
-    }
-
-    @include desktop {
+	@include desktop {
 		padding: 0 $unit-40;
 	}
 
-    &__title {
-        padding: 0 0 $unit-24;
+	&__title {
+		padding: 0 0 $unit-24;
 
-        @include tablet {
-            padding: 0 0 $unit-32;
-        }
-    }
-    &__label {
-        display: block;
-        padding-bottom: $unit-4;
-    }
+		@include tablet {
+			padding: 0 0 $unit-32;
+		}
+	}
+	&__label {
+		display: block;
+		padding-bottom: $unit-4;
+	}
 
+<<<<<<< HEAD
+	&__input {
+		border: 1px solid $borders;
+		border-radius: $unit-20;
+		width: 100%;
+		height: $unit-36;
+		padding-left: $unit-16;
+		margin-bottom: $unit-8;
+
+		@include tablet {
+			height: $unit-38;
+		}
+
+		&:focus {
+			outline: $interactive-elements solid 1px;
+=======
     &__input {
         border: .0625rem solid $borders;
         border-radius: $unit-20;
@@ -42,40 +56,69 @@
         
         &:focus {
 			outline: $interactive-elements solid .0625rem;
+>>>>>>> develop
 		}
-    }
+	}
 
-    &__radio-container {
-        display: flex;
-        justify-content: space-between;
-        padding-bottom: $unit-16;
-        
-        @include tablet {
+	&__radio-container {
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: $unit-16;
+
+		@include tablet {
 			padding-bottom: 1.625rem;
 		}
-    }
+	}
 
-    &__radio-set {
-        flex-basis: 50%;
-        display: flex;
-        align-items: center;
-    }
+	&__radio-set {
+		flex-basis: 50%;
+		display: flex;
+		align-items: center;
+	}
 
-    &__radio {
-        height: $unit-16;
-        width: $unit-16;
-        margin: 0;
-    }
+	&__radio {
+		height: $unit-16;
+		width: $unit-16;
+		margin: 0;
+	}
 
-    &__radio-label {
-        padding-left: $unit-8;
-        margin: 0;
-    }
+	&__radio-label {
+		padding-left: $unit-8;
+		margin: 0;
+	}
 
-    &__select-wrap {
-        position: relative;
-    }
+	&__select-wrap {
+		position: relative;
+	}
 
+<<<<<<< HEAD
+	&__select-wrap::after {
+		content: url('../../assets/Icons/arrow_drop_down-24px.svg');
+		fill: $table-sorting-icon;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		top: 6px;
+		right: $unit-20;
+	}
+
+	&__warehouse {
+		appearance: none;
+		border: 1px solid $borders;
+		border-radius: $unit-20;
+		width: 100%;
+		height: $unit-36;
+		padding-left: $unit-16;
+		margin-bottom: $unit-8;
+		background-color: $global-white;
+
+		@include tablet {
+			height: $unit-38;
+		}
+
+		&:focus {
+			outline: $interactive-elements solid 1px;
+=======
     &__select-wrap::after {
         content: url('../../assets/Icons/arrow_drop_down-24px.svg');
         fill: $table-sorting-icon;
@@ -102,14 +145,19 @@
 
         &:focus {
 			outline: $interactive-elements solid .0625rem;
+>>>>>>> develop
 		}
-    }
+	}
 }
 
 .error {
+<<<<<<< HEAD
+	outline: $error-states solid 1px;
+=======
     outline: $error-states solid .0625rem;
+>>>>>>> develop
 }
 
 .out-of-stock {
-    display: none;
+	display: none;
 }

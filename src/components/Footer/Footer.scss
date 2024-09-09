@@ -1,9 +1,9 @@
 @use '../../styles/partials/colors' as *;
 @use '../../styles/partials/mixins' as *;
 
-.footer{
-    @include flex-center;
-    & > span{
-        color: $placeholder-text;
-    }
+.footer {
+	@include flex-center;
+	& > span {
+		color: $placeholder-text;
+	}
 }

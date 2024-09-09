@@ -1,14 +1,22 @@
-@use "../../../styles/partials/colors" as *;
-@use "../../../styles/partials/typography" as *;
-@use "../../../styles/partials/variables" as *;
-@use "../../../styles/partials/mixins" as *;
-@use "../../../styles/partials/global" as *;
-
+@use '../../../styles/partials/colors' as *;
+@use '../../../styles/partials/typography' as *;
+@use '../../../styles/partials/variables' as *;
+@use '../../../styles/partials/mixins' as *;
+@use '../../../styles/partials/global' as *;
 
 .search-bar {
-    position: relative;
-    width: 100%;
+	position: relative;
+	width: 100%;
 
+<<<<<<< HEAD
+	@include tablet {
+		width: 185px;
+	}
+
+	@include desktop {
+		width: 274px;
+	}
+=======
     @include tablet {
         width: 11.5625rem; 
     }
@@ -16,16 +24,29 @@
     @include desktop {
         width: 17.125rem; 
     }
+>>>>>>> develop
 
+	&__icon {
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		pointer-events: none;
+		transform: translateY(-50%);
+	}
 
-    &__icon {
-        position: absolute;
-        top: 50%;
-        right: 1rem;
-        pointer-events: none;
-        transform: translateY(-50%); 
-    }
+	&__field {
+		background-color: $global-white;
+		border: 1px solid $borders;
+		border-radius: $unit-20;
+		text-indent: $unit-16;
+		width: 100%;
+		height: $unit-36;
 
+<<<<<<< HEAD
+		@include tablet {
+			height: $unit-38;
+		}
+=======
     &__field {
         background-color: $global-white;
         border: .0625rem solid $borders;
@@ -33,18 +54,15 @@
         text-indent: $unit-16;
         width: 100%; 
         height: $unit-36;
+>>>>>>> develop
 
-        @include tablet {
-            height: $unit-38;
-        }
+		&:focus {
+			border-color: $interactive-elements;
+			outline: none;
+		}
 
-        &:focus {
-            border-color: $interactive-elements;
-            outline: none; 
-        }
-
-        &::placeholder {
-            color: $placeholder-text;
-        }
-    }
+		&::placeholder {
+			color: $placeholder-text;
+		}
+	}
 }

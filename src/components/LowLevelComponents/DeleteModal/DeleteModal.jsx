@@ -6,7 +6,7 @@ export default function DeleteModal({
 	deleteType,
 	deleteName,
 	onDeleteSubmit,
-	closeModal
+	closeModal,
 }) {
 	return (
 		<div className='modal__overlay'>
@@ -53,4 +53,3 @@ export default function DeleteModal({
 	);
 }
 
-//Delete type should be 'warehouse' or 'inventory item' to ensure proper output

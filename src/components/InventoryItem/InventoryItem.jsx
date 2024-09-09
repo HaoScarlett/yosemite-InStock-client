@@ -1,27 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './InventoryItem.scss';
 import InOutStock from '../LowLevelComponents/InOutStock/InOutStock.jsx';
 import SectionHeader from '../LowLevelComponents/SectionHeader/SectionHeader.jsx';
 import EditButton from '../LowLevelComponents/Editbutton/Editbutton.jsx';
 
 export default function InventoryItem({ itemId, inventoryItem }) {
-	// const [inventoryItem, setInventoryItem] = useState({});
-	// if (!itemId) {
-	// 	itemId = 1;
-	// }
-
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const response = await fetchInventoryItem(itemId);
-	// 			setInventoryItem(response.data[0]);
-	// 			console.log(response.data);
-	// 		} catch (error) {
-	// 			console.log(error);
-	// 		}
-	// 	};
-	// 	fetchData();
-	// }, []);
 	if (!inventoryItem) {
 		return <div>Item not found</div>;
 	}
@@ -40,7 +23,10 @@ export default function InventoryItem({ itemId, inventoryItem }) {
 	return (
 		<section className='inventory'>
 			<div className='inventory__header'>
-				<SectionHeader text={item_name} url="/inventory" />
+				<SectionHeader
+					text={item_name}
+					url='/inventory'
+				/>
 				<EditButton to={`/inventory/${id}/edit`} />
 			</div>
 			<div className='inventory__body'>
