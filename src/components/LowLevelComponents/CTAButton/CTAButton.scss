@@ -13,6 +13,7 @@
 }
 
 .btn-secondary {
+<<<<<<< HEAD
 	@include m.btn-styles(
 		c.$cta-bg,
 		1px solid c.$outlines,
@@ -24,6 +25,19 @@
 		border: 1px solid c.$interactive-elements;
 		color: c.$interactive-elements;
 	}
+=======
+  @include m.btn-styles(
+    c.$cta-bg,
+    .0625rem solid c.$outlines,
+    c.$global-text,
+    null,
+    .0625rem solid c.$interactive-elements
+  );
+  &:hover {
+    border: .0625rem solide c.$interactive-elements;
+    color: c.$interactive-elements;
+  }
+>>>>>>> develop
 }
 
 .btn-delete {

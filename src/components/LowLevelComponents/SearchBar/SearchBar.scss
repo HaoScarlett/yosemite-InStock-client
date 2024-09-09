@@ -8,6 +8,7 @@
 	position: relative;
 	width: 100%;
 
+<<<<<<< HEAD
 	@include tablet {
 		width: 185px;
 	}
@@ -15,6 +16,15 @@
 	@include desktop {
 		width: 274px;
 	}
+=======
+    @include tablet {
+        width: 11.5625rem; 
+    }
+
+    @include desktop {
+        width: 17.125rem; 
+    }
+>>>>>>> develop
 
 	&__icon {
 		position: absolute;
@@ -32,9 +42,19 @@
 		width: 100%;
 		height: $unit-36;
 
+<<<<<<< HEAD
 		@include tablet {
 			height: $unit-38;
 		}
+=======
+    &__field {
+        background-color: $global-white;
+        border: .0625rem solid $borders;
+        border-radius: $unit-20;
+        text-indent: $unit-16;
+        width: 100%; 
+        height: $unit-36;
+>>>>>>> develop
 
 		&:focus {
 			border-color: $interactive-elements;

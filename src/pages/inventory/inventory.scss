@@ -8,10 +8,17 @@
 }
 
 .inventory-list__header {
+<<<<<<< HEAD
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20px;
+=======
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 1.25rem;
+>>>>>>> develop
 }
 
 .inventory-list__interactive {
@@ -20,6 +27,10 @@
 }
 
 .inventory-list__search {
+<<<<<<< HEAD
 	margin-right: 20px;
+=======
+margin-right: 1.25rem; 
+>>>>>>> develop
 }
 

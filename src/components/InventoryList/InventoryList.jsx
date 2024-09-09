@@ -78,6 +78,12 @@ function InventoryList({
 		onItemClick(itemId);
 	};
 
+	const warehouse_column = ()=>{
+		if(!warehouseId){
+			return <th>WAREHOUSE</th>;
+		}
+	}
+
 	return (
 		<div
 			className={`inventory-list layout ${
@@ -107,7 +113,7 @@ function InventoryList({
 						<th>CATEGORY</th>
 						<th>STATUS</th>
 						<th>QTY</th>
-						{showWarehouse && <th>WAREHOUSE</th>}
+						{warehouse_column()}
 						<th>ACTIONS</th>
 					</tr>
 				</thead>

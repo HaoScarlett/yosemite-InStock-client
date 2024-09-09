@@ -35,6 +35,7 @@ function ItemRow({
 		}
 	};
 
+<<<<<<< HEAD
 	const mobileWarehouseName = () => {
 		if (!item.warehouse_name) {
 			return <span data-label='WAREHOUSE'>{warehouseName}</span>;
@@ -117,6 +118,59 @@ function ItemRow({
 			</>
 		);
 	};
+=======
+  const mobileWarehouseName = ()=>{
+    if(!item.warehouse_name){
+      return;
+    }else{
+      return <span data-label="WAREHOUSE">{item.warehouse_name}</span>
+    }
+  }
+
+  const desktopWarehouseName = () =>{
+    if(!item.warehouse_name){
+      return;
+    }else{
+      return <td className='inventory-item__warehouse'>{item.warehouse_name}</td>
+    }
+  }
+  const MobileView = ({ item }) => {
+    return (
+      <>
+        <div className='item-row' >
+          <div className="inventory-item">
+            <div className='inventory-item__name' onClick={() => onItemClick(item.id)}>
+              <span data-label="INVENTORY ITEM">
+                <Link className='item-name h3-links' to={`/inventory/${item.id}`}>{item.item_name}</Link>
+                <img className='icon' src={chevronIcon} alt="" />
+              </span>
+              <span data-label="CATEGORY">{item.category}</span>
+            </div>
+            <div className='inventory-item__details'>
+              <span data-label="STATUS" className='status'>
+                <InOutStock inStock={inStock} />
+              </span>
+              <span data-label="QTY">{item.quantity}</span>
+              {mobileWarehouseName()}
+            </div>
+          </div>
+          <div className='actions'>
+            <span data-label="ACTIONS" className='actions__wrapper'>
+              <button className="delete-btn" onClick={openModal}>
+                <img src={deleteIcon} alt="delete button" />
+              </button>
+              <Link to='inventory/:id/edit'>
+                <button className="edit-btn">
+                  <img src={editIcon} alt="edit button" />
+                </button>
+              </Link>
+            </span>
+          </div>
+        </div>
+      </>
+    );
+  };
+>>>>>>> develop
 
 	const DesktopView = ({ item }) => {
 		return (
