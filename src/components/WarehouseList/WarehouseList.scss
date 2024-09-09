@@ -164,6 +164,113 @@
   }
 }
 
+@include m.desktop {
+  .warehouse-list {
+    @include m.page-overlap;
+    padding: 0;
+ 
+  }
+
+  .warehouse-header__column-header {
+    display: flex;
+  }
+
+  .warehouse-list__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+  }
+
+  .warehouse-list__title {
+    padding-bottom: 0;
+  }
+
+  .warehouse-list__interactive {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .warehouse-list__add-link {
+    margin-top: 0;
+  }
+
+  .warehouse-table {
+    width: 100%;
+    // margin-left: -2rem;
+    border-collapse: collapse;
+    margin-top: var.$spacing-small;
+    // padding-left: 2rem;
+  }
+
+  .warehouse-header {
+    display: contents;
+  }
+
+  .warehouse-header th {
+    padding: var.$spacing-small;
+    background-color: rgba(rgb(247, 248, 249), 0.7);
+    text-align: left;
+    border-bottom: none;
+    line-height: 1.375rem;
+  }
+
+  td {
+    padding: var.$spacing-small;
+    vertical-align: middle;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    max-width: 140px;
+  }
+
+  .warehouse-item__name .item-name {
+    margin-right: var.$spacing-xsmall;
+    font-weight: bold;
+    color: c.$interactive-elements;
+    text-decoration: none;
+  }
+
+  .warehouse-item__name .icon {
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 20%;
+  }
+
+  .warehouse-item__category,
+  .warehouse-item__contact,
+  .warehouse-item__address,
+  .warehouse-item__contact-info {
+    text-align: left;
+  }
+
+  .warehouse-actions {
+    margin-block: 1rem;
+    display: flex;
+    gap:16px;
+}
+
+  .actions {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .actions .delete-btn,
+  .actions .edit-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .actions .delete-btn:hover,
+  .actions .edit-btn:hover {
+    transform: scale(1.1);
+  }
+}
+
 .warehouse-body {
   width: 100%;
 }

@@ -12,30 +12,6 @@
   top: -4rem;
   border-radius: 0.25rem;
 
-  // @include tablet{
-  //     padding: 0 2rem 2rem 2rem;
-  //     top: -5.5rem;
-  // }
-
-  // &__body{
-  //     @include tablet{
-  //         display: flex;
-  //     }
-  //     &>div{
-  //         @include tablet{
-  //             width: 50%;
-  //         }
-  //     }
-
-  //     &-right{
-  //         @include tablet{
-  //             border-left: .0625rem solid $dividers;
-  //             padding-left: 1rem;
-  //             margin-top: 1rem;
-  //         }
-  //     }
-  // }
-
   &__header {
     display: flex;
     box-sizing: content-box;
@@ -77,13 +53,16 @@ label {
   margin-bottom: 0.25rem;
 }
 
-.item-name{
-    position: relative;
+.inventory-item__name {
+  position: relative;
 }
 
-.icon{
-    height: 25px;
-    width: 25px;
+.icon {
+  height: 25px;
+  width: 25px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
 }
 
 @include tablet {
@@ -91,16 +70,11 @@ label {
     padding: 0 2rem 2rem 2rem;
     top: -5.5rem;
   }
+}
 
-  //   &__body {
-  //     display: flex;
-  //     & > div {
-  //       width: 50%;
-  //     }
-
-//   &-right {
-//     border-left: 0.0625rem solid $dividers;
-//     padding-left: 1rem;
-//     margin-top: 1rem;
-//   }
+@include desktop {
+  .inventory-item__name .icon {
+    top: 33%;
+    right: 0%;
+  }
 }
