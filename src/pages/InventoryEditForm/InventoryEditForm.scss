@@ -22,7 +22,7 @@ input {
 
   &:focus {
     outline: none;
-    border: 1px solid $interactive-elements;
+    border: .0625rem solid $interactive-elements;
   }
 }
 
@@ -35,12 +35,12 @@ select {
 }
 
 textarea {
-  height: 120px;
-  border-radius: 20px;
-  border: 1px solid $borders;
+  height: 7.5rem;
+  border-radius: 1.25rem;
+  border: .0625rem solid $borders;
   width: 100%;
   padding: $spacing-small;
-  margin-block: 4px;
+  margin-block: .25rem;
   line-height: 1.25rem;
   font-size: 0.8125rem;
   font-weight: 400;
@@ -63,7 +63,7 @@ h2 {
 }
 
 .divider {
-  height: 1px;
+  height: .0625rem;
   background-color: $dividers;
   margin-block: $spacing-medium;
   width: 100%;
@@ -76,7 +76,7 @@ h2 {
 
   &__dropdown {
     appearance: none;
-    border: 1px solid #bdc5d5;
+    border: .0625rem solid #bdc5d5;
     border-radius: 1.25rem;
     width: 100%;
     height: 2.25rem;

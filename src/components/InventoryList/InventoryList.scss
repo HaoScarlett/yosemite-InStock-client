@@ -3,18 +3,10 @@
 @use "../../styles/partials/_variables.scss" as var;
 
 .inventory-list {
-  // position: absolute;
-  // top: -70px;
-  // width: 96%;
-  // max-width: 1200px;
-  // margin: 0 auto;
-  // background-color: c.$global-white;
-  // border-radius: 4px;
-  // right: 2%;
   height: auto;
   background-color: c.$global-white;
   box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
-  border-radius: 4px;
+  border-radius: .25rem;
   margin: auto;
   position: relative;
   top: -9vh;
@@ -54,13 +46,13 @@
 
 @include m.tablet {
   .inventory-list {
-    max-width: 1200px;
+    max-width: 75rem;
     margin: 0 auto;
     top: -5vh;
     padding: var.$unit-20;
     background-color: c.$global-white;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: 0 .125rem .3125rem rgba(0, 0, 0, 0.1);
 
     &__mobile-wrapper {
       display: flex;
@@ -104,7 +96,7 @@
     padding: var.$spacing-small;
     background-color: #f4f4f4;
     text-align: left;
-    border-bottom: 2px solid #ddd;
+    border-bottom: .125rem solid #ddd;
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -129,8 +121,8 @@
   }
 
   .inventory-item__name .icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     top: 50%;
     right: 20%;
   }
@@ -146,16 +138,16 @@
     &.in-stock {
       color: #28a745;
       background-color: rgba(40, 167, 69, 0.1);
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: .3125rem .625rem;
+      border-radius: .3125rem;
       font-weight: bold;
     }
 
     &.out-of-stock {
       color: #dc3545;
       background-color: rgba(220, 53, 69, 0.1);
-      padding: 5px 10px;
-      border-radius: 5px;
+      padding: .3125rem .625rem;
+      border-radius: .3125rem;
       font-weight: bold;
     }
   }
@@ -170,7 +162,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .actions .delete-btn:hover,
