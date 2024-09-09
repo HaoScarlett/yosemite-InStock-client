@@ -86,7 +86,7 @@ function InventoryList({
 
 	return (
 		<div
-			className={`inventory-list ${
+			className={`inventory-list layout ${
 				!showWarehouse ? 'no-shadow' : ''
 			}`}
 		>
