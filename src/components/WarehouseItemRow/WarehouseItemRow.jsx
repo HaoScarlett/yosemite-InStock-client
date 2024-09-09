@@ -48,6 +48,7 @@ function WarehouseItemRow({
 							<label>WAREHOUSE</label>
 							{warehouse.warehouse_name}
 							<img
+							className='name-icon'
 								src={chevronIcon}
 								alt='Chevron Icon'
 							/>

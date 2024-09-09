@@ -3,19 +3,30 @@
 @use '../../styles/partials/_variables.scss' as var;
 
 .inventory-list {
-	@include m.page-overlap;
+  height: auto;
+  background-color: c.$global-white;
+  box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
+  border-radius: 4px;
+  margin: auto;
+  position: relative;
+  top: -4rem;
+  width: 100%;
+  // padding: var.$spacing-mobile-medium;
+  &.no-shadow {
+    box-shadow: none;
+  }
 
-	&.no-shadow {
-		box-shadow: none;
-	}
+  &__search {
+    margin: var.$spacing-small auto;
+  }
 
-	&__title {
-		margin-block: var.$spacing-small;
-	}
+  &__title {
+    padding-block: var.$spacing-medium 0;
+  }
 
-	&__search {
-		margin: var.$spacing-small auto;
-	}
+  &__mobile-wrapper {
+    padding-inline: var.$spacing-mobile-medium;
+  }
 }
 .hidden {
 	display: none;
@@ -33,22 +44,30 @@
 }
 
 .item-row {
-	padding: 0;
-	margin-block: var.$spacing-small;
+  padding-inline: var.$spacing-mobile-medium;
+  margin-block: var.$spacing-small;
 }
 
 @include m.tablet {
-	.inventory-list {
-		@include m.page-overlap;
+  .inventory-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    top: -5.5rem;
+    // padding: var.$unit-20;
+    background-color: c.$global-white;
+    border-radius: 4px;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-		&__mobile-wrapper {
-			display: flex;
-			align-items: center;
-		}
+    &__mobile-wrapper {
+      display: flex;
+      align-items: baseline;
+      padding-top: var.$spacing-medium;
+    }
 
-		&__title {
-			margin-block: 0;
-		}
+    &__title {
+      margin-block: 0;
+      padding: 0;
+    }
 
 		&__header-wrapper {
 			display: flex;
@@ -57,17 +76,15 @@
 			margin-block: var.$unit-24;
 		}
 
-		&__search {
-			margin-inline: auto 1rem;
-			margin-block: 0;
-		}
-		&__container {
-			@include m.tablet {
-				display: flex;
-				align-items: center;
-			}
-		}
-	}
+    &__search {
+      margin-inline: auto 1rem;
+      margin-block: 0;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+  }
 
 	.inventory-table {
 		width: 100%;
@@ -157,10 +174,133 @@
 	}
 }
 
+
 @include m.desktop {
-	.inventory-list {
-		&__search {
-			margin-inline: auto 1rem;
+  .inventory-list {
+    max-width: 1200px;
+    margin: 27px auto;
+    top: -5.5rem;
+    // padding: var.$unit-20;
+    background-color: c.$global-white;
+    border-radius: 4px;
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    &__mobile-wrapper {
+      display: flex;
+      align-items: baseline;
+      padding-top: var.$spacing-medium;
+    }
+
+	&__btn-link{
+		width: 20%;
+	}
+
+    &__title {
+      margin-block: 0;
+      padding: 0;
+    }
+
+		&__header-wrapper {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-block: var.$unit-24;
 		}
+
+    &__search {
+      margin-inline: auto 1rem;
+      margin-block: 0;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+    }
+  }
+
+	.inventory-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-top: var.$spacing-small;
+	}
+
+	.inventory-header {
+		display: contents;
+	}
+
+	.inventory-header th {
+		padding: var.$spacing-small;
+		background-color: rgba(rgb(247, 248, 249), 0.7);
+		text-align: left;
+		border-bottom: none;
+		line-height: 1.375rem;
+	}
+
+	.item-row td {
+		padding: var.$spacing-small;
+		vertical-align: middle;
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+	}
+
+	.inventory-item__name {
+		display: flex;
+		align-items: center;
+	}
+
+	.inventory-item__name .item-name {
+		margin-right: var.$spacing-xsmall;
+		font-weight: bold;
+		color: c.$interactive-elements;
+		text-decoration: none;
+	}
+
+	.inventory-item__name .icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		top: 50%;
+		right: 20%;
+	}
+
+	.inventory-item__category,
+	.inventory-item__status,
+	.inventory-item__quantity,
+	.inventory-item__warehouse {
+		text-align: left;
+	}
+
+	.inventory-item__status {
+		&.in-stock {
+			color: #28a745;
+			background-color: rgba(40, 167, 69, 0.1);
+			padding: 0.3125rem 0.625rem;
+			border-radius: 0.3125rem;
+			font-weight: bold;
+		}
+
+		&.out-of-stock {
+			color: #dc3545;
+			background-color: rgba(220, 53, 69, 0.1);
+			padding: 0.3125rem 0.625rem;
+			border-radius: 0.3125rem;
+			font-weight: bold;
+		}
+	}
+
+	.actions {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.actions .delete-btn,
+	.actions .edit-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+	}
+
+	.actions .delete-btn:hover,
+	.actions .edit-btn:hover {
+		transform: scale(1.1);
 	}
 }
