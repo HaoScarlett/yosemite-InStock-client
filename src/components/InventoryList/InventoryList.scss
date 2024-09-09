@@ -3,33 +3,29 @@
 @use "../../styles/partials/_variables.scss" as var;
 
 .inventory-list {
-  // position: absolute;
-  // top: -70px;
-  // width: 96%;
-  // max-width: 1200px;
-  // margin: 0 auto;
-  // background-color: c.$global-white;
-  // border-radius: 4px;
-  // right: 2%;
   height: auto;
   background-color: c.$global-white;
   box-shadow: 0rem 0.125rem 0.3125rem 0rem c.$box-shadow;
   border-radius: 4px;
   margin: auto;
   position: relative;
-  top: -9vh;
+  top: -4rem;
   width: 100%;
-  padding: var.$spacing-small;
+  // padding: var.$spacing-mobile-medium;
   &.no-shadow {
     box-shadow: none;
   }
 
-  &__title {
-    margin-block: var.$spacing-small;
-  }
-
   &__search {
     margin: var.$spacing-small auto;
+  }
+
+  &__title {
+    padding-block: var.$spacing-medium 0;
+  }
+
+  &__mobile-wrapper {
+    padding-inline: var.$spacing-mobile-medium;
   }
 }
 .hidden {
@@ -48,7 +44,7 @@
 }
 
 .item-row {
-  padding: 0;
+  padding-inline: var.$spacing-mobile-medium;
   margin-block: var.$spacing-small;
 }
 
@@ -82,8 +78,8 @@
       margin-inline: auto 1rem;
       margin-block: 0;
     }
-    &__container{
-      @include m.tablet{
+    &__container {
+      @include m.tablet {
         display: flex;
         align-items: center;
       }
