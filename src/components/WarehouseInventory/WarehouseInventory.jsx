@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import backbtn from '../../assets/Icons/arrow_back-24px.svg';
 import Editbutton from '../LowLevelComponents/Editbutton/Editbutton';
 
-//Warehouse Details component. This does not include the inventory list below the warehouse details.
+//Warehouse Details component. 
 function WarehouseInventory() {
 	const [warehouse, setWarehouse] = useState(null);
 	const [loading, setLoading] = useState(true);
@@ -116,9 +116,13 @@ function WarehouseInventory() {
 				<div className='warehouse__list'>
 					{id && (
 						<InventoryList
-							key={id}
-							warehouseId={id}
-							warehouseName={warehouse.warehouse_name}
+						key={id}
+						warehouseId={id}
+						warehouseName={warehouse.warehouse_name}
+						showSearchBar={false}   
+						showTitle={false}      
+						showAddButton={false}   
+						hideShadow={true}
 						/>
 					)}
 				</div>
