@@ -1,84 +1,71 @@
 @use '../../../styles/partials/mixins' as *;
 
-
-.modal__overlay{
-    min-width: 100vw;
-    min-height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); 
-    top:0;
-    left:0;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
+.modal__overlay {
+	min-width: 100vw;
+	min-height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
 }
 
-.modal__container{
-    width: 80%;
-    height: 80vh;
-    background-color: white;
-    margin: auto;
-    padding: 1rem;
-    @include tablet{
-        height: 16.375rem;
-        width: 42rem;
-    }
+.modal__container {
+	width: 80%;
+	height: 80vh;
+	background-color: white;
+	margin: auto;
+	padding: 1rem;
+	@include tablet {
+		height: 16.375rem;
+		width: 42rem;
+	}
 }
 
-.modal__content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+.modal__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 
-    @include tablet{
-        padding: 0 2rem;
-        gap: 1.5rem;
-    }
+	@include tablet {
+		padding: 0 2rem;
+		gap: 1.5rem;
+	}
 
-    &-close{
-        float: right;
-    }
+	&-close {
+		float: right;
+	}
 
-    &-buttons{
-        display: flex;
-        gap: 1rem;
-        width: 100%;
+	&-buttons {
+		display: flex;
+		gap: 1rem;
+		width: 100%;
 
-        @include tablet{
-            justify-content: flex-end;
-        }
-    }
+		@include tablet {
+			justify-content: flex-end;
+		}
+	}
 
-    &-text{
-        @include tablet{
-            width: 90%;
-        }
-    }
+	&-text {
+		@include tablet {
+			width: 90%;
+		}
+	}
 }
 
-h1{
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
+h1 {
+	padding-top: 1.5rem;
+	padding-bottom: 1rem;
 }
 
-.modal__cancel-btn{
-    @include btn-styles(
-        white,
-        .0625rem solid #BDC5D5,
-        #5C667E,
-        none,
-        #2E66E5
-    )
+.modal__cancel-btn {
+	@include btn-styles(white, 0.0625rem solid #bdc5d5, #5c667e, none, #2e66e5);
 }
 
-.modal__delete-btn{
-    @include btn-styles(
-        #C94515,
-        none,
-        white,
-        #232940,
-        none
-    )
+.modal__delete-btn {
+	@include btn-styles(#c94515, none, white, #232940, none);
 }

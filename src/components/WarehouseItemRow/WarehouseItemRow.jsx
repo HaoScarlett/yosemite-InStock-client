@@ -9,7 +9,11 @@ import { Link } from 'react-router-dom';
 import { deleteWarehouse } from '../../utils/api';
 import DeleteModal from '../LowLevelComponents/DeleteModal/DeleteModal';
 
-function WarehouseItemRow({ warehouse, handleWarehouseClick, handleDeletedItem }) {
+function WarehouseItemRow({
+	warehouse,
+	handleWarehouseClick,
+	handleDeletedItem,
+}) {
 	const isDesktop = useMediaQuery({ query: '(min-width: 768px)' });
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -29,8 +33,6 @@ function WarehouseItemRow({ warehouse, handleWarehouseClick, handleDeletedItem }
 			console.error('Error deleting item:', error);
 		}
 	};
-
-
 
 	// Mobile view component for Warehouse Item
 	const MobileView = ({ warehouse }) => {

@@ -1,40 +1,40 @@
-@use "../../styles/partials/_colors.scss" as c;
-@use "../../styles/partials/_mixins.scss" as m;
-@use "../../styles/partials/_variables.scss" as var;
+@use '../../styles/partials/_colors.scss' as c;
+@use '../../styles/partials/_mixins.scss' as m;
+@use '../../styles/partials/_variables.scss' as var;
 
 .warehouse-list {
-  @include m.page-overlap;
-  padding: 0rem;
+	@include m.page-overlap;
+	padding: 0rem;
 
-  &__title {
-    padding-top: 32px;
-    padding-bottom: 16px;
-  }
+	&__title {
+		padding-top: 2rem;
+		padding-bottom: 1rem;
+	}
+
 
   &__search {
     margin: 0;
   }
 
-  &__add-link {
-    display: block;
-    @include m.btn-styles(
-      c.$interactive-elements,
-      none,
-      c.$global-white,
-      c.$cta-btn-hover,
-      none
-    );
-    line-height: 36px;
-    text-align: center;
-    margin-top: 1rem;
-    padding-left: 0rem;
-  }
+	&__add-link {
+		display: block;
+		@include m.btn-styles(
+			c.$interactive-elements,
+			none,
+			c.$global-white,
+			c.$cta-btn-hover,
+			none
+		);
+		line-height: 2.25rem;
+		text-align: center;
+		margin-top: 1rem;
+		padding-left: 0rem;
+	}
 }
 
 .warehouse-list__header {
-  //   padding-left: 1rem;
-  //   padding-right: 1rem;
-  padding-inline: var.$spacing-mobile-medium;
+	padding-left: 1rem;
+	padding-right: 1rem;
 }
 
 .warehouse-header {
@@ -45,7 +45,9 @@
 }
 
 .warehouse-table {
-  width: 100%;
+	width: 96vw;
+	margin-left: -1rem;
+	padding-left: 1rem;
 }
 
 .warehouse-item-row {
@@ -58,46 +60,48 @@
     @include m.page-overlap;
   }
 
-  .warehouse-list div {
-    padding: 0;
-  }
 
-  .warehouse-header__column-header {
-    display: flex;
-  }
+	.warehouse-list div {
+		padding: 0;
+	}
 
-  .warehouse-list__header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-  }
+	.warehouse-header__column-header {
+		display: flex;
+	}
 
-  .warehouse-list__title {
-    padding-bottom: 0;
-  }
+	.warehouse-list__header {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		padding-bottom: 1rem;
+	}
 
-  .warehouse-list__interactive {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
+	.warehouse-list__title {
+		padding-bottom: 0;
+	}
 
-  .warehouse-list__add-link {
-    margin-top: 0;
-  }
+	.warehouse-list__interactive {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		align-items: center;
+	}
 
-  .warehouse-table {
-    width: 91.7vw;
-    margin-left: -2rem;
-    border-collapse: collapse;
-    margin-top: var.$spacing-small;
-    padding-left: 2rem;
-    @include m.desktop {
-      width: 79.8vw;
-    }
-  }
+	.warehouse-list__add-link {
+		margin-top: 0;
+	}
+
+	.warehouse-table {
+		width: 91.7vw;
+		margin-left: -2rem;
+		border-collapse: collapse;
+		margin-top: var.$spacing-small;
+		padding-left: 2rem;
+		@include m.desktop {
+			width: 79.8vw;
+		}
+	}
+
 
   .warehouse-header {
     display: contents;
@@ -111,13 +115,15 @@
     line-height: 1.375rem;
   }
 
-  td {
-    padding: var.$spacing-small;
-    vertical-align: middle;
-    font-size: 0.875rem;
-    line-height: 1.375rem;
-    max-width: 140px;
-  }
+
+	td {
+		padding: var.$spacing-small;
+		vertical-align: middle;
+		font-size: 0.875rem;
+		line-height: 1.375rem;
+		max-width: 8.75rem;
+	}
+
 
   // .warehouse-item__name {
   // 	display: flex;
@@ -131,12 +137,14 @@
     text-decoration: none;
   }
 
-  .warehouse-item__name .icon {
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    right: 20%;
-  }
+
+	.warehouse-item__name .icon {
+		width: 1.25rem;
+		height: 1.25rem;
+		top: 50%;
+		right: 20%;
+	}
+
 
   .warehouse-item__category,
   .warehouse-item__contact,
@@ -150,13 +158,15 @@
     justify-content: space-around;
   }
 
-  .actions .delete-btn,
-  .actions .edit-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
+
+	.actions .delete-btn,
+	.actions .edit-btn {
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-size: 1rem;
+	}
+
 
   .actions .delete-btn:hover,
   .actions .edit-btn:hover {
@@ -165,5 +175,6 @@
 }
 
 .warehouse-body {
-  width: 100%;
+	width: 100%;
+
 }

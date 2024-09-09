@@ -72,15 +72,17 @@ $mobile-max: 767px;
   $hover-bg-color: null,
   $hover-border-color: null
 ) {
-  height: 36px;
-  width: 100%;
-  border-radius: 20px;
-  font-size: 0.8125rem;
-  line-height: 1.25rem;
-  font-weight: 600;
-  background-color: $bg-color;
-  border: $border;
-  color: $color;
+
+	height: 2.25rem;
+	width: 100%;
+	border-radius: 1.25rem;
+	font-size: 0.8125rem;
+	line-height: 1.25rem;
+	font-weight: 600;
+	background-color: $bg-color;
+	border: $border;
+	color: $color;
+
 
   &:hover {
     @if $hover-bg-color {
@@ -91,9 +93,15 @@ $mobile-max: 767px;
     }
   }
 
-  @include tablet {
-    height: 38px;
-    padding-inline: $unit-16;
-    width: fit-content;
-  }
+
+	@include tablet {
+		display: inline-block;
+		height: 2.375rem;
+		padding-left: 1rem; 
+		padding-right: 1rem;
+		min-width: max-content;
+		max-width: min-content;
+		line-height: 2.375rem;
+	}
+
 }

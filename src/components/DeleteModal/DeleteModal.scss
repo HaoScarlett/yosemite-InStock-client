@@ -12,16 +12,16 @@
 
   @include tablet {
     padding: $unit-32 $unit-64;
-    top: 202px;
-    left: 48px;
-    right: 48px;
+    top: 12.625rem;
+    left: 3rem;
+    right: 3rem;
     height: 19rem;
   }
 
   @include desktop {
-    top: 220px;
-    left: 265px;
-    right: 265px;
+    top: 13.75rem;
+    left: 16.5625rem;
+    right: 16.5625rem;
   }
 
   &__overlay {

@@ -1,143 +1,136 @@
-@use "../../styles/partials/_colors.scss" as *;
-@use "../../styles/partials/_mixins.scss" as *;
-@use "../../styles/partials/_variables" as *;
+@use '../../styles/partials/_colors.scss' as *;
+@use '../../styles/partials/_mixins.scss' as *;
+@use '../../styles/partials/_variables' as *;
 
 input {
-  height: 2.25rem;
-  width: 100%;
-  padding: 1rem;
-  border-radius: 1.25rem;
-  // margin-top: 0.25rem;
-  margin-bottom: $spacing-xsmall;
-  border: 0.0625rem solid $outlines;
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 400;
+	height: 2.25rem;
+	width: 100%;
+	padding: 1rem;
+	border-radius: 1.25rem;
+	margin-bottom: $spacing-xsmall;
+	border: 0.0625rem solid $outlines;
+	line-height: 1.25rem;
+	font-size: 0.8125rem;
+	font-weight: 400;
 
-  // @include tablet {
-  //   height: 2.375rem;
-  //   line-height: 1.375rem;
-  //   font-size: 0.875rem;
-  // }
-
-  &:focus {
-    outline: none;
-    border: 1px solid $interactive-elements;
-  }
+	&:focus {
+		outline: none;
+		border: 0.0625rem solid $interactive-elements;
+	}
 }
 
 select {
-  @extend input;
-  padding: 0 0 0 1rem;
-  color: $placeholder-text;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+	@extend input;
+	padding: 0 0 0 1rem;
+	color: $placeholder-text;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
 
 textarea {
-  height: 120px;
-  border-radius: 20px;
-  border: 1px solid $borders;
-  width: 100%;
-  padding: $spacing-small;
-  margin-block: 4px;
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 400;
+	height: 7.5rem;
+	border-radius: 1.25rem;
+	border: 0.0625rem solid $borders;
+	width: 100%;
+	padding: $spacing-small;
+	margin-block: 0.25rem;
+	line-height: 1.25rem;
+	font-size: 0.8125rem;
+	font-weight: 400;
 }
 
 option {
-  line-height: 1.25rem;
-  font-size: 0.8125rem;
-  font-weight: 400;
-  color: $global-text;
+	line-height: 1.25rem;
+	font-size: 0.8125rem;
+	font-weight: 400;
+	color: $global-text;
 }
 
 h3 {
-  color: $global-text;
-  margin-block: $spacing-mini;
+	color: $global-text;
+	margin-block: $spacing-mini;
 }
 
 h2 {
-  margin: 1.5rem 0;
+	margin: 1.5rem 0;
 }
 
 .divider {
-  height: 1px;
-  background-color: $dividers;
-  margin-block: $spacing-medium;
-  width: 100%;
+	height: 0.0625rem;
+	background-color: $dividers;
+	margin-block: $spacing-medium;
+	width: 100%;
 }
 
 .item-form {
-  @include page-overlap;
-  padding-top: 2rem;
-  // padding-bottom: 1rem;
+	@include page-overlap;
+	padding-top: 2rem;
+	// padding-bottom: 1rem;
 
-  &__dropdown {
-    appearance: none;
-    border: 1px solid #bdc5d5;
-    border-radius: 1.25rem;
-    width: 100%;
-    height: 2.25rem;
-    padding-left: 1rem;
-    margin-bottom: 0.5rem;
-    background-color: $global-white;
-  }
+	&__dropdown {
+		appearance: none;
+		border: 0.0625rem solid #bdc5d5;
+		border-radius: 1.25rem;
+		width: 100%;
+		height: 2.25rem;
+		padding-left: 1rem;
+		margin-bottom: 0.5rem;
+		background-color: $global-white;
+	}
 
-  &__status-wrapper {
-    display: flex;
-    gap: 50%;
-  }
+	&__status-wrapper {
+		display: flex;
+		gap: 50%;
+	}
 
-  &__radio {
-    height: 1rem;
-    width: 1rem;
-    margin: 0;
-  }
+	&__radio {
+		height: 1rem;
+		width: 1rem;
+		margin: 0;
+	}
 
-  &__radio-wrapper {
-    display: flex;
-    gap: $spacing-mini;
-  }
+	&__radio-wrapper {
+		display: flex;
+		gap: $spacing-mini;
+	}
 }
 
 .button-wrapper {
-  display: flex;
-  gap: 1rem;
-  padding-block: $spacing-small;
+	display: flex;
+	gap: 1rem;
+	padding-block: $spacing-small;
 }
 
 @include tablet {
-  .item-form {
-    padding-top: $spacing-medium;
-    &__dropdown {
-      height: 2.375rem;
-    }
+	.item-form {
+		padding-top: $spacing-medium;
+		&__dropdown {
+			height: 2.375rem;
+		}
 
-    &__wrapper {
-      display: flex;
-      gap: 5%;
-    }
+		&__wrapper {
+			display: flex;
+			gap: 5%;
+		}
 
-    &__details {
-      flex: 1;
-    }
+		&__details {
+			flex: 1;
+		}
 
-    &__availability {
-      flex: 1;
-    }
+		&__availability {
+			flex: 1;
+		}
 
-    &__details-title {
-      margin-top: 1.5rem;
-    }
-  }
+		&__details-title {
+			margin-top: 1.5rem;
+		}
+	}
 
-  .button-wrapper {
-    justify-content: flex-end;
-  }
+	.button-wrapper {
+		justify-content: flex-end;
+	}
 
-  .divider {
-    display: none;
-  }
+	.divider {
+		display: none;
+	}
 }

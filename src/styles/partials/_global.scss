@@ -1,38 +1,36 @@
-@use "./colors" as *;
-@use "./typography" as *;
-@use "./mixins" as *;
-@use "./variables" as *;
-
+@use './colors' as *;
+@use './typography' as *;
+@use './mixins' as *;
+@use './variables' as *;
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
-
 body {
-    font-family: $family;
-    font-weight: $regular;
-    color: $global-text;
-    background-color: $page-bg;
-    padding: 0 $spacing-small;
+	font-family: $family;
+	font-weight: $regular;
+	color: $global-text;
+	background-color: $page-bg;
+	padding: 0 $spacing-small;
 
-    @include tablet{
-        padding: 0 $spacing-medium;
-    }
-    @include desktop{
-        padding: 0 8.125rem;
-    }
+	@include tablet {
+		padding: 0 $spacing-medium;
+	}
+	@include desktop {
+		padding: 0 8.125rem;
+	}
 }
 
 img,
@@ -40,37 +38,36 @@ picture,
 svg,
 video,
 canvas {
-    display: block;
-    max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
-a{
-    text-decoration: none;
+a {
+	text-decoration: none;
 }
 
 input,
 textarea,
 button,
 select {
-    font: inherit;
+	font: inherit;
 }
 
 button {
-    border: none;
-    background: none;
-    color: inherit;
-    cursor: pointer;
+	border: none;
+	background: none;
+	color: inherit;
+	cursor: pointer;
 }
 
-
 .layout {
-    padding-inline: $spacing-small;
+	padding-inline: $spacing-small;
 
-    @include tablet {
-        padding-inline: $spacing-medium;
-    }
+	@include tablet {
+		padding-inline: $spacing-medium;
+	}
 
-    @include desktop {
-        padding-inline: $spacing-large; 
-    }
+	@include desktop {
+		padding-inline: $spacing-large;
+	}
 }
