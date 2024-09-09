@@ -21,7 +21,7 @@ input {
 
 	&:focus {
 		outline: none;
-		border: .0625rem solid $interactive-elements;
+		border: 0.0625rem solid $interactive-elements;
 	}
 }
 
@@ -96,20 +96,11 @@ h2 {
 		display: flex;
 		gap: 1rem;
 
-<<<<<<< HEAD
 		@include tablet {
 			margin: 1rem -2rem -2rem -2rem;
 			justify-content: flex-end;
 		}
 		&-cancel {
-=======
-        @include tablet{
-            margin: 1rem -2rem -2rem -2rem;
-            justify-content: flex-end;
-			width: fit-content;
-        }
-		&-cancel{
->>>>>>> develop
 			flex: 1;
 			@include tablet {
 				flex: 0;
@@ -132,22 +123,14 @@ h2 {
 }
 
 .input-error {
-<<<<<<< HEAD
-	border: 2px solid $error-states;
-=======
-    border: .125rem solid $error-states;
->>>>>>> develop
+	border: 0.125rem solid $error-states;
 }
 
 .error-text {
 	color: $error-states;
 	font-weight: 400;
 	font-size: small;
-<<<<<<< HEAD
-	margin-top: 5px;
-=======
-    margin-top: .3125rem;
->>>>>>> develop
+	margin-top: 0.3125rem;
 }
 .error-icon {
 	width: 1.25rem;

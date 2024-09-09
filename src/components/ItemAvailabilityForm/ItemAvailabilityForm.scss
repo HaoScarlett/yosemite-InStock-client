@@ -26,22 +26,6 @@
 		padding-bottom: $unit-4;
 	}
 
-<<<<<<< HEAD
-	&__input {
-		border: 1px solid $borders;
-		border-radius: $unit-20;
-		width: 100%;
-		height: $unit-36;
-		padding-left: $unit-16;
-		margin-bottom: $unit-8;
-
-		@include tablet {
-			height: $unit-38;
-		}
-
-		&:focus {
-			outline: $interactive-elements solid 1px;
-=======
     &__input {
         border: .0625rem solid $borders;
         border-radius: $unit-20;
@@ -56,7 +40,6 @@
         
         &:focus {
 			outline: $interactive-elements solid .0625rem;
->>>>>>> develop
 		}
 	}
 
@@ -91,34 +74,6 @@
 		position: relative;
 	}
 
-<<<<<<< HEAD
-	&__select-wrap::after {
-		content: url('../../assets/Icons/arrow_drop_down-24px.svg');
-		fill: $table-sorting-icon;
-		width: 24px;
-		height: 24px;
-		position: absolute;
-		top: 6px;
-		right: $unit-20;
-	}
-
-	&__warehouse {
-		appearance: none;
-		border: 1px solid $borders;
-		border-radius: $unit-20;
-		width: 100%;
-		height: $unit-36;
-		padding-left: $unit-16;
-		margin-bottom: $unit-8;
-		background-color: $global-white;
-
-		@include tablet {
-			height: $unit-38;
-		}
-
-		&:focus {
-			outline: $interactive-elements solid 1px;
-=======
     &__select-wrap::after {
         content: url('../../assets/Icons/arrow_drop_down-24px.svg');
         fill: $table-sorting-icon;
@@ -145,17 +100,12 @@
 
         &:focus {
 			outline: $interactive-elements solid .0625rem;
->>>>>>> develop
 		}
 	}
 }
 
 .error {
-<<<<<<< HEAD
-	outline: $error-states solid 1px;
-=======
     outline: $error-states solid .0625rem;
->>>>>>> develop
 }
 
 .out-of-stock {

@@ -4,25 +4,14 @@
 @use '../../styles/partials/_typography.scss' as t;
 
 .item-row {
-<<<<<<< HEAD
-	border-bottom: 1px solid c.$borders;
+	border-bottom: 0.0625rem solid c.$borders;
 	padding: var.$spacing-small;
 }
 
 .inventory-item {
 	display: flex;
 	gap: var.$unit-68;
-	margin-bottom: 10px;
-=======
-  border-bottom: .0625rem solid c.$borders;
-  padding: var.$spacing-small;
-}
-
-.inventory-item {
-  display: flex;
-  gap: var.$unit-68;
-  margin-bottom: .625rem;
->>>>>>> develop
+	margin-bottom: 0.625rem;
 
 	&__details {
 		margin: 0 auto;
@@ -37,13 +26,21 @@
 		line-height: 1.25rem;
 	}
 
-<<<<<<< HEAD
+	&__details > span,
+	&__name > span {
+		padding: 0.3125rem 0;
+		display: flex;
+		flex-direction: column;
+		font-size: 0.8125rem;
+		line-height: 1.25rem;
+	}
+
 	&__details > span:before,
 	&__name > span:before {
 		content: attr(data-label);
 		font-weight: bold;
 		display: inline-block;
-		width: 120px;
+		width: 7.5rem;
 		color: c.$table-column-headers-text;
 		font-size: 0.6875rem;
 		line-height: 1rem;
@@ -52,37 +49,9 @@
 }
 
 .status {
-	padding: 3px 8px;
-	border-radius: 4px;
+	padding: 0.1875rem 0.5rem;
+	border-radius: 0.25rem;
 	display: inline-block;
-=======
-  &__details > span,
-  &__name > span {
-    padding: .3125rem 0;
-    display: flex;
-    flex-direction: column;
-    font-size: .8125rem;
-    line-height: 1.25rem;
-  }
-
-  &__details > span:before,
-  &__name > span:before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: inline-block;
-    width: 7.5rem;
-    color: c.$table-column-headers-text;
-    font-size: .6875rem;
-    line-height: 1rem;
-    font-weight: t.$semi;
-  }
-}
-
-.status {
-  padding: .1875rem .5rem;
-  border-radius: .25rem;
-  display: inline-block;
->>>>>>> develop
 }
 
 .actions {
@@ -95,51 +64,28 @@
 }
 
 @include m.tablet {
-<<<<<<< HEAD
 	.inventory-item {
 		&__details > span,
 		&__name > span {
 			flex: 1;
-			padding: 10px;
+			padding: 0.625rem;
 		}
 
-		&__details > span:before,
-		&__name > span:before {
-			display: none;
+		.actions {
+			margin-top: 0;
 		}
 	}
-=======
-  .inventory-item {
-    &__details > span,
-    &__name > span {
-      flex: 1;
-      padding: .625rem;
-    }
->>>>>>> develop
 
-	.actions {
-		margin-top: 0;
+	.inventory-item__name {
+		position: relative;
 	}
-}
 
-.inventory-item__name {
-	position: relative;
-}
-
-.icon {
-<<<<<<< HEAD
-	height: 20px;
-	width: 20px;
-	position: absolute;
-	right: 5%;
-	top: 24%;
-	transform: translateY(-50%);
-=======
-  height: 1.25rem;
-  width: 1.25rem;
-  position: absolute;
-  right: 5%;
-  top: 24%;
-  transform: translateY(-50%); // Center the icon vertically
->>>>>>> develop
+	.icon {
+		height: 1.25rem;
+		width: 1.25rem;
+		position: absolute;
+		right: 5%;
+		top: 24%;
+		transform: translateY(-50%); // Center the icon vertically
+	}
 }
