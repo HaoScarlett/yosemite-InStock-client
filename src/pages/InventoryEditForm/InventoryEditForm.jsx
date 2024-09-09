@@ -79,6 +79,7 @@ export default function InventoryEditForm() {
 				name === 'warehouse_id' || name === 'quantity'
 					? Number(value)
 					: value,
+					quantity: name === 'status' && value === 'Out of Stock' ? 0 : prevItem.quantity,
 		}));
 		setErrors((prev) => ({ ...prev, [name]: '' }));
 	};
@@ -230,7 +231,7 @@ export default function InventoryEditForm() {
 										name='status'
 										className='item-form__radio'
 										value={'Out of Stock'}
-										checked={isInStock(item.status)}
+										checked={!isInStock(item.status)}
 										onChange={handleChange}
 									/>
 									Out of Stock
