@@ -3,8 +3,8 @@
 @use '../../styles/partials/_variables.scss' as var;
 
 .warehouse-list {
-	@include m.page-overlap;
 	padding: 0rem;
+	@include m.page-overlap;
 
 	&__title {
 		padding-top: 2rem;
@@ -17,6 +17,10 @@
 
 	&__add-link {
 		display: block;
+		line-height: 2.25rem;
+		text-align: center;
+		margin-top: 1rem;
+		padding-left: 0rem;
 		@include m.btn-styles(
 			c.$interactive-elements,
 			none,
@@ -24,10 +28,6 @@
 			c.$cta-btn-hover,
 			none
 		);
-		line-height: 2.25rem;
-		text-align: center;
-		margin-top: 1rem;
-		padding-left: 0rem;
 	}
 }
 
