@@ -52,19 +52,21 @@
   .inventory-list {
     max-width: 1200px;
     margin: 0 auto;
-    top: -5vh;
-    padding: var.$unit-20;
+    top: -5.5rem;
+    // padding: var.$unit-20;
     background-color: c.$global-white;
     border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
     &__mobile-wrapper {
       display: flex;
-      align-items: center;
+      align-items: baseline;
+      padding-top: var.$spacing-medium;
     }
 
     &__title {
       margin-block: 0;
+      padding: 0;
     }
 
     &__header-wrapper {
