@@ -69,8 +69,6 @@ function InventoryList({
 		return <div>No inventory items available.</div>;
 	}
 
-	console.log('InventoryList rendered with:', inventoryList);
-
 	const showWarehouse = className !== 'hidden';
 
 	const handleItemClick = (itemId) => {
