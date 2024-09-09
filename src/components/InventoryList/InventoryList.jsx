@@ -95,7 +95,7 @@ function InventoryList({
 					<div className='inventory-list__mobile-wrapper'>
 						<h1 className='inventory-list__title'>Inventory</h1>
 						<SearchBar className='inventory-list__search' />
-						<Link to={'/inventory/add'}>
+						<Link to={'/inventory/add'} className='inventory-list__btn-link'>
 							<CTAButton
 								text='+ Add New Item'
 								onClick={handleAddNewItem}
